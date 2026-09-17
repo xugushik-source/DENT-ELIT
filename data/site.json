@@ -1,0 +1,84 @@
+{
+  "brand": {
+    "clinicName": "ELIT DENT",
+    "tagline": {
+      "hy": "Պրեմիում ատամնաբուժություն",
+      "ru": "Премиальная стоматология",
+      "en": "Premium Dental Care"
+    },
+    "developer": "ORDER PROFIT",
+    "logo": {
+      "full": "/brand/logo-full-light.png",
+      "horizontal": "/brand/logo-full-light.png",
+      "mark": "/brand/logo-mark-light.png",
+      "light": "/brand/logo-full-light.png",
+      "dark": "/brand/logo-full-dark.png",
+      "favicon": "/favicon-32.png",
+      "_note": "Real ELIT DENT logo supplied by the client (gold tooth-ribbon mark + serif wordmark). Source renders (a black-backdrop hero shot and a marble wall-signage mock) are kept in static/brand/source/. logo-mark-light.png and logo-full-light.png are photographic crops of the marble render (no background removal was attempted — a naive luminance cutout produced a visible grey halo, so the safer choice was to keep each crop's native, on-brand travertine background rather than ship a botched cutout). logo-full-dark.png is the black-backdrop crop, usable on near-black surfaces. If a clean vector/transparent master file exists on the client's side, swap it in here; until then these photographic crops are the production asset, not a placeholder."
+    }
+  },
+  "contact": {
+    "phone": "+995 579 145 634",
+    "phoneUri": "tel:+995579145634",
+    "whatsapp": "+995 579 145 634",
+    "whatsappNumber": "995579145634",
+    "whatsappUri": "https://wa.me/995579145634",
+    "email": null,
+    "address": null,
+    "workingHours": null,
+    "googleMapsUrl": null,
+    "googleBusinessUrl": null,
+    "socials": {
+      "instagram": null,
+      "facebook": null,
+      "tiktok": null,
+      "youtube": null
+    }
+  },
+  "seo": {
+    "country": null,
+    "city": null,
+    "serviceAreas": [],
+    "siteUrlPlaceholder": "https://elitdent.example"
+  },
+  "languages": {
+    "default": "hy",
+    "supported": ["hy", "ru", "en"]
+  },
+  "featureFlags": {
+    "servicesEnabled": true,
+    "doctorProfilesEnabled": true,
+    "technologyEnabled": true,
+    "reviewsEnabled": true,
+    "beforeAfterEnabled": false,
+    "galleryEnabled": true,
+    "bookingEnabled": true,
+    "whatsappEnabled": true,
+    "offersEnabled": false,
+    "blogEnabled": false,
+    "multilingualEnabled": true
+  },
+  "visual": {
+    "heroVariant": "doctorFocus",
+    "servicesVariant": "grid",
+    "doctorVariant": "cards",
+    "reviewVariant": "cards"
+  },
+  "homepageSections": [
+    "hero",
+    "trust",
+    "services",
+    "technology",
+    "doctorSpotlight",
+    "patientExperience",
+    "team",
+    "reviews",
+    "finalCTA"
+  ],
+  "trustItems": [
+    { "icon": "digital", "key": "digitalDentistry" },
+    { "icon": "languages", "key": "threeLanguages" },
+    { "icon": "diagnostics", "key": "advancedDiagnostics" },
+    { "icon": "planning", "key": "personalPlanning" }
+  ]
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="{{ lang }}" dir="{{ t.dir }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js-reveal');</script>
+<title>{{ page_title }}</title>
+<meta name="description" content="{{ page_description }}">
+{% if robots_noindex %}<meta name="robots" content="noindex, follow">{% endif %}
+<link rel="canonical" href="{{ site_url }}{{ canonical_path }}">
+{% for l, path in translations.items() %}
+<link rel="alternate" hreflang="{{ l }}" href="{{ site_url }}{{ path }}">
+{% endfor %}
+<link rel="alternate" hreflang="x-default" href="{{ site_url }}{{ translations[site.languages.default] }}">
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:description" content="{{ page_description }}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="{{ lang }}">
+<meta property="og:url" content="{{ site_url }}{{ canonical_path }}">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="{{ asset_prefix }}/css/tokens.css">
+<link rel="stylesheet" href="{{ asset_prefix }}/css/main.css">
+{% if structured_data %}
+<script type="application/ld+json">{{ structured_data | safe }}</script>
+{% endif %}
+</head>
+<body data-whatsapp-number="{{ site.contact.whatsappNumber }}" data-whatsapp-default="{{ whatsapp_default_message }}" class="has-bottom-bar">
+
+{% include "partials/header.html" %}
+{% include "partials/mobile_nav.html" %}
+
+<main>
+{% block content %}{% endblock %}
+</main>
+
+{% include "partials/footer.html" %}
+{% include "partials/booking_modal.html" %}
+{% include "partials/bottom_bar.html" %}
+{% include "partials/whatsapp_float.html" %}
+
+<script src="{{ asset_prefix }}/js/main.js"></script>
+</body>
+</html>

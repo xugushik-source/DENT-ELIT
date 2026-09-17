@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+{% for section in site.homepageSections %}
+  {% include "partials/home/" + section + ".html" %}
+{% endfor %}
+{% endblock %}

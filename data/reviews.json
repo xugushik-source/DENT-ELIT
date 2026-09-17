@@ -1,0 +1,39 @@
+{
+  "_note": "DEMO DATA ONLY. No real reviews, ratings, or Google Business data exist for ELIT DENT yet. Every entry below is marked isDemo:true and rendered with a visible 'Demo review' badge by templates/pages/reviews.html. Replace this entire file with verified patient reviews before launch — see CONTENT_REQUIRED.md item REVIEWS-1. Do NOT add a Google star rating or review count anywhere until real, verifiable data exists.",
+  "aggregateRatingEnabled": false,
+  "items": [
+    {
+      "id": "demo-1",
+      "isDemo": true,
+      "serviceSlug": "dental-implants",
+      "authorInitial": "A.",
+      "quote": {
+        "hy": "Ամեն ինչ բացատրեցին հասկանալի, առանց շտապելու։ Զգացի, որ ինձ լսում են։",
+        "ru": "Всё объяснили понятно, без спешки. Чувствовалось, что меня слышат.",
+        "en": "Everything was explained clearly, without rushing me. I felt genuinely listened to."
+      }
+    },
+    {
+      "id": "demo-2",
+      "isDemo": true,
+      "serviceSlug": "orthodontics",
+      "authorInitial": "M.",
+      "quote": {
+        "hy": "Հարմար էր, որ ողջ պլանը տեսա նախապես՝ էկրանին։ Ոչինչ անակնկալ չէր։",
+        "ru": "Понравилось, что весь план показали заранее на экране. Никаких сюрпризов.",
+        "en": "I liked seeing the whole plan on screen beforehand. No surprises along the way."
+      }
+    },
+    {
+      "id": "demo-3",
+      "isDemo": true,
+      "serviceSlug": "professional-cleaning",
+      "authorInitial": "L.",
+      "quote": {
+        "hy": "Հանգիստ մթնոլորտ, ուշադիր անձնակազմ։ Կվերադառնամ կանոնավոր մաքրման համար։",
+        "ru": "Спокойная атмосфера, внимательный персонал. Буду приходить на регулярную чистку.",
+        "en": "Calm atmosphere, attentive staff. I'll be back for regular cleanings."
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy reveal" data-reveal-group="hero">
+      <span class="eyebrow">{{ t.hero.eyebrow }}</span>
+      <h1>{{ t.hero.headline }}</h1>
+      <p class="body-lg">{{ t.hero.description }}</p>
+      <div class="hero-actions">
+        <button type="button" class="btn btn-primary" data-open-booking>{{ t.hero.ctaPrimary }}</button>
+        <a class="btn btn-whatsapp" href="#" data-whatsapp-link data-whatsapp-message="{{ whatsapp_default_message }}" target="_blank" rel="noopener">{{ t.hero.ctaSecondary }}</a>
+      </div>
+      <div class="hero-chips">
+        {% for chip in t.hero.trustChips %}
+        <span class="chip">{{ chip }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="hero-media reveal" data-reveal-group="hero">
+      <img class="photo" src="/images/hero/doctor-hero.jpg" alt="{{ site.brand.clinicName }}" width="960" height="720" loading="eager" fetchpriority="high">
+    </div>
+  </div>
+</section>

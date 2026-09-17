@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-header">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      {% for b in breadcrumb %}
+        {% if not loop.last %}<a href="{{ b.href }}">{{ b.name }}</a><span class="sep">/</span>{% else %}<span>{{ b.name }}</span>{% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+</section>
+<section style="padding-top:0;">
+  <div class="container two-col">
+    <div class="reveal">
+      <div class="hero-media" style="aspect-ratio:3/4;">
+        <img class="photo" src="{{ doctor.photo }}" alt="{{ doctor.name }}" width="480" height="640" loading="eager">
+      </div>
+    </div>
+    <div class="reveal">
+      <h1>{{ doctor.name }}</h1>
+      <p class="eyebrow" style="margin-top:0;">{{ doctor.role }}</p>
+      <p class="body-lg">{{ doctor.bio }}</p>
+      <p style="font-family:var(--font-heading); font-size:1.0625rem;">“{{ doctor.quote }}”</p>
+
+      <h3>{{ t.doctorDetail.languagesTitle }}</h3>
+      <div class="hero-chips" style="margin-top:0;">
+        {% for l in doctor.languages %}<span class="chip">{{ l | upper }}</span>{% endfor %}
+      </div>
+
+      {% if doctor.services %}
+      <h3 style="margin-top:28px;">{{ t.doctorDetail.servicesTitle }}</h3>
+      <ul style="display:flex; flex-direction:column; gap:8px;">
+        {% for s in doctor.services %}
+        <li><a class="link-arrow" href="{{ s.href }}">{{ s.title }} <span class="arrow">→</span></a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      <div class="hero-actions">
+        <button type="button" class="btn btn-primary" data-open-booking>{{ t.doctorDetail.ctaTitle }}</button>
+      </div>
+      <p class="text-muted" style="font-size:0.875rem;">{{ t.doctorDetail.ctaDescription }}</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

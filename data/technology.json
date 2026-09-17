@@ -1,0 +1,82 @@
+[
+  {
+    "slug": "cbct-3d",
+    "icon": "cbct",
+    "image": "/images/technology/cbct.jpg",
+    "name": {
+      "hy": "3D КТ ախտորոշում",
+      "ru": "3D КТ-диагностика",
+      "en": "CBCT 3D Diagnostics"
+    },
+    "shortExplain": {
+      "hy": "Եռաչափ պատկերում, որը ցույց է տալիս ոսկրային հյուսվածքի ամբողջական կառուցվածքը։",
+      "ru": "Трёхмерное изображение, показывающее полную структуру костной ткани.",
+      "en": "A three-dimensional scan that shows the complete structure of the jawbone."
+    },
+    "patientBenefit": {
+      "hy": "Ձեզ համար սա նշանակում է ավելի ճշգրիտ պլան և ավելի քիչ անակնկալներ բուժման ընթացքում։",
+      "ru": "Для вас это означает более точный план лечения и меньше неожиданностей в процессе.",
+      "en": "For you, that means a more accurate plan and fewer surprises during treatment."
+    }
+  },
+  {
+    "slug": "intraoral-scanning",
+    "icon": "scanner",
+    "image": "/images/technology/intraoral-scanning.jpg",
+    "name": {
+      "hy": "Ներբերանային սկանավորում",
+      "ru": "Внутриротовое сканирование",
+      "en": "Intraoral Scanning"
+    },
+    "shortExplain": {
+      "hy": "Ատամների թվային, ճշգրիտ մոդել՝ առանց ավանդական դրոշմանյութի։",
+      "ru": "Точная цифровая модель зубов без традиционных оттискных материалов.",
+      "en": "A precise digital model of your teeth, without traditional impression material."
+    },
+    "patientBenefit": {
+      "hy": "Ձեզ համար սա նշանակում է ավելի հարմարավետ այց՝ առանց տհաճ դրոշմանյութի ու փսխման ռեֆլեքսի ռիսկի։",
+      "ru": "Для вас это означает более комфортный визит — без неприятной пасты во рту и рвотного рефлекса.",
+      "en": "For you, that means a more comfortable visit — no messy paste, no gag reflex."
+    }
+  },
+  {
+    "slug": "microscope",
+    "icon": "microscope",
+    "image": "/images/technology/microscope.jpg",
+    "name": {
+      "hy": "Ստոմատոլոգիական մանրադիտակ",
+      "ru": "Стоматологический микроскоп",
+      "en": "Dental Microscope"
+    },
+    "shortExplain": {
+      "hy": "Մեծացված տեսադաշտ, որը թույլ է տալիս տեսնել ամենափոքր դետալները ատամի ներսում։",
+      "ru": "Увеличенное поле зрения, позволяющее видеть мельчайшие детали внутри зуба.",
+      "en": "A magnified view that reveals the smallest details inside a tooth."
+    },
+    "patientBenefit": {
+      "hy": "Ձեզ համար սա նշանակում է ավելի բարձր ճշգրտություն բարդ բուժումների ժամանակ, օրինակ՝ արմատային ջրանցքի բուժման դեպքում։",
+      "ru": "Для вас это означает более высокую точность при сложном лечении, например при лечении корневых каналов.",
+      "en": "For you, that means greater precision in complex treatment, such as root canal work."
+    }
+  },
+  {
+    "slug": "digital-planning",
+    "icon": "planning",
+    "image": "/images/technology/digital-planning.jpg",
+    "name": {
+      "hy": "Թվային բուժման պլանավորում",
+      "ru": "Цифровое планирование лечения",
+      "en": "Digital Treatment Planning"
+    },
+    "shortExplain": {
+      "hy": "Ախտորոշման տվյալների համադրում մեկ հստակ, փուլային պլանի մեջ։",
+      "ru": "Объединение всех диагностических данных в один чёткий, поэтапный план.",
+      "en": "Bringing all diagnostic data together into one clear, staged plan."
+    },
+    "patientBenefit": {
+      "hy": "Ձեզ համար սա նշանակում է, որ դուք կանխապես գիտեք՝ ինչ է սպասվում ամեն փուլում։",
+      "ru": "Для вас это означает, что вы заранее знаете, что происходит на каждом этапе.",
+      "en": "For you, that means knowing what to expect at every step, well in advance."
+    }
+  }
+]

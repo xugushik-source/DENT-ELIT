@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-header">
+  <div class="container" style="text-align:center;">
+    <h1>{{ t.notFound.title }}</h1>
+    <p class="body-lg">{{ t.notFound.description }}</p>
+    <a class="btn btn-primary" href="{{ home_url }}">{{ t.notFound.cta }}</a>
+  </div>
+</section>
+{% endblock %}

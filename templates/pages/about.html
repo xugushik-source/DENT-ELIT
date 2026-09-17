@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow">{{ t.aboutPage.eyebrow }}</span>
+    <h1>{{ t.aboutPage.title }}</h1>
+  </div>
+</section>
+
+<section style="padding-top:0; padding-bottom: 0;">
+  <div class="container" style="text-align:center;">
+    <img src="{{ site.brand.logo.full }}" alt="{{ site.brand.clinicName }} — {{ site.brand.tagline[lang] }}"
+         style="max-width: 420px; width: 100%; border-radius: var(--radius-lg); margin-inline:auto;" loading="lazy">
+  </div>
+</section>
+
+{% for key in ['philosophy','patientApproach','digitalDentistry','team','clinicEnvironment','technology','patientExperience'] %}
+<section class="about-section">
+  <div class="container" style="max-width: 780px;">
+    <h2 class="reveal">{{ t.aboutPage.sections[key].title }}</h2>
+    <p class="body-lg reveal">{{ t.aboutPage.sections[key].body }}</p>
+  </div>
+  {% if key == 'team' %}
+  <div class="container" style="max-width: 960px; margin-top: 32px;">
+    <div class="hero-media reveal" style="aspect-ratio:16/9;">
+      <img class="photo" src="/images/clinic/team.jpg" alt="{{ site.brand.clinicName }} team" width="960" height="540" loading="lazy">
+    </div>
+  </div>
+  {% elif key == 'clinicEnvironment' %}
+  <div class="container" style="max-width: 960px; margin-top: 32px;">
+    <div class="hero-media reveal" style="aspect-ratio:16/9;">
+      <img class="photo" src="/images/clinic/reception.jpg" alt="{{ site.brand.clinicName }} reception" width="960" height="540" loading="lazy">
+    </div>
+  </div>
+  {% endif %}
+</section>
+{% endfor %}
+
+<section class="section-alt">
+  <div class="container" style="max-width: 780px; text-align:center;">
+    <h2 class="reveal">{{ t.aboutPage.sections.cta.title }}</h2>
+    <p class="body-lg reveal">{{ t.aboutPage.sections.cta.body }}</p>
+    <div class="hero-actions" style="justify-content:center;">
+      <button type="button" class="btn btn-primary" data-open-booking>{{ t.hero.ctaPrimary }}</button>
+      <a class="btn btn-whatsapp" href="#" data-whatsapp-link data-whatsapp-message="{{ whatsapp_default_message }}" target="_blank" rel="noopener">{{ t.hero.ctaSecondary }}</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

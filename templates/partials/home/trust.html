@@ -1,0 +1,13 @@
+<section>
+  <div class="container">
+    <h2 class="reveal" style="text-align:center; margin-bottom: 40px;">{{ t.trust.title }}</h2>
+    <div class="trust-grid">
+      {% for item in site.trustItems %}
+      <div class="trust-item reveal" data-reveal-group="trust">
+        <h3>{{ t.trust['items'][item.key].title }}</h3>
+        <p>{{ t.trust['items'][item.key].desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

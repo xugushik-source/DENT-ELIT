@@ -1,0 +1,17 @@
+<section class="section-alt">
+  <div class="container two-col">
+    <div class="reveal" data-reveal-group="spotlight">
+      <div class="hero-media" style="aspect-ratio: 4/5;">
+        <img class="photo" src="{{ doctor_spotlight.workingPhoto }}" alt="{{ doctor_spotlight.name }}" width="480" height="600" loading="lazy">
+      </div>
+    </div>
+    <div class="reveal" data-reveal-group="spotlight">
+      <span class="eyebrow">{{ t.doctorSpotlight.eyebrow }}</span>
+      <h2>{{ t.doctorSpotlight.title }}</h2>
+      <p class="body-lg">{{ t.doctorSpotlight.description }}</p>
+      <p style="font-family:var(--font-heading); font-size:1.1875rem; margin-top:20px;">“{{ doctor_spotlight.quote }}”</p>
+      <p class="text-muted">{{ doctor_spotlight.name }} — {{ doctor_spotlight.role }}</p>
+      <a class="btn btn-outline" href="{{ lang_prefix }}/doctors/" style="margin-top:12px;">{{ t.doctorSpotlight.ctaMeetTeam }}</a>
+    </div>
+  </div>
+</section>

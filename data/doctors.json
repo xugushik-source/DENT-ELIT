@@ -1,0 +1,190 @@
+[
+  {
+    "slug": "vardan-hakobyan",
+    "photo": "/images/doctors/vardan-hakobyan-portrait.jpg",
+    "workingPhoto": "/images/doctors/vardan-hakobyan-working.jpg",
+    "role": {
+      "hy": "Իմպլանտոլոգ, վիրաբույժ-ստոմատոլոգ",
+      "ru": "Имплантолог, хирург-стоматолог",
+      "en": "Implantologist, Oral Surgeon"
+    },
+    "name": "Dr. Vardan Hakobyan",
+    "experienceYears": null,
+    "languages": [
+      "hy",
+      "ru",
+      "en"
+    ],
+    "services": [
+      "dental-implants",
+      "oral-surgery",
+      "crowns-prosthetics"
+    ],
+    "quote": {
+      "hy": "Յուրաքանչյուր իմպլանտացիա սկսվում է ոչ թե պտուտակից, այլ ճշգրիտ պլանավորումից։",
+      "ru": "Каждая имплантация начинается не с импланта, а с точного планирования.",
+      "en": "Every implant case starts with precise planning, not with the implant itself."
+    },
+    "bio": {
+      "hy": "Աշխատում է թվային պլանավորման սկզբունքով՝ համադրելով 3D КТ ախտորոշումը անհատական մոտեցման հետ։",
+      "ru": "Работает по принципу цифрового планирования, сочетая 3D КТ-диагностику с индивидуальным подходом к каждому случаю.",
+      "en": "Works from a digital-planning-first approach, combining 3D CBCT diagnostics with a fully individual treatment plan for every case."
+    }
+  },
+  {
+    "slug": "ani-petrosyan",
+    "photo": "/images/doctors/ani-petrosyan.jpg",
+    "workingPhoto": "/images/doctors/ani-petrosyan.jpg",
+    "role": {
+      "hy": "Օրթոդոնտ",
+      "ru": "Ортодонт",
+      "en": "Orthodontist"
+    },
+    "name": "Dr. Ani Petrosyan",
+    "experienceYears": null,
+    "languages": [
+      "hy",
+      "ru",
+      "en"
+    ],
+    "services": [
+      "orthodontics"
+    ],
+    "quote": {
+      "hy": "Ուղիղ ժպիտը սկսվում է ճիշտ ախտորոշումից, ոչ թե ստանդարտ լուծումից։",
+      "ru": "Ровная улыбка начинается с точной диагностики, а не со стандартного решения.",
+      "en": "A well-aligned smile starts with the right diagnosis, not a one-size-fits-all solution."
+    },
+    "bio": {
+      "hy": "Մասնագիտացած է կծվածքի շտկման ժամանակակից մեթոդներում՝ ներառյալ թափանցիկ քափաների պլանավորումը։",
+      "ru": "Специализируется на современных методах коррекции прикуса, включая цифровое планирование элайнеров.",
+      "en": "Specializes in modern bite-correction methods, including digital planning for clear aligners."
+    }
+  },
+  {
+    "slug": "lusine-margaryan",
+    "photo": "/images/doctors/lusine-margaryan.jpg",
+    "workingPhoto": "/images/doctors/lusine-margaryan.jpg",
+    "role": {
+      "hy": "Էսթետիկ ստոմատոլոգ",
+      "ru": "Врач эстетической стоматологии",
+      "en": "Aesthetic Dentist"
+    },
+    "name": "Dr. Lusine Margaryan",
+    "experienceYears": null,
+    "languages": [
+      "hy",
+      "ru",
+      "en"
+    ],
+    "services": [
+      "aesthetic-dentistry",
+      "teeth-whitening",
+      "crowns-prosthetics"
+    ],
+    "quote": {
+      "hy": "Բնական գեղեցկությունը սկսվում է դեմքի համամասնություններից, ոչ թե կատարյալ ուղիղ շարքից։",
+      "ru": "Естественная красота начинается с пропорций лица, а не с идеально ровного ряда.",
+      "en": "Natural-looking results start with facial proportion, not a mold of 'perfect' teeth."
+    },
+    "bio": {
+      "hy": "Յուրաքանչյուր գեղագիտական աշխատանք սկսում է դեմքի և ժպիտի անհատական վերլուծությունից։",
+      "ru": "Каждую эстетическую работу начинает с индивидуального анализа лица и улыбки пациента.",
+      "en": "Begins every aesthetic case with an individual analysis of the patient's face and smile — not a template."
+    }
+  },
+  {
+    "slug": "narek-sargsyan",
+    "photo": "/images/doctors/narek-sargsyan.jpg",
+    "workingPhoto": "/images/doctors/narek-sargsyan.jpg",
+    "role": {
+      "hy": "Ընդհանուր և ընտանեկան ստոմատոլոգ",
+      "ru": "Врач общей и семейной стоматологии",
+      "en": "General & Family Dentist"
+    },
+    "name": "Dr. Narek Sargsyan",
+    "experienceYears": null,
+    "languages": [
+      "hy",
+      "ru",
+      "en"
+    ],
+    "services": [
+      "general-dentistry",
+      "family-dentistry",
+      "root-canal-treatment"
+    ],
+    "quote": {
+      "hy": "Ընտանեկան ստոմատոլոգիայում ամենակարևորը վստահությունն է՝ և՛ մեծերի, և՛ երեխաների հետ։",
+      "ru": "В семейной стоматологии самое важное — доверие, и со взрослыми, и с детьми.",
+      "en": "In family dentistry, trust matters as much as technique — with adults and children alike."
+    },
+    "bio": {
+      "hy": "Վարում է ամբողջ ընտանիքի ստոմատոլոգիական խնամքը՝ սկսած պրոֆիլակտիկայից մինչև բարդ բուժում։",
+      "ru": "Ведёт стоматологическое сопровождение всей семьи — от профилактики до более сложного лечения.",
+      "en": "Looks after the dental care of the whole family, from routine prevention to more involved treatment."
+    }
+  },
+  {
+    "slug": "tigran-avetisyan",
+    "photo": "/images/doctors/tigran-avetisyan.jpg",
+    "workingPhoto": "/images/doctors/tigran-avetisyan.jpg",
+    "role": {
+      "hy": "Թերապևտ, միկրոսկոպիկ ստոմատոլոգիա",
+      "ru": "Врач-терапевт, микроскопическая стоматология",
+      "en": "Endodontist, Microscopic Dentistry"
+    },
+    "name": "Dr. Tigran Avetisyan",
+    "experienceYears": null,
+    "languages": [
+      "hy",
+      "ru",
+      "en"
+    ],
+    "services": [
+      "root-canal-treatment",
+      "periodontology"
+    ],
+    "quote": {
+      "hy": "Մանրադիտակի տակ նույնիսկ ամենափոքր դետալը դառնում է տեսանելի ու կարևոր։",
+      "ru": "Под микроскопом даже самая мелкая деталь становится видимой и значимой.",
+      "en": "Under magnification, even the smallest detail becomes visible — and treatable."
+    },
+    "bio": {
+      "hy": "Կիրառում է ստոմատոլոգիական մանրադիտակ՝ արմատային ջրանցքների բուժման առավելագույն ճշգրտության համար։",
+      "ru": "Использует стоматологический микроскоп для максимальной точности при лечении корневых каналов.",
+      "en": "Uses a dental operating microscope for maximum precision in root canal treatment."
+    }
+  },
+  {
+    "slug": "mane-ghazaryan",
+    "photo": "/images/patients/mane-ghazaryan.jpg",
+    "workingPhoto": "/images/patients/mane-ghazaryan.jpg",
+    "role": {
+      "hy": "Ստոմատոլոգ-հիգիենիստ",
+      "ru": "Врач-гигиенист",
+      "en": "Dental Hygienist"
+    },
+    "name": "Dr. Mane Ghazaryan",
+    "experienceYears": null,
+    "languages": [
+      "hy",
+      "ru",
+      "en"
+    ],
+    "services": [
+      "professional-cleaning",
+      "periodontology"
+    ],
+    "quote": {
+      "hy": "Կանխարգելումը միշտ ավելի հարմարավետ է, քան բուժումը։",
+      "ru": "Профилактика всегда комфортнее, чем лечение.",
+      "en": "Prevention is always the more comfortable path."
+    },
+    "bio": {
+      "hy": "Կենտրոնացած է պրոֆեսիոնալ հիգիենայի և պարոդոնտի առողջության երկարաժամկետ պահպանման վրա։",
+      "ru": "Фокусируется на профессиональной гигиене и долгосрочном здоровье пародонта.",
+      "en": "Focused on professional hygiene and the long-term health of your gums, not just a one-off clean."
+    }
+  }
+]

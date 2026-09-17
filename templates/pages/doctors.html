@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow">{{ t.doctorsPage.eyebrow }}</span>
+    <h1>{{ t.doctorsPage.title }}</h1>
+    <p class="body-lg">{{ t.doctorsPage.description }}</p>
+  </div>
+</section>
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="card-grid cols-3">
+      {% for d in doctors %}
+      <a class="doctor-card reveal" data-reveal-group="doctors" href="{{ d.href }}">
+        <div class="doctor-card-media">
+          <img class="photo" src="{{ d.photo }}" alt="{{ d.name }}" width="360" height="480" loading="lazy">
+        </div>
+        <h3>{{ d.name }}</h3>
+        <p class="role">{{ d.role }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

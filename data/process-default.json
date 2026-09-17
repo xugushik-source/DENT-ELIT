@@ -1,0 +1,47 @@
+[
+  {
+    "step": "01",
+    "title": { "hy": "Խորհրդատվություն", "ru": "Консультация", "en": "Consultation" },
+    "desc": {
+      "hy": "Ականջալուր ենք ձեր հարցերին ու ակնկալիքներին, զննում ենք բերանի խոռոչի ընդհանուր վիճակը և պատասխանում ենք ձեզ հետաքրքրող բոլոր հարցերին։",
+      "ru": "Внимательно выслушиваем ваши пожелания и жалобы, проводим первичный осмотр и отвечаем на все интересующие вопросы — без спешки.",
+      "en": "We listen to your goals and concerns, review your overall oral health, and answer every question before anything else happens."
+    }
+  },
+  {
+    "step": "02",
+    "title": { "hy": "Թվային ախտորոշում", "ru": "Цифровая диагностика", "en": "Digital diagnostics" },
+    "desc": {
+      "hy": "Անհրաժեշտության դեպքում կատարում ենք 3D КТ հետազոտություն և ներբերանային սկանավորում՝ ամբողջական և ճշգրիտ պատկերի համար։",
+      "ru": "При необходимости выполняем 3D КТ-диагностику и внутриротовое сканирование, чтобы получить точную и полную картину.",
+      "en": "Where relevant, we use 3D CBCT imaging and intraoral scanning to see the full picture with precision, not guesswork."
+    }
+  },
+  {
+    "step": "03",
+    "title": { "hy": "Անհատական բուժման պլան", "ru": "Персональный план лечения", "en": "Personal treatment plan" },
+    "desc": {
+      "hy": "Ախտորոշման տվյալների հիման վրա կազմում ենք հստակ, փուլային բուժման պլան՝ բացատրելով յուրաքանչյուր քայլի իմաստը։",
+      "ru": "На основе диагностики составляем понятный поэтапный план лечения и объясняем смысл каждого шага.",
+      "en": "Based on the diagnostics, we build a clear, staged treatment plan and walk you through what each step is for."
+    }
+  },
+  {
+    "step": "04",
+    "title": { "hy": "Բուժում", "ru": "Лечение", "en": "Treatment" },
+    "desc": {
+      "hy": "Իրականացնում ենք բուժումը՝ առաջնորդվելով պլանով, ժամանակակից տեխնոլոգիաներով և հարմարավետության հանդեպ ուշադրությամբ։",
+      "ru": "Проводим лечение согласно плану, с использованием современных технологий и вниманием к вашему комфорту на каждом этапе.",
+      "en": "We carry out the treatment according to plan, using modern technology and paying close attention to your comfort throughout."
+    }
+  },
+  {
+    "step": "05",
+    "title": { "hy": "Հետբուժումային հսկողություն", "ru": "Наблюдение после лечения", "en": "Follow-up" },
+    "desc": {
+      "hy": "Հետևում ենք արդյունքին, նշանակում ենք վերահսկիչ այցեր և միշտ հասանելի ենք հարցերի դեպքում։",
+      "ru": "Следим за результатом, назначаем контрольные визиты и остаёмся на связи, если у вас появятся вопросы.",
+      "en": "We monitor how you're healing, schedule check-ins, and stay reachable if anything comes up afterward."
+    }
+  }
+]

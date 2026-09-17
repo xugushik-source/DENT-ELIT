@@ -1,0 +1,19 @@
+<section>
+  <div class="container">
+    <div class="section-head centered reveal">
+      <span class="eyebrow">{{ t.reviews.eyebrow }}</span>
+      <h2>{{ t.reviews.title }}</h2>
+      <p class="body-lg">{{ t.reviews.description }}</p>
+      <p class="text-muted" style="font-size:0.875rem;">{{ t.reviews.demoNote }}</p>
+    </div>
+    <div class="card-grid cols-3">
+      {% for r in reviews %}
+      <div class="review-card reveal" data-reveal-group="reviews">
+        {% if r.isDemo %}<span class="demo-badge">{{ t.common.demoDataBadge }}</span><br>{% endif %}
+        <p class="quote">“{{ r.quote }}”</p>
+        <p class="author">{{ r.authorInitial }}{% if r.serviceTitle %} — {{ r.serviceTitle }}{% endif %}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

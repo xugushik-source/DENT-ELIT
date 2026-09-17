@@ -1,0 +1,40 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ home_url }}">
+      {% if site.brand.logo.mark %}
+        <img class="brand-mark" src="{{ site.brand.logo.mark }}" alt="{{ site.brand.clinicName }}" width="36" height="36">
+      {% else %}
+        <span class="brand-mark" data-logo-placeholder title="Logo pending — see CONTENT_REQUIRED.md">ED</span>
+      {% endif %}
+      <span>{{ site.brand.clinicName }}</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        {% for item in nav_items %}
+        <li><a href="{{ item.href }}" class="{{ 'is-active' if item.active else '' }}">{{ item.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-switch" aria-label="{{ t.common.language }}">
+        {% for l in site.languages.supported %}
+        <a href="{{ translations[l] }}" class="{{ 'is-active' if l == lang else '' }}" hreflang="{{ l }}">{{ l | upper }}</a>
+        {% endfor %}
+      </div>
+      <button type="button" class="btn btn-primary btn-sm" data-open-booking>{{ t.nav.bookConsultation }}</button>
+    </div>
+
+    <div class="header-mobile-actions">
+      <div class="lang-switch" aria-label="{{ t.common.language }}">
+        {% for l in site.languages.supported %}
+        <a href="{{ translations[l] }}" class="{{ 'is-active' if l == lang else '' }}" hreflang="{{ l }}">{{ l | upper }}</a>
+        {% endfor %}
+      </div>
+      <button type="button" class="hamburger" data-nav-toggle aria-label="{{ t.common.menu }}" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>

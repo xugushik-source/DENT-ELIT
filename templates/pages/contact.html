@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow">{{ t.contactPage.eyebrow }}</span>
+    <h1>{{ t.contactPage.title }}</h1>
+    <p class="body-lg">{{ t.contactPage.description }}</p>
+  </div>
+</section>
+<section style="padding-top:0;">
+  <div class="container contact-grid">
+    <div class="reveal">
+      <div class="contact-detail">
+        <span class="text-muted">{{ t.contactPage.phoneLabel }}</span>
+        <a class="link-arrow" href="{{ site.contact.phoneUri }}">{{ site.contact.phone }}</a>
+      </div>
+      <div class="contact-detail">
+        <span class="text-muted">{{ t.contactPage.whatsappLabel }}</span>
+        <a class="link-arrow" href="#" data-whatsapp-link data-whatsapp-message="{{ whatsapp_default_message }}" target="_blank" rel="noopener">{{ site.contact.whatsapp }}</a>
+      </div>
+      <div class="contact-detail">
+        <span class="text-muted">{{ t.contactPage.hoursLabel }}</span>
+        <span>{{ t.contactPage.hoursValue }}</span>
+      </div>
+      <div class="contact-detail">
+        <span class="text-muted">{{ t.contactPage.addressLabel }}</span>
+        <span>{{ t.contactPage.addressValue }}</span>
+      </div>
+      <div style="margin-top:32px;">
+        <button type="button" class="btn btn-primary" data-open-booking>{{ t.nav.bookConsultation }}</button>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="map-placeholder">{{ t.contactPage.mapNote }}</div>
+    </div>
+  </div>
+</section>
+{% endblock %}

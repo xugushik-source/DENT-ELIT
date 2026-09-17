@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow">{{ t.servicesPage.eyebrow }}</span>
+    <h1>{{ t.servicesPage.title }}</h1>
+    <p class="body-lg">{{ t.servicesPage.description }}</p>
+  </div>
+</section>
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="card-grid cols-3">
+      {% for s in services %}
+      <a class="service-card reveal" data-reveal-group="services" href="{{ s.href }}">
+        <div class="service-card-media">
+          <img class="photo" src="{{ s.cardImage }}" alt="{{ s.title }}" width="480" height="360" loading="lazy">
+        </div>
+        <div class="service-card-body">
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.shortCopy }}</p>
+          <span class="link-arrow">{{ t.common.learnMore }} <span class="arrow">→</span></span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

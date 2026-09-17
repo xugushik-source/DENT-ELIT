@@ -1,0 +1,1241 @@
+[
+  {
+    "slug": "dental-implants",
+    "icon": "implant",
+    "flagship": true,
+    "cardImage": "/images/services/dental-implants.jpg",
+    "heroImage": "/images/services/dental-implants-hero.jpg",
+    "doctorSlug": "vardan-hakobyan",
+    "technologyRefs": [
+      "cbct-3d",
+      "digital-planning"
+    ],
+    "relatedSlugs": [
+      "crowns-prosthetics",
+      "oral-surgery",
+      "digital-diagnostics"
+    ],
+    "eyebrow": {
+      "hy": "Իմպլանտավորում",
+      "ru": "Имплантация",
+      "en": "Dental Implants"
+    },
+    "title": {
+      "hy": "Ատամների իմպլանտացիա",
+      "ru": "Имплантация зубов",
+      "en": "Dental Implants"
+    },
+    "shortCopy": {
+      "hy": "Ամուր, բնական տեսք ունեցող լուծում կորցրած ատամի փոխարեն՝ հիմնված ճշգրիտ 3D պլանավորման վրա։",
+      "ru": "Прочное, естественно выглядящее решение взамен утраченного зуба, основанное на точном 3D-планировании.",
+      "en": "A stable, natural-looking replacement for a missing tooth, built on precise 3D planning."
+    },
+    "intro": {
+      "hy": "Իմպլանտացիան թույլ է տալիս վերականգնել ինչպես ատամի ֆունկցիան, այնպես էլ ժպիտի բնական տեսքը։ Յուրաքանչյուր դեպք սկսվում է մանրամասն ախտորոշումից և անհատական պլանավորումից՝ նախքան որևէ վիրահատական քայլ։",
+      "ru": "Имплантация восстанавливает не только функцию зуба, но и естественный вид улыбки. Каждый случай начинается с детальной диагностики и индивидуального планирования — ещё до хирургического этапа.",
+      "en": "Implants restore both function and the natural appearance of your smile. Every case begins with detailed diagnostics and individual planning, well before any surgical step."
+    },
+    "aboutTreatment": {
+      "hy": "Օգտագործելով 3D КТ պատկերում՝ ճշգրիտ որոշվում է ծնոտի ոսկրային հյուսվածքի վիճակը և իմպլանտի օպտիմալ դիրքը։ Սա նվազեցնում է անորոշությունը և բարձրացնում կանխատեսելիությունը։",
+      "ru": "С помощью 3D КТ-снимка точно оценивается состояние костной ткани и определяется оптимальное положение импланта. Это снижает неопределённость и повышает предсказуемость результата.",
+      "en": "A 3D CBCT scan is used to assess bone quality and plan the ideal implant position in advance, which reduces uncertainty and makes the outcome far more predictable."
+    },
+    "whoItIsFor": {
+      "hy": [
+        "Կորցրել եք մեկ կամ մի քանի ատամ",
+        "Հանովի պրոթեզն այլևս հարմարավետ չէ",
+        "Ցանկանում եք երկարաժամկետ, կայուն լուծում"
+      ],
+      "ru": [
+        "Вы потеряли один или несколько зубов",
+        "Съёмный протез больше не устраивает по комфорту",
+        "Вы хотите долгосрочное, стабильное решение"
+      ],
+      "en": [
+        "You've lost one or more teeth",
+        "A removable denture is no longer comfortable",
+        "You want a long-term, stable solution"
+      ]
+    },
+    "benefits": {
+      "hy": [
+        "Բնական տեսք և ֆունկցիա",
+        "Չի ազդում հարևան ատամների վրա",
+        "Ախտորոշման հիման վրա կանխատեսելի արդյունք",
+        "Երկարաժամկետ լուծում ճիշտ խնամքի դեպքում"
+      ],
+      "ru": [
+        "Естественный вид и функция",
+        "Не затрагивает соседние зубы",
+        "Предсказуемый результат за счёт точной диагностики",
+        "Долговечное решение при правильном уходе"
+      ],
+      "en": [
+        "Natural look and bite function",
+        "Doesn't affect neighboring teeth",
+        "Predictable outcome thanks to precise diagnostics",
+        "Long-lasting with proper care"
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "hy": "Որքա՞ն է տևում ամբողջ գործընթացը",
+          "ru": "Сколько занимает весь процесс",
+          "en": "How long does the whole process take"
+        },
+        "a": {
+          "hy": "Ժամկետը կախված է ոսկրային հյուսվածքի վիճակից և անհատական պլանից. մանրամասները քննարկվում են խորհրդատվության ժամանակ։",
+          "ru": "Сроки зависят от состояния костной ткани и индивидуального плана — детали обсуждаются на консультации.",
+          "en": "Timing depends on bone condition and your individual plan — we'll walk through specifics at the consultation."
+        }
+      },
+      {
+        "q": {
+          "hy": "Ցավոտ գործընթա՞ց է",
+          "ru": "Это болезненная процедура",
+          "en": "Is the procedure painful"
+        },
+        "a": {
+          "hy": "Իրականացվում է տեղային անզգայացման ներքո՝ հարմարավետությանն ուշադրություն դարձնելով բուժման ողջ ընթացքում։",
+          "ru": "Процедура проводится под местной анестезией, комфорту пациента уделяется внимание на каждом этапе.",
+          "en": "It's performed under local anesthesia, with attention to comfort at every stage."
+        }
+      },
+      {
+        "q": {
+          "hy": "Ի՞նչ արժե ատամի իմպլանտացիան",
+          "ru": "Сколько стоит имплантация зуба",
+          "en": "How much does a dental implant cost"
+        },
+        "a": {
+          "hy": "Արժեքը որոշվում է անհատական պլանից հետո՝ կախված ախտորոշումից և ընտրված նյութերից։",
+          "ru": "Стоимость определяется после диагностики и составления индивидуального плана лечения.",
+          "en": "Pricing is determined after diagnostics, once your individual treatment plan is set."
+        }
+      }
+    ],
+    "price": {
+      "note": {
+        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
+        "ru": "Стоимость после консультации",
+        "en": "Price after consultation"
+      }
+    }
+  },
+  {
+    "slug": "aesthetic-dentistry",
+    "icon": "sparkle",
+    "flagship": true,
+    "cardImage": "/images/services/aesthetic-dentistry.jpg",
+    "heroImage": "/images/services/aesthetic-dentistry-hero.jpg",
+    "doctorSlug": "lusine-margaryan",
+    "technologyRefs": [
+      "digital-planning",
+      "intraoral-scanning"
+    ],
+    "relatedSlugs": [
+      "teeth-whitening",
+      "crowns-prosthetics",
+      "orthodontics"
+    ],
+    "eyebrow": {
+      "hy": "Էսթետիկ ստոմատոլոգիա",
+      "ru": "Эстетическая стоматология",
+      "en": "Aesthetic Dentistry"
+    },
+    "title": {
+      "hy": "Էսթետիկ ստոմատոլոգիա",
+      "ru": "Эстетическая стоматология",
+      "en": "Aesthetic Dentistry"
+    },
+    "shortCopy": {
+      "hy": "Ժպիտի բնական, հավասարակշռված գեղեցկություն՝ հիմնված ձեր դեմքի առանձնահատկությունների վրա։",
+      "ru": "Естественная, гармоничная красота улыбки, отталкивающаяся от особенностей именно вашего лица.",
+      "en": "A natural, balanced smile built around your own facial features, not a generic mold."
+    },
+    "intro": {
+      "hy": "Էսթետիկ ստոմատոլոգիայի նպատակը կատարյալ, միանման ատամնաշար ստեղծելը չէ, այլ ձեր դեմքին ներդաշնակ, բնական տեսք ունեցող ժպիտ ձևավորելը։",
+      "ru": "Цель эстетической стоматологии — не «идеальный» шаблонный ряд зубов, а естественная улыбка, гармонирующая именно с вашим лицом.",
+      "en": "The goal here isn't a uniform 'perfect' smile — it's a natural result that suits your own face."
+    },
+    "aboutTreatment": {
+      "hy": "Աշխատանքը սկսվում է ժպիտի և դեմքի համամասնությունների վերլուծությունից, այնուհետև ընտրվում են համապատասխան լուծումներ՝ սպիտակեցում, կերամիկական երեսպատումներ կամ պսակներ։",
+      "ru": "Работа начинается с анализа пропорций лица и улыбки, после чего подбираются подходящие решения — отбеливание, керамические виниры или коронки.",
+      "en": "We start by analyzing facial and smile proportions, then choose the right approach — whitening, ceramic veneers, or crowns, depending on the case."
+    },
+    "whoItIsFor": {
+      "hy": [
+        "Ցանկանում եք բարելավել ժպիտի տեսքը",
+        "Անհանգստացած եք ատամների գույնով կամ ձևով",
+        "Փնտրում եք բնական, ոչ արհեստական արդյունք"
+      ],
+      "ru": [
+        "Хотите улучшить внешний вид улыбки",
+        "Беспокоит цвет или форма зубов",
+        "Ищете естественный, а не «искусственный» результат"
+      ],
+      "en": [
+        "You want to improve how your smile looks",
+        "You're unhappy with tooth color or shape",
+        "You want a natural result, not an artificial one"
+      ]
+    },
+    "benefits": {
+      "hy": [
+        "Անհատական մոտեցում յուրաքանչյուր դեմքի",
+        "Ժամանակակից, թվային պլանավորում",
+        "Նյութեր, որոնք համապատասխանում են բնական ատամի տեսքին",
+        "Արդյունքի կանխատեսում մինչև բուժումը"
+      ],
+      "ru": [
+        "Индивидуальный подход к каждому лицу",
+        "Современное цифровое планирование",
+        "Материалы, близкие по виду к натуральной эмали",
+        "Прогноз результата ещё до начала лечения"
+      ],
+      "en": [
+        "An individual approach for every face",
+        "Modern digital planning",
+        "Materials that match natural tooth appearance",
+        "A preview of the result before treatment starts"
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "hy": "Արդյունքը երկարատևե՞ղ է",
+          "ru": "Насколько долговечен результат",
+          "en": "How long does the result last"
+        },
+        "a": {
+          "hy": "Կախված է ընտրված մեթոդից և խնամքից. մանրամասները քննարկվում են խորհրդատվության ընթացքում։",
+          "ru": "Зависит от выбранного метода и ухода — детали обсуждаются на консультации.",
+          "en": "It depends on the method chosen and your care routine — we'll cover specifics at the consultation."
+        }
+      },
+      {
+        "q": {
+          "hy": "Կարո՞ղ եմ տեսնել ապագա արդյունքը մինչև բուժումը",
+          "ru": "Можно ли увидеть будущий результат заранее",
+          "en": "Can I see the expected result beforehand"
+        },
+        "a": {
+          "hy": "Այո, թվային պլանավորումը թույլ է տալիս նախապես գնահատել մոտավոր տեսքը։",
+          "ru": "Да, цифровое планирование позволяет заранее оценить примерный итоговый вид.",
+          "en": "Yes — digital planning lets us preview the approximate outcome in advance."
+        }
+      }
+    ],
+    "price": {
+      "note": {
+        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
+        "ru": "Стоимость после консультации",
+        "en": "Price after consultation"
+      }
+    }
+  },
+  {
+    "slug": "orthodontics",
+    "icon": "aligner",
+    "flagship": true,
+    "cardImage": "/images/services/orthodontics.jpg",
+    "heroImage": "/images/services/orthodontics-hero.jpg",
+    "doctorSlug": "ani-petrosyan",
+    "technologyRefs": [
+      "intraoral-scanning",
+      "digital-planning"
+    ],
+    "relatedSlugs": [
+      "aesthetic-dentistry",
+      "digital-diagnostics"
+    ],
+    "eyebrow": {
+      "hy": "Օրթոդոնտիա",
+      "ru": "Ортодонтия",
+      "en": "Orthodontics"
+    },
+    "title": {
+      "hy": "Օրթոդոնտիա և կծվածքի շտկում",
+      "ru": "Ортодонтия и коррекция прикуса",
+      "en": "Orthodontics & Bite Correction"
+    },
+    "shortCopy": {
+      "hy": "Կծվածքի և ատամների դասավորության շտկում՝ ժամանակակից, թվային պլանավորմամբ։",
+      "ru": "Коррекция прикуса и положения зубов с современным цифровым планированием.",
+      "en": "Straightening teeth and correcting bite with modern, digitally planned methods."
+    },
+    "intro": {
+      "hy": "Ճիշտ կծվածքը կարևոր է ոչ միայն ժպիտի տեսքի, այլև ծամելու ֆունկցիայի և ատամների երկարաժամկետ առողջության համար։",
+      "ru": "Правильный прикус важен не только для внешнего вида улыбки, но и для функции жевания и долгосрочного здоровья зубов.",
+      "en": "A correct bite matters not just for how your smile looks, but for chewing function and the long-term health of your teeth."
+    },
+    "aboutTreatment": {
+      "hy": "Ախտորոշումն սկսվում է ներբերանային սկանավորումից, որի հիման վրա կազմվում է շտկման անհատական պլան՝ հաշվի առնելով ձեր կենսակերպն ու նախապատվությունները։",
+      "ru": "Диагностика начинается с внутриротового сканирования, на основе которого составляется индивидуальный план коррекции с учётом образа жизни и предпочтений пациента.",
+      "en": "Diagnostics start with an intraoral scan, which forms the basis of a personal correction plan that takes your lifestyle and preferences into account."
+    },
+    "whoItIsFor": {
+      "hy": [
+        "Ատամները անհավասար են կամ խճճված",
+        "Կծվածքն ազդում է ծամելու կամ խոսելու վրա",
+        "Ցանկանում եք արդյունավետ, աննկատ լուծում"
+      ],
+      "ru": [
+        "Зубы расположены неровно или скученно",
+        "Прикус мешает жевать или говорить комфортно",
+        "Нужно эффективное и незаметное решение"
+      ],
+      "en": [
+        "Teeth are crowded or uneven",
+        "Your bite affects chewing or speech",
+        "You want an effective, discreet solution"
+      ]
+    },
+    "benefits": {
+      "hy": [
+        "Անհատական, թվային պլանավորում",
+        "Հարմարավետ և կանխատեսելի ընթացք",
+        "Բարելավում է ինչպես տեսքը, այնպես էլ ֆունկցիան",
+        "Երկարաժամկետ ազդեցություն ատամների առողջության վրա"
+      ],
+      "ru": [
+        "Индивидуальное цифровое планирование",
+        "Комфортный и предсказуемый процесс",
+        "Улучшает и внешний вид, и функцию",
+        "Долгосрочная польза для здоровья зубов"
+      ],
+      "en": [
+        "Individual digital planning",
+        "A comfortable, predictable process",
+        "Improves both appearance and function",
+        "Long-term benefit for dental health"
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "hy": "Ի՞նչ տարիքից է հնարավոր օրթոդոնտիկ բուժում",
+          "ru": "С какого возраста возможно ортодонтическое лечение",
+          "en": "From what age is orthodontic treatment possible"
+        },
+        "a": {
+          "hy": "Հնարավոր է և՛ մանկական, և՛ մեծահասակների տարիքում. մոտեցումը որոշվում է խորհրդատվության ժամանակ։",
+          "ru": "Лечение возможно и в детском, и во взрослом возрасте — подход определяется на консультации.",
+          "en": "It's possible at both younger and adult ages — the right approach is decided at consultation."
+        }
+      },
+      {
+        "q": {
+          "hy": "Որքա՞ն է տևում բուժումը",
+          "ru": "Сколько длится лечение",
+          "en": "How long does treatment take"
+        },
+        "a": {
+          "hy": "Տևողությունը անհատական է և կախված է կծվածքի բարդությունից։",
+          "ru": "Длительность индивидуальна и зависит от сложности случая.",
+          "en": "Duration is individual and depends on how complex the case is."
+        }
+      }
+    ],
+    "price": {
+      "note": {
+        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
+        "ru": "Стоимость после консультации",
+        "en": "Price after consultation"
+      }
+    }
+  },
+  {
+    "slug": "crowns-prosthetics",
+    "icon": "crown",
+    "flagship": true,
+    "cardImage": "/images/services/crowns-prosthetics.jpg",
+    "heroImage": "/images/services/crowns-prosthetics-hero.jpg",
+    "doctorSlug": "lusine-margaryan",
+    "technologyRefs": [
+      "intraoral-scanning",
+      "digital-planning"
+    ],
+    "relatedSlugs": [
+      "dental-implants",
+      "aesthetic-dentistry"
+    ],
+    "eyebrow": {
+      "hy": "Պրոթեզավորում",
+      "ru": "Протезирование",
+      "en": "Crowns & Prosthetics"
+    },
+    "title": {
+      "hy": "Պսակներ և պրոթեզավորում",
+      "ru": "Коронки и протезирование",
+      "en": "Crowns & Prosthetics"
+    },
+    "shortCopy": {
+      "hy": "Ատամի ամբողջականության և ֆունկցիայի վերականգնում՝ ճշգրիտ, թվային պլանավորմամբ ստեղծված պսակներով։",
+      "ru": "Восстановление целостности и функции зуба с помощью коронок, изготовленных по точному цифровому плану.",
+      "en": "Restoring a tooth's strength and function with crowns planned and fitted with digital precision."
+    },
+    "intro": {
+      "hy": "Ուժեղապես վնասված կամ պակասող ատամը կարող է վերականգնվել պսակի կամ պրոթեզի միջոցով՝ վերադարձնելով ինչպես ֆունկցիան, այնպես էլ բնական տեսքը։",
+      "ru": "Сильно повреждённый или отсутствующий зуб можно восстановить с помощью коронки или протеза, вернув и функцию, и естественный вид.",
+      "en": "A badly damaged or missing tooth can be restored with a crown or prosthesis, bringing back both function and natural appearance."
+    },
+    "aboutTreatment": {
+      "hy": "Ներբերանային սկանավորումն օգնում է ստեղծել առավելագույնս ճշգրիտ պսակ, որը հարմարվում է կծվածքին և հարևան ատամներին։",
+      "ru": "Внутриротовое сканирование позволяет изготовить максимально точную коронку, которая гармонично встраивается в прикус и соседние зубы.",
+      "en": "Intraoral scanning helps produce a highly precise crown that integrates cleanly with your bite and neighboring teeth."
+    },
+    "whoItIsFor": {
+      "hy": [
+        "Ատամը զգալիորեն վնասված է կամ թուլացած",
+        "Բացակայում է մեկ կամ մի քանի ատամ",
+        "Ցանկանում եք դիմացկուն, բնական տեսք ունեցող լուծում"
+      ],
+      "ru": [
+        "Зуб сильно повреждён или ослаблен",
+        "Отсутствует один или несколько зубов",
+        "Нужно прочное решение с естественным видом"
+      ],
+      "en": [
+        "A tooth is significantly damaged or weakened",
+        "One or more teeth are missing",
+        "You want a durable, natural-looking solution"
+      ]
+    },
+    "benefits": {
+      "hy": [
+        "Ճշգրիտ, թվային չափագրում",
+        "Բնական տեսք և հարմարավետ կծվածք",
+        "Դիմացկուն նյութեր",
+        "Անհատական մոտեցում յուրաքանչյուր դեպքի"
+      ],
+      "ru": [
+        "Точное цифровое измерение",
+        "Естественный вид и удобный прикус",
+        "Долговечные материалы",
+        "Индивидуальный подход к каждому случаю"
+      ],
+      "en": [
+        "Precise digital measurement",
+        "Natural look and a comfortable bite",
+        "Durable materials",
+        "An individual approach for every case"
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "hy": "Ինչքա՞ն է ծառայում պսակը",
+          "ru": "Сколько служит коронка",
+          "en": "How long does a crown last"
+        },
+        "a": {
+          "hy": "Կախված է նյութից և խնամքից. մանրամասները քննարկվում են խորհրդատվության ժամանակ։",
+          "ru": "Зависит от материала и ухода — детали обсуждаются на консультации.",
+          "en": "It depends on the material and how it's cared for — we'll cover specifics at consultation."
+        }
+      },
+      {
+        "q": {
+          "hy": "Քանի՞ այց է անհրաժեշտ",
+          "ru": "Сколько визитов потребуется",
+          "en": "How many visits are needed"
+        },
+        "a": {
+          "hy": "Քանակը որոշվում է անհատական պլանով՝ կախված դեպքի բարդությունից։",
+          "ru": "Количество определяется индивидуальным планом в зависимости от сложности случая.",
+          "en": "The number depends on your individual plan and case complexity."
+        }
+      }
+    ],
+    "price": {
+      "note": {
+        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
+        "ru": "Стоимость после консультации",
+        "en": "Price after consultation"
+      }
+    }
+  },
+  {
+    "slug": "professional-cleaning",
+    "icon": "cleaning",
+    "flagship": true,
+    "cardImage": "/images/services/professional-cleaning.jpg",
+    "heroImage": "/images/services/professional-cleaning-hero.jpg",
+    "doctorSlug": "mane-ghazaryan",
+    "technologyRefs": [],
+    "relatedSlugs": [
+      "periodontology",
+      "general-dentistry"
+    ],
+    "eyebrow": {
+      "hy": "Կանխարգելում",
+      "ru": "Профилактика",
+      "en": "Prevention"
+    },
+    "title": {
+      "hy": "Պրոֆեսիոնալ մաքրում",
+      "ru": "Профессиональная чистка",
+      "en": "Professional Cleaning"
+    },
+    "shortCopy": {
+      "hy": "Կանոնավոր պրոֆեսիոնալ հիգիենան ամենահեշտ ձևն է կանխելու ատամի և լնդերի խնդիրները։",
+      "ru": "Регулярная профессиональная гигиена — самый простой способ предотвратить проблемы с зубами и дёснами.",
+      "en": "Regular professional hygiene is the simplest way to prevent problems before they start."
+    },
+    "intro": {
+      "hy": "Պրոֆեսիոնալ մաքրումը հեռացնում է քարացած փառը և գունազրկումները, որոնք սովորական խոզանակով հնարավոր չէ վերացնել, և կանխարգելում է լնդերի բորբոքումը։",
+      "ru": "Профессиональная чистка удаляет зубной камень и налёт, которые невозможно убрать обычной щёткой, и помогает предотвратить воспаление дёсен.",
+      "en": "Professional cleaning removes tartar and staining that a toothbrush alone can't reach, and helps prevent gum inflammation before it starts."
+    },
+    "aboutTreatment": {
+      "hy": "Ընթացակարգը հարմարավետ է և ցավազուրկ, և ներառում է ուլտրաձայնային մաքրում ու մակերեսի հղկում՝ ատամների առողջ տեսք ապահովելու համար։",
+      "ru": "Процедура комфортна и безболезненна: включает ультразвуковую чистку и полировку поверхности зубов для здорового вида.",
+      "en": "The procedure is comfortable and painless, combining ultrasonic cleaning with surface polishing for a healthy, fresh result."
+    },
+    "whoItIsFor": {
+      "hy": [
+        "Ցանկանում եք կանոնավոր կերպով խնամել ձեր ատամները",
+        "Նկատում եք քարացած փառ կամ գունազրկում",
+        "Պատրաստվում եք այլ ստոմատոլոգիական բուժման"
+      ],
+      "ru": [
+        "Хотите регулярно ухаживать за зубами",
+        "Заметили зубной камень или потемнение эмали",
+        "Готовитесь к другому стоматологическому лечению"
+      ],
+      "en": [
+        "You want to maintain your teeth regularly",
+        "You've noticed tartar or staining",
+        "You're preparing for other dental treatment"
+      ]
+    },
+    "benefits": {
+      "hy": [
+        "Կանխարգելում է քրտնի հիվանդությունները",
+        "Թարմացնում է ժպիտի տեսքը",
+        "Հարմարավետ և արագ ընթացակարգ",
+        "Խորհուրդ է տրվում կանոնավոր կրկնել"
+      ],
+      "ru": [
+        "Профилактика заболеваний дёсен",
+        "Освежает внешний вид улыбки",
+        "Комфортная и быстрая процедура",
+        "Рекомендуется повторять регулярно"
+      ],
+      "en": [
+        "Helps prevent gum disease",
+        "Freshens the appearance of your smile",
+        "Comfortable, quick procedure",
+        "Recommended on a regular schedule"
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "hy": "Որքա՞ն հաճախ է խորհուրդ տրվում",
+          "ru": "Как часто рекомендуется",
+          "en": "How often is it recommended"
+        },
+        "a": {
+          "hy": "Ընդհանուր առմամբ՝ 1-2 անգամ տարեկան, բայց հաճախականությունը որոշվում է անհատապես։",
+          "ru": "Обычно 1–2 раза в год, но точная периодичность определяется индивидуально.",
+          "en": "Generally once or twice a year, though the exact schedule is decided individually."
+        }
+      },
+      {
+        "q": {
+          "hy": "Ցավո՞տ է ընթացակարգը",
+          "ru": "Процедура болезненная",
+          "en": "Is the procedure uncomfortable"
+        },
+        "a": {
+          "hy": "Ոչ, ընթացակարգը հարմարավետ է մեծամասնության համար։",
+          "ru": "Нет, процедура комфортна для большинства пациентов.",
+          "en": "No — most patients find it comfortable throughout."
+        }
+      }
+    ],
+    "price": {
+      "note": {
+        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
+        "ru": "Стоимость после консультации",
+        "en": "Price after consultation"
+      }
+    }
+  },
+  {
+    "slug": "root-canal-treatment",
+    "icon": "root-canal",
+    "flagship": true,
+    "cardImage": "/images/services/root-canal-treatment.jpg",
+    "heroImage": "/images/services/root-canal-treatment-hero.jpg",
+    "doctorSlug": "tigran-avetisyan",
+    "technologyRefs": [
+      "microscope"
+    ],
+    "relatedSlugs": [
+      "periodontology",
+      "general-dentistry"
+    ],
+    "eyebrow": {
+      "hy": "Միկրոսկոպիկ ստոմատոլոգիա",
+      "ru": "Микроскопическая стоматология",
+      "en": "Microscopic Dentistry"
+    },
+    "title": {
+      "hy": "Արմատային ջրանցքների բուժում",
+      "ru": "Лечение корневых каналов",
+      "en": "Root Canal Treatment"
+    },
+    "shortCopy": {
+      "hy": "Ճշգրիտ, մանրադիտակի ներքո իրականացվող բուժում՝ ատամը փրկելու համար՝ խուսափելով հեռացումից։",
+      "ru": "Точное лечение под микроскопом, чтобы сохранить зуб и избежать удаления.",
+      "en": "Precise, microscope-guided treatment aimed at saving the tooth rather than extracting it."
+    },
+    "intro": {
+      "hy": "Երբ ինֆեկցիան հասնում է ատամի միջուկին, արմատային ջրանցքի բուժումը թույլ է տալիս փրկել ատամը՝ առանց հեռացման անհրաժեշտության։",
+      "ru": "Когда инфекция достигает пульпы зуба, лечение корневых каналов позволяет сохранить зуб без необходимости удаления.",
+      "en": "When infection reaches the pulp of a tooth, root canal treatment can save it — without the need for extraction."
+    },
+    "aboutTreatment": {
+      "hy": "Ստոմատոլոգիական մանրադիտակի կիրառումը թույլ է տալիս տեսնել ամենափոքր մանրամասները ջրանցքի ներսում՝ էապես բարձրացնելով բուժման ճշգրտությունը։",
+      "ru": "Использование стоматологического микроскопа позволяет увидеть мельчайшие детали внутри канала, значительно повышая точность лечения.",
+      "en": "Using a dental operating microscope makes it possible to see the smallest details inside the canal, significantly improving treatment precision."
+    },
+    "whoItIsFor": {
+      "hy": [
+        "Ունեք ուժեղ կամ երկարատև ատամի ցավ",
+        "Ախտորոշվել է պուլպիտ կամ ինֆեկցիա",
+        "Ցանկանում եք փրկել ատամը՝ հեռացնելու փոխարեն"
+      ],
+      "ru": [
+        "Испытываете сильную или продолжительную зубную боль",
+        "Диагностирован пульпит или инфекция",
+        "Хотите сохранить зуб вместо удаления"
+      ],
+      "en": [
+        "You have strong or persistent tooth pain",
+        "Pulpitis or infection has been diagnosed",
+        "You'd rather save the tooth than extract it"
+      ]
+    },
+    "benefits": {
+      "hy": [
+        "Բարձր ճշգրտություն մանրադիտակի շնորհիվ",
+        "Ատամի պահպանում հեռացնելու փոխարեն",
+        "Ցավի արագ մեղմացում",
+        "Հարմարավետ, հսկվող ընթացակարգ"
+      ],
+      "ru": [
+        "Высокая точность благодаря микроскопу",
+        "Сохранение зуба вместо удаления",
+        "Быстрое облегчение боли",
+        "Комфортная, контролируемая процедура"
+      ],
+      "en": [
+        "High precision thanks to the microscope",
+        "Saves the tooth instead of extracting it",
+        "Fast pain relief",
+        "A comfortable, well-controlled procedure"
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "hy": "Ցավո՞տ է բուժումը",
+          "ru": "Лечение болезненное",
+          "en": "Is the treatment painful"
+        },
+        "a": {
+          "hy": "Կատարվում է տեղային անզգայացման ներքո, ինչը էականորեն նվազեցնում է անհարմարությունը։",
+          "ru": "Проводится под местной анестезией, что значительно снижает дискомфорт.",
+          "en": "It's performed under local anesthesia, which greatly reduces discomfort."
+        }
+      },
+      {
+        "q": {
+          "hy": "Քանի՞ այց է անհրաժեշտ",
+          "ru": "Сколько визитов потребуется",
+          "en": "How many visits does it take"
+        },
+        "a": {
+          "hy": "Կախված է դեպքի բարդությունից, սովորաբար՝ 1-2 այց։",
+          "ru": "В зависимости от сложности случая, обычно 1–2 визита.",
+          "en": "Depending on complexity, usually one to two visits."
+        }
+      }
+    ],
+    "price": {
+      "note": {
+        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
+        "ru": "Стоимость после консультации",
+        "en": "Price after consultation"
+      }
+    }
+  },
+  {
+    "slug": "general-dentistry",
+    "icon": "tooth",
+    "flagship": false,
+    "cardImage": "/images/services/general-dentistry.jpg",
+    "heroImage": "/images/services/general-dentistry-hero.jpg",
+    "doctorSlug": "narek-sargsyan",
+    "technologyRefs": [],
+    "relatedSlugs": [
+      "family-dentistry",
+      "professional-cleaning"
+    ],
+    "eyebrow": {
+      "hy": "Ընդհանուր ստոմատոլոգիա",
+      "ru": "Общая стоматология",
+      "en": "General Dentistry"
+    },
+    "title": {
+      "hy": "Ընդհանուր ստոմատոլոգիա",
+      "ru": "Общая стоматология",
+      "en": "General Dentistry"
+    },
+    "shortCopy": {
+      "hy": "Կարիես, լցանյութեր և ամենօրյա ստոմատոլոգիական խնամք՝ ուշադիր ու հանգիստ մոտեցմամբ։",
+      "ru": "Лечение кариеса, пломбирование и повседневная стоматологическая помощь — внимательно и без спешки.",
+      "en": "Cavity treatment, fillings, and everyday dental care, handled attentively and without rush."
+    },
+    "intro": {
+      "hy": "Ընդհանուր ստոմատոլոգիան ամենօրյա ատամնաբուժական խնամքի հիմքն է՝ սկսած ախտորոշումից մինչև կարիեսի բուժում։",
+      "ru": "Общая стоматология — основа повседневной заботы о зубах: от диагностики до лечения кариеса.",
+      "en": "General dentistry covers the everyday essentials of dental care — from diagnostics to cavity treatment."
+    },
+    "aboutTreatment": {
+      "hy": "Յուրաքանչյուր այց սկսվում է մանրակրկիտ զննումից, որից հետո առաջարկվում է հստակ և հասկանալի բուժման ընթացք։",
+      "ru": "Каждый визит начинается с тщательного осмотра, после чего предлагается понятный и чёткий план лечения.",
+      "en": "Every visit starts with a careful exam, followed by a clear, understandable treatment plan."
+    },
+    "whoItIsFor": {
+      "hy": [
+        "Ցանկանում եք կանոնավոր ստուգում",
+        "Ունեք կարիես կամ ատամի ցավ",
+        "Փնտրում եք հուսալի ընտանեկան ստոմատոլոգ"
+      ],
+      "ru": [
+        "Хотите пройти плановый осмотр",
+        "Беспокоит кариес или зубная боль",
+        "Ищете надёжного стоматолога"
+      ],
+      "en": [
+        "You want a routine check-up",
+        "You have a cavity or tooth pain",
+        "You're looking for a dentist you can rely on"
+      ]
+    },
+    "benefits": {
+      "hy": [
+        "Ուշադիր և հանգիստ մոտեցում",
+        "Ժամանակակից ախտորոշիչ մեթոդներ",
+        "Հստակ բացատրված բուժման պլան"
+      ],
+      "ru": [
+        "Внимательный, спокойный подход",
+        "Современные методы диагностики",
+        "Понятно объяснённый план лечения"
+      ],
+      "en": [
+        "An attentive, unhurried approach",
+        "Modern diagnostic methods",
+        "A clearly explained treatment plan"
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "hy": "Որքա՞ն հաճախ արժե այցելել ստոմատոլոգ",
+          "ru": "Как часто стоит посещать стоматолога",
+          "en": "How often should I see a dentist"
+        },
+        "a": {
+          "hy": "Ընդհանուր առմամբ՝ 1-2 անգամ տարեկան, ախտորոշիչ նպատակով։",
+          "ru": "Как правило, 1–2 раза в год для профилактического осмотра.",
+          "en": "Generally once or twice a year for a preventive check-up."
+        }
+      }
+    ],
+    "price": {
+      "note": {
+        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
+        "ru": "Стоимость после консультации",
+        "en": "Price after consultation"
+      }
+    }
+  },
+  {
+    "slug": "periodontology",
+    "icon": "gum",
+    "flagship": false,
+    "cardImage": "/images/services/periodontology.jpg",
+    "heroImage": "/images/services/periodontology-hero.jpg",
+    "doctorSlug": "tigran-avetisyan",
+    "technologyRefs": [],
+    "relatedSlugs": [
+      "professional-cleaning",
+      "general-dentistry"
+    ],
+    "eyebrow": {
+      "hy": "Պարոդոնտոլոգիա",
+      "ru": "Пародонтология",
+      "en": "Periodontology"
+    },
+    "title": {
+      "hy": "Լնդերի բուժում",
+      "ru": "Лечение дёсен",
+      "en": "Periodontology"
+    },
+    "shortCopy": {
+      "hy": "Լնդերի առողջության վերականգնում և պահպանում՝ ատամների կայունությունն ապահովելու համար։",
+      "ru": "Восстановление и поддержание здоровья дёсен для стабильности зубов.",
+      "en": "Restoring and maintaining gum health to keep teeth stable long-term."
+    },
+    "intro": {
+      "hy": "Առողջ լնդերն ատամների կայունության հիմքն են։ Վաղ փուլում ախտորոշված բորբոքումը հեշտությամբ վերահսկելի է։",
+      "ru": "Здоровые дёсны — основа стабильности зубов. Воспаление, выявленное на раннем этапе, легко поддаётся контролю.",
+      "en": "Healthy gums are the foundation of stable teeth. Inflammation caught early is much easier to manage."
+    },
+    "aboutTreatment": {
+      "hy": "Բուժումը սկսվում է լնդերի վիճակի գնահատումից, որին հաջորդում է անհատական խնամքի պլան։",
+      "ru": "Лечение начинается с оценки состояния дёсен, после чего составляется индивидуальный план ухода.",
+      "en": "Treatment begins with an assessment of gum condition, followed by a personal care plan."
+    },
+    "whoItIsFor": {
+      "hy": [
+        "Լնդերը արյունահոսում կամ բորբոքված են",
+        "Զգում եք ատամների անկայունություն",
+        "Ցանկանում եք կանխարգելիչ խնամք"
+      ],
+      "ru": [
+        "Дёсны кровоточат или воспалены",
+        "Ощущается подвижность зубов",
+        "Нужен профилактический уход"
+      ],
+      "en": [
+        "Gums bleed or feel inflamed",
+        "You notice tooth mobility",
+        "You want preventive care"
+      ]
+    },
+    "benefits": {
+      "hy": [
+        "Կանխարգելում է ատամի կորուստը",
+        "Բարելավում է լնդերի ընդհանուր առողջությունը",
+        "Անհատական խնամքի պլան"
+      ],
+      "ru": [
+        "Предотвращает потерю зубов",
+        "Улучшает общее состояние дёсен",
+        "Индивидуальный план ухода"
+      ],
+      "en": [
+        "Helps prevent tooth loss",
+        "Improves overall gum health",
+        "A personal care plan"
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "hy": "Ի՞նչ ախտանիշներ են վկայում խնդրի մասին",
+          "ru": "Какие симптомы говорят о проблеме",
+          "en": "What symptoms suggest a problem"
+        },
+        "a": {
+          "hy": "Արյունահոսությունը, այտուցը և տհաճ հոտը լնդերի ուշադրության կարիք ունենալու նշաններ են։",
+          "ru": "Кровоточивость, отёчность и неприятный запах — признаки того, что дёснам нужно внимание.",
+          "en": "Bleeding, swelling, and persistent bad breath are signs your gums need attention."
+        }
+      }
+    ],
+    "price": {
+      "note": {
+        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
+        "ru": "Стоимость после консультации",
+        "en": "Price after consultation"
+      }
+    }
+  },
+  {
+    "slug": "oral-surgery",
+    "icon": "surgery",
+    "flagship": false,
+    "cardImage": "/images/services/oral-surgery.jpg",
+    "heroImage": "/images/services/oral-surgery-hero.jpg",
+    "doctorSlug": "vardan-hakobyan",
+    "technologyRefs": [
+      "cbct-3d"
+    ],
+    "relatedSlugs": [
+      "dental-implants",
+      "digital-diagnostics"
+    ],
+    "eyebrow": {
+      "hy": "Վիրաբուժություն",
+      "ru": "Хирургия",
+      "en": "Oral Surgery"
+    },
+    "title": {
+      "hy": "Բերանի խոռոչի վիրաբուժություն",
+      "ru": "Хирургическая стоматология",
+      "en": "Oral Surgery"
+    },
+    "shortCopy": {
+      "hy": "Ատամի հեռացում և այլ վիրաբուժական միջամտություններ՝ ճշգրիտ ախտորոշման հիման վրա։",
+      "ru": "Удаление зубов и другие хирургические вмешательства на основе точной диагностики.",
+      "en": "Extractions and other surgical procedures, guided by precise diagnostics."
+    },
+    "intro": {
+      "hy": "Որոշ իրավիճակներում վիրաբուժական միջամտությունը միակ ճիշտ լուծումն է. կարևոր է, որ այն իրականացվի ճշգրիտ ախտորոշման և պլանավորման հիման վրա։",
+      "ru": "В некоторых случаях хирургическое вмешательство — единственно верное решение, и важно, чтобы оно опиралось на точную диагностику и планирование.",
+      "en": "In some situations, surgery is the right call — and it matters that it's based on precise diagnostics and planning."
+    },
+    "aboutTreatment": {
+      "hy": "3D КТ պատկերումը թույլ է տալիս նախապես գնահատել կառուցվածքային առանձնահատկությունները և նվազեցնել վիրահատական ռիսկերը։",
+      "ru": "3D КТ-снимок позволяет заранее оценить анатомические особенности и снизить хирургические риски.",
+      "en": "3D CBCT imaging allows anatomical features to be assessed beforehand, reducing surgical risk."
+    },
+    "whoItIsFor": {
+      "hy": [
+        "Անհրաժեշտ է բարդ ատամի հեռացում",
+        "Ախտորոշվել է իմպակտավորված ատամ",
+        "Անհրաժեշտ է նախապատրաստական վիրահատություն իմպլանտից առաջ"
+      ],
+      "ru": [
+        "Требуется сложное удаление зуба",
+        "Диагностирован ретинированный зуб",
+        "Нужна подготовительная операция перед имплантацией"
+      ],
+      "en": [
+        "A complex extraction is needed",
+        "An impacted tooth has been diagnosed",
+        "Preparatory surgery is needed before implants"
+      ]
+    },
+    "benefits": {
+      "hy": [
+        "Ախտորոշման վրա հիմնված պլանավորում",
+        "Նվազագույն անհարմարություն",
+        "Հստակ հետվիրահատական հսկողություն"
+      ],
+      "ru": [
+        "Планирование на основе диагностики",
+        "Минимальный дискомфорт",
+        "Чёткое послеоперационное наблюдение"
+      ],
+      "en": [
+        "Diagnostics-based planning",
+        "Minimized discomfort",
+        "Clear post-operative follow-up"
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "hy": "Որքա՞ն է տևում ապաքինումը",
+          "ru": "Сколько длится восстановление",
+          "en": "How long is recovery"
+        },
+        "a": {
+          "hy": "Կախված է միջամտության բարդությունից, մանրամասները՝ խորհրդատվության ժամանակ։",
+          "ru": "Зависит от сложности вмешательства, детали — на консультации.",
+          "en": "It depends on the complexity of the procedure — details at consultation."
+        }
+      }
+    ],
+    "price": {
+      "note": {
+        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
+        "ru": "Стоимость после консультации",
+        "en": "Price after consultation"
+      }
+    }
+  },
+  {
+    "slug": "digital-diagnostics",
+    "icon": "scan",
+    "flagship": false,
+    "cardImage": "/images/services/digital-diagnostics.jpg",
+    "heroImage": "/images/services/digital-diagnostics-hero.jpg",
+    "doctorSlug": "vardan-hakobyan",
+    "technologyRefs": [
+      "cbct-3d",
+      "intraoral-scanning"
+    ],
+    "relatedSlugs": [
+      "dental-implants",
+      "orthodontics"
+    ],
+    "eyebrow": {
+      "hy": "Թվային ախտորոշում",
+      "ru": "Цифровая диагностика",
+      "en": "Digital Diagnostics"
+    },
+    "title": {
+      "hy": "Թվային ախտորոշում",
+      "ru": "Цифровая диагностика",
+      "en": "Digital Diagnostics"
+    },
+    "shortCopy": {
+      "hy": "3D КТ և ներբերանային սկանավորում՝ ամեն բուժման հիմքում ընկած ճշգրիտ պատկերի համար։",
+      "ru": "3D КТ и внутриротовое сканирование — точная основа для любого этапа лечения.",
+      "en": "3D CBCT and intraoral scanning form the precise foundation behind every treatment plan."
+    },
+    "intro": {
+      "hy": "Ցանկացած լուրջ բուժում սկսվում է ճշգրիտ ախտորոշումից. թվային տեխնոլոգիաները թույլ են տալիս տեսնել այն, ինչ սովորական զննումով անհնար է նկատել։",
+      "ru": "Любое серьёзное лечение начинается с точной диагностики — цифровые технологии позволяют увидеть то, что невозможно заметить при обычном осмотре.",
+      "en": "Every serious treatment starts with accurate diagnostics — digital tools reveal what a routine exam alone cannot."
+    },
+    "aboutTreatment": {
+      "hy": "3D КТ-ն տալիս է ամբողջական պատկեր ոսկրային կառուցվածքի մասին, իսկ ներբերանային սկաներն ապահովում է ճշգրիտ չափագրում՝ առանց ավանդական դրոշմների անհարմարության։",
+      "ru": "3D КТ даёт полную картину костной структуры, а внутриротовой сканер обеспечивает точные измерения без дискомфорта традиционных слепков.",
+      "en": "3D CBCT gives a complete view of bone structure, while an intraoral scanner delivers precise measurements without the discomfort of traditional impressions."
+    },
+    "whoItIsFor": {
+      "hy": [
+        "Պատրաստվում եք իմպլանտացիայի կամ վիրահատության",
+        "Անհրաժեշտ է կծվածքի մանրամասն վերլուծություն",
+        "Ցանկանում եք ամբողջական պատկեր ձեր ստոմատոլոգիական վիճակի մասին"
+      ],
+      "ru": [
+        "Готовитесь к имплантации или операции",
+        "Нужен детальный анализ прикуса",
+        "Хотите получить полную картину состояния зубов"
+      ],
+      "en": [
+        "You're preparing for implants or surgery",
+        "You need a detailed bite analysis",
+        "You want the full picture of your dental health"
+      ]
+    },
+    "benefits": {
+      "hy": [
+        "Բարձր ճշգրտություն",
+        "Հարմարավետ, արագ գործընթաց",
+        "Հիմք ապահովում ցանկացած բուժման համար"
+      ],
+      "ru": [
+        "Высокая точность",
+        "Комфортный и быстрый процесс",
+        "Основа для любого вида лечения"
+      ],
+      "en": [
+        "High precision",
+        "A quick, comfortable process",
+        "The basis for any treatment path"
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "hy": "Անվտա՞նգ է 3D КТ հետազոտությունը",
+          "ru": "Безопасно ли 3D КТ-исследование",
+          "en": "Is 3D CBCT imaging safe"
+        },
+        "a": {
+          "hy": "Ժամանակակից սարքավորումն ապահովում է ցածր ճառագայթային բեռնվածք՝ պահպանելով բարձր ճշգրտություն։",
+          "ru": "Современное оборудование обеспечивает низкую лучевую нагрузку при высокой точности изображения.",
+          "en": "Modern equipment keeps radiation exposure low while maintaining high image precision."
+        }
+      }
+    ],
+    "price": {
+      "note": {
+        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
+        "ru": "Стоимость после консультации",
+        "en": "Price after consultation"
+      }
+    }
+  },
+  {
+    "slug": "family-dentistry",
+    "icon": "family",
+    "flagship": false,
+    "cardImage": "/images/services/family-dentistry.jpg",
+    "heroImage": "/images/services/family-dentistry-hero.jpg",
+    "doctorSlug": "narek-sargsyan",
+    "technologyRefs": [],
+    "relatedSlugs": [
+      "general-dentistry",
+      "professional-cleaning"
+    ],
+    "eyebrow": {
+      "hy": "Ընտանեկան ստոմատոլոգիա",
+      "ru": "Семейная стоматология",
+      "en": "Family Dentistry"
+    },
+    "title": {
+      "hy": "Ընտանեկան ստոմատոլոգիա",
+      "ru": "Семейная стоматология",
+      "en": "Family Dentistry"
+    },
+    "shortCopy": {
+      "hy": "Ստոմատոլոգիական խնամք ողջ ընտանիքի համար՝ մեծերից մինչև երեխաներ, մեկ վստահելի թիմի կողմից։",
+      "ru": "Стоматологическая забота обо всей семье — от взрослых до детей — в одной команде, которой можно доверять.",
+      "en": "Dental care for the whole family, from adults to children, with one team you can trust."
+    },
+    "intro": {
+      "hy": "Ընտանեկան ստոմատոլոգիան հնարավորություն է տալիս ամբողջ ընտանիքի խնամքը վստահել մեկ թիմի, ով ճանաչում է ձեր պատմությունը և կարիքները։",
+      "ru": "Семейная стоматология позволяет доверить заботу обо всей семье одной команде, которая знает вашу историю и потребности.",
+      "en": "Family dentistry means trusting the care of your whole household to one team that knows your history and needs."
+    },
+    "aboutTreatment": {
+      "hy": "Մոտեցումը հարմարեցվում է տարիքին և կարիքներին՝ սկսած երեխաների առաջին այցից մինչև մեծահասակների կանոնավոր խնամք։",
+      "ru": "Подход адаптируется под возраст и потребности — от первого визита ребёнка до регулярного ухода за взрослыми.",
+      "en": "The approach adapts to age and need — from a child's first visit to regular adult care."
+    },
+    "whoItIsFor": {
+      "hy": [
+        "Փնտրում եք ստոմատոլոգ ամբողջ ընտանիքի համար",
+        "Երեխան պատրաստվում է առաջին այցին",
+        "Կարևոր է հարմարավետ, ընկերական միջավայրը"
+      ],
+      "ru": [
+        "Ищете стоматолога для всей семьи",
+        "Ребёнок готовится к первому визиту",
+        "Важна дружелюбная, комфортная атмосфера"
+      ],
+      "en": [
+        "You want one dentist for the whole family",
+        "Your child is preparing for a first visit",
+        "A friendly, comfortable atmosphere matters to you"
+      ]
+    },
+    "benefits": {
+      "hy": [
+        "Հարմարեցված մոտեցում ամեն տարիքի",
+        "Ընկերական, հանգիստ միջավայր",
+        "Շարունակական հսկողություն տարիների ընթացքում"
+      ],
+      "ru": [
+        "Подход, адаптированный под любой возраст",
+        "Дружелюбная, спокойная атмосфера",
+        "Непрерывное наблюдение на протяжении лет"
+      ],
+      "en": [
+        "An approach adapted to every age",
+        "A friendly, calm environment",
+        "Continuity of care over the years"
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "hy": "Ինչի՞ց սկսել երեխայի առաջին այցը",
+          "ru": "С чего начинается первый визит ребёнка",
+          "en": "What does a child's first visit look like"
+        },
+        "a": {
+          "hy": "Առաջին այցը կենտրոնացած է ծանոթության և հանգիստ միջավայրին վարժվելու վրա։",
+          "ru": "Первый визит сосредоточен на знакомстве и адаптации к спокойной обстановке.",
+          "en": "The first visit focuses on getting familiar and comfortable with the setting."
+        }
+      }
+    ],
+    "price": {
+      "note": {
+        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
+        "ru": "Стоимость после консультации",
+        "en": "Price after consultation"
+      }
+    }
+  },
+  {
+    "slug": "teeth-whitening",
+    "icon": "whitening",
+    "flagship": false,
+    "cardImage": "/images/services/teeth-whitening.jpg",
+    "heroImage": "/images/services/teeth-whitening-hero.jpg",
+    "doctorSlug": "lusine-margaryan",
+    "technologyRefs": [],
+    "relatedSlugs": [
+      "aesthetic-dentistry",
+      "professional-cleaning"
+    ],
+    "eyebrow": {
+      "hy": "Սպիտակեցում",
+      "ru": "Отбеливание",
+      "en": "Teeth Whitening"
+    },
+    "title": {
+      "hy": "Ատամների սպիտակեցում",
+      "ru": "Отбеливание зубов",
+      "en": "Teeth Whitening"
+    },
+    "shortCopy": {
+      "hy": "Հսկվող, մասնագիտական սպիտակեցում՝ բնական և հավասարաչափ արդյունքի համար։",
+      "ru": "Контролируемое профессиональное отбеливание для естественного и равномерного результата.",
+      "en": "Controlled, professional whitening for an even, natural-looking result."
+    },
+    "intro": {
+      "hy": "Մասնագիտական սպիտակեցումը թույլ է տալիս ձեռք բերել ավելի պայծառ ժպիտ՝ հսկելով ընթացքը և պաշտպանելով էմալը։",
+      "ru": "Профессиональное отбеливание позволяет добиться более светлой улыбки под контролем врача, бережно относясь к эмали.",
+      "en": "Professional whitening brightens your smile under proper supervision, with care taken to protect enamel."
+    },
+    "aboutTreatment": {
+      "hy": "Նախքան սպիտակեցումը գնահատվում է էմալի վիճակը՝ ապահովելու հարմարավետ և անվտանգ ընթացակարգ։",
+      "ru": "Перед отбеливанием оценивается состояние эмали, чтобы процедура прошла комфортно и безопасно.",
+      "en": "Enamel condition is assessed before whitening to keep the procedure comfortable and safe."
+    },
+    "whoItIsFor": {
+      "hy": [
+        "Ցանկանում եք ավելի պայծառ ժպիտ",
+        "Էմալի գույնը փոխվել է սուրճի, թեյի կամ ծխելու պատճառով",
+        "Փնտրում եք հսկվող, անվտանգ մեթոդ"
+      ],
+      "ru": [
+        "Хотите более светлую улыбку",
+        "Эмаль потемнела из-за кофе, чая или курения",
+        "Ищете контролируемый, безопасный метод"
+      ],
+      "en": [
+        "You want a brighter smile",
+        "Enamel has darkened from coffee, tea, or smoking",
+        "You want a controlled, safe method"
+      ]
+    },
+    "benefits": {
+      "hy": [
+        "Հսկվող, մասնագիտական ընթացակարգ",
+        "Հավասարաչափ, բնական արդյունք",
+        "Էմալի պաշտպանության ուշադրություն"
+      ],
+      "ru": [
+        "Контролируемая профессиональная процедура",
+        "Равномерный, естественный результат",
+        "Внимание к защите эмали"
+      ],
+      "en": [
+        "A controlled, professional procedure",
+        "An even, natural-looking result",
+        "Care taken to protect enamel"
+      ]
+    },
+    "faq": [
+      {
+        "q": {
+          "hy": "Որքա՞ն է տևում արդյունքը",
+          "ru": "Как долго держится результат",
+          "en": "How long does the result last"
+        },
+        "a": {
+          "hy": "Կախված է սննդակարգից և սովորություններից, մանրամասները՝ խորհրդատվության ժամանակ։",
+          "ru": "Зависит от питания и привычек, детали — на консультации.",
+          "en": "It depends on diet and habits — we'll cover specifics at consultation."
+        }
+      }
+    ],
+    "price": {
+      "note": {
+        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
+        "ru": "Стоимость после консультации",
+        "en": "Price after consultation"
+      }
+    }
+  }
+]

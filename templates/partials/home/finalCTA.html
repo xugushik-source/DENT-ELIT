@@ -1,0 +1,21 @@
+<section>
+  <div class="container">
+    <div class="final-cta reveal">
+      <div class="final-cta-grid">
+        <div>
+          <span class="eyebrow" style="color: var(--color-accent);">{{ t.finalCTA.eyebrow }}</span>
+          <h2>{{ t.finalCTA.title }}</h2>
+          <p>{{ t.finalCTA.description }}</p>
+          <div class="final-cta-actions">
+            <button type="button" class="btn btn-primary" style="background: var(--color-accent); color: var(--color-text);" data-open-booking>{{ t.hero.ctaPrimary }}</button>
+            <a class="btn btn-outline" href="{{ site.contact.phoneUri }}">{{ site.contact.phone }}</a>
+            <a class="btn btn-whatsapp" href="#" data-whatsapp-link data-whatsapp-message="{{ whatsapp_default_message }}" target="_blank" rel="noopener">{{ t.common.whatsapp }}</a>
+          </div>
+        </div>
+        <div class="final-cta-media">
+          <img class="photo" src="/images/cta/final-cta.jpg" alt="{{ site.brand.clinicName }}" width="480" height="360" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+<div class="mobile-nav-overlay" data-nav-overlay aria-hidden="true">
+  <div class="mobile-nav-top">
+    <a class="brand" href="{{ home_url }}">
+      {% if site.brand.logo.mark %}
+        <img class="brand-mark" src="{{ site.brand.logo.mark }}" alt="{{ site.brand.clinicName }}" width="36" height="36">
+      {% else %}
+        <span class="brand-mark" data-logo-placeholder>ED</span>
+      {% endif %}
+      <span>{{ site.brand.clinicName }}</span>
+    </a>
+    <button type="button" class="hamburger" data-nav-close aria-label="{{ t.common.close }}">✕</button>
+  </div>
+  <nav class="mobile-nav-list" aria-label="Mobile">
+    {% for item in nav_items %}
+    <a href="{{ item.href }}">{{ item.label }}</a>
+    {% endfor %}
+  </nav>
+  <div class="mobile-nav-footer">
+    <a class="btn btn-outline btn-block" href="{{ site.contact.phoneUri }}">{{ t.common.call }} {{ site.contact.phone }}</a>
+    <button type="button" class="btn btn-primary btn-block" data-open-booking>{{ t.nav.bookConsultation }}</button>
+  </div>
+</div>

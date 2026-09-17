@@ -1,0 +1,23 @@
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">{{ t.team.eyebrow }}</span>
+      <h2>{{ t.team.title }}</h2>
+      <p class="body-lg">{{ t.team.description }}</p>
+    </div>
+    <div class="card-grid cols-3">
+      {% for d in doctors_home %}
+      <a class="doctor-card reveal" data-reveal-group="team" href="{{ d.href }}">
+        <div class="doctor-card-media">
+          <img class="photo" src="{{ d.photo }}" alt="{{ d.name }}" width="360" height="480" loading="lazy">
+        </div>
+        <h3>{{ d.name }}</h3>
+        <p class="role">{{ d.role }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    <div style="text-align:center; margin-top: 40px;">
+      <a class="btn btn-outline" href="{{ lang_prefix }}/doctors/">{{ t.doctorSpotlight.ctaMeetTeam }}</a>
+    </div>
+  </div>
+</section>

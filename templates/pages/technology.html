@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow">{{ t.technologyPage.eyebrow }}</span>
+    <h1>{{ t.technologyPage.title }}</h1>
+    <p class="body-lg">{{ t.technologyPage.description }}</p>
+  </div>
+</section>
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="card-grid cols-3">
+      {% for tech in technologies %}
+      <div class="tech-card reveal" data-reveal-group="tech">
+        <div class="tech-card-media">
+          <img class="photo" src="{{ tech.image }}" alt="{{ tech.name }}" width="400" height="250" loading="lazy">
+        </div>
+        <h3>{{ tech.name }}</h3>
+        <p class="explain">{{ tech.shortExplain }}</p>
+        <p class="benefit">{{ tech.patientBenefit }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

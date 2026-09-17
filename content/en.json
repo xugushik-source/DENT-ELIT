@@ -1,0 +1,194 @@
+{
+  "htmlLang": "en",
+  "dir": "ltr",
+  "meta": { "titleSuffix": "ELIT DENT — Premium Dental Care" },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "doctors": "Doctors",
+    "technology": "Technology",
+    "about": "About",
+    "reviews": "Reviews",
+    "contact": "Contact",
+    "bookConsultation": "Book Consultation"
+  },
+  "common": {
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "learnMore": "Learn more",
+    "readMore": "Read more",
+    "viewAll": "View all",
+    "backTo": "Back to",
+    "close": "Close",
+    "menu": "Menu",
+    "language": "Language",
+    "priceNote": "Price after consultation",
+    "demoDataBadge": "Demo data"
+  },
+  "hero": {
+    "eyebrow": "Modern dentistry, personal care",
+    "headline": "Dentistry planned around you, not a routine",
+    "description": "Digital diagnostics, individually planned treatment, and a team that explains every step before it happens.",
+    "ctaPrimary": "Book Consultation",
+    "ctaSecondary": "Ask on WhatsApp",
+    "trustChips": ["Digital Dentistry", "3 Languages", "Personal Planning"]
+  },
+  "trust": {
+    "title": "Why patients choose ELIT DENT",
+    "items": {
+      "digitalDentistry": { "title": "Digital Dentistry", "desc": "3D diagnostics and intraoral scanning behind every treatment plan." },
+      "threeLanguages": { "title": "3 Languages", "desc": "Care and consultation in Armenian, Russian, and English." },
+      "advancedDiagnostics": { "title": "Advanced Diagnostics", "desc": "CBCT imaging and a dental operating microscope for precise cases." },
+      "personalPlanning": { "title": "Personal Treatment Planning", "desc": "A staged plan built for your case, explained before treatment starts." }
+    }
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "Care built around your case",
+    "description": "From routine prevention to advanced implant and aesthetic treatment, every service starts with a plan, not a guess.",
+    "ctaViewAll": "View all services"
+  },
+  "technology": {
+    "eyebrow": "Technology",
+    "title": "Precision behind every decision",
+    "description": "Digital tools we use so treatment planning is exact, not approximate."
+  },
+  "doctorSpotlight": {
+    "eyebrow": "Meet the doctor",
+    "title": "Planning comes before treatment",
+    "description": "Every case starts with a conversation and a clear plan, explained in your language.",
+    "ctaMeetTeam": "Meet the team"
+  },
+  "patientExperience": {
+    "eyebrow": "Your visit",
+    "title": "From your first hello to your treatment plan",
+    "description": "What to expect, step by step.",
+    "steps": {
+      "arrival": { "title": "Arrival", "desc": "A calm welcome and a short conversation about what brought you in." },
+      "consultation": { "title": "Consultation", "desc": "We listen first, then examine, then explain what we see." },
+      "diagnostics": { "title": "Diagnostics", "desc": "Digital imaging where needed, so nothing is left to guesswork." },
+      "treatment": { "title": "Treatment", "desc": "Carried out according to a plan you've already seen and understood." },
+      "followUp": { "title": "Follow-up", "desc": "We check in after treatment and stay reachable if you have questions." }
+    }
+  },
+  "team": {
+    "eyebrow": "Our team",
+    "title": "The people behind your care",
+    "description": "A team built around clear communication and digital-first planning."
+  },
+  "reviews": {
+    "eyebrow": "Patient reviews",
+    "title": "What patients say",
+    "description": "Real feedback matters more to us than a star rating.",
+    "demoNote": "Reviews below are demo placeholders pending verified patient feedback."
+  },
+  "finalCTA": {
+    "eyebrow": "Ready when you are",
+    "title": "Let's plan your treatment together",
+    "description": "Book a consultation, or reach us directly on WhatsApp — we'll answer in the language you're most comfortable in."
+  },
+  "footer": {
+    "servicesTitle": "Services",
+    "clinicTitle": "Clinic",
+    "contactTitle": "Contact",
+    "languagesTitle": "Languages",
+    "socialTitle": "Follow us",
+    "developedBy": "Website concept & development by",
+    "rights": "All rights reserved."
+  },
+  "booking": {
+    "title": "Book a Consultation",
+    "description": "Fill in a few details and we'll confirm your consultation over WhatsApp.",
+    "name": "Full name",
+    "phone": "Phone number",
+    "service": "Service of interest",
+    "servicePlaceholder": "Select a service",
+    "contactMethod": "Preferred contact method",
+    "contactMethodOptions": ["WhatsApp", "Phone call"],
+    "message": "Message (optional)",
+    "submit": "Send via WhatsApp",
+    "note": "Submitting opens WhatsApp with your details prefilled — nothing is sent automatically."
+  },
+  "whatsapp": {
+    "defaultMessage": "Hello! I saw the ELIT DENT website and would like to book a consultation.",
+    "serviceMessageTemplate": "Hello! I saw the ELIT DENT website. I'm interested in {service} and would like to learn more and book a consultation.",
+    "bookingMessageTemplate": "Hello! My name is {name}. I'd like to book a consultation{serviceClause}. Preferred contact: {contact}.{messageClause}",
+    "serviceClauseTemplate": " for {service}",
+    "messageClauseTemplate": " Note: {message}"
+  },
+  "servicesPage": {
+    "eyebrow": "All services",
+    "title": "Dental care, planned around your case",
+    "description": "Every treatment page walks through what it is, who it's for, and how we plan it — before you commit to anything."
+  },
+  "serviceDetail": {
+    "breadcrumbServices": "Services",
+    "aboutTitle": "About the treatment",
+    "whoTitle": "Who it's for",
+    "benefitsTitle": "Benefits",
+    "processTitle": "How we work",
+    "technologyTitle": "Technology used",
+    "doctorTitle": "Your doctor",
+    "pricingTitle": "Pricing",
+    "faqTitle": "Frequently asked questions",
+    "relatedTitle": "Related services",
+    "ctaTitle": "Ready to talk about your case?",
+    "ctaDescription": "Book a consultation or message us on WhatsApp — we'll walk you through the next step."
+  },
+  "doctorsPage": {
+    "eyebrow": "Our doctors",
+    "title": "The team behind your treatment plan",
+    "description": "Every doctor at ELIT DENT works from the same principle: diagnose first, plan clearly, explain everything."
+  },
+  "doctorDetail": {
+    "backToDoctors": "All doctors",
+    "expertiseTitle": "Focus areas",
+    "servicesTitle": "Services",
+    "languagesTitle": "Languages",
+    "ctaTitle": "Book a consultation",
+    "ctaDescription": "Ask to be seen by this doctor when you book — we'll confirm availability over WhatsApp."
+  },
+  "technologyPage": {
+    "eyebrow": "Technology",
+    "title": "The equipment behind precise treatment",
+    "description": "We explain not just what each tool does, but what it means for you as a patient."
+  },
+  "aboutPage": {
+    "eyebrow": "About ELIT DENT",
+    "title": "Dentistry built on planning, not routine",
+    "sections": {
+      "philosophy": { "title": "Our philosophy", "body": "We believe good dentistry starts before any instrument touches a tooth — with a clear diagnosis and a plan you actually understand." },
+      "patientApproach": { "title": "Our approach to patients", "body": "Every visit begins with listening. We explain findings in plain language, in the language you're most comfortable in, and never treat before you've agreed on the plan." },
+      "digitalDentistry": { "title": "Digital dentistry", "body": "3D imaging, intraoral scanning, and microscope-assisted treatment let us plan precisely and show you what to expect before we start." },
+      "team": { "title": "Our team", "body": "A focused group of specialists — implantology, orthodontics, aesthetic dentistry, general and family care — working from one shared standard of care." },
+      "clinicEnvironment": { "title": "The clinic", "body": "A calm, unhurried environment designed around patient comfort, from the waiting area to the treatment room." },
+      "technology": { "title": "Technology", "body": "See our full technology page for the diagnostic and treatment tools behind every plan." },
+      "patientExperience": { "title": "Your experience", "body": "From your first message to your follow-up visit, one team stays with you through the whole process." },
+      "cta": { "title": "Have a question before booking?", "body": "Reach out on WhatsApp or by phone — we're happy to answer before you commit to anything." }
+    }
+  },
+  "reviewsPage": {
+    "eyebrow": "Reviews",
+    "title": "Patient feedback",
+    "description": "We're building our verified review base. The entries below are demo placeholders, clearly marked, until real patient feedback is published."
+  },
+  "contactPage": {
+    "eyebrow": "Contact",
+    "title": "Let's talk about your case",
+    "description": "Call, message us on WhatsApp, or book a consultation directly — whichever is easiest for you.",
+    "phoneLabel": "Phone",
+    "whatsappLabel": "WhatsApp",
+    "hoursLabel": "Working hours",
+    "hoursValue": "To be confirmed",
+    "addressLabel": "Address",
+    "addressValue": "To be confirmed",
+    "mapNote": "Map will be added once the clinic address is confirmed.",
+    "formTitle": "Send us a message"
+  },
+  "mobileBar": { "call": "Call", "whatsapp": "WhatsApp", "book": "Book" },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has moved.",
+    "cta": "Back to homepage"
+  }
+}

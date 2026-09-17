@@ -1,0 +1,42 @@
+<div class="modal-backdrop" data-booking-modal aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+    <button type="button" class="modal-close" data-close-booking aria-label="{{ t.common.close }}">✕</button>
+    <h2 id="booking-title">{{ t.booking.title }}</h2>
+    <p class="text-muted">{{ t.booking.description }}</p>
+    <form data-booking-form
+          data-message-template="{{ t.whatsapp.bookingMessageTemplate }}"
+          data-service-clause="{{ t.whatsapp.serviceClauseTemplate }}"
+          data-message-clause="{{ t.whatsapp.messageClauseTemplate }}">
+      <div class="form-field">
+        <label for="booking-name">{{ t.booking.name }}</label>
+        <input type="text" id="booking-name" name="name" required>
+      </div>
+      <div class="form-field">
+        <label for="booking-phone">{{ t.booking.phone }}</label>
+        <input type="tel" id="booking-phone" name="phone" required>
+      </div>
+      <div class="form-field">
+        <label for="booking-service">{{ t.booking.service }}</label>
+        <select id="booking-service" name="service">
+          <option value="">{{ t.booking.servicePlaceholder }}</option>
+          {% for s in all_services %}
+          <option value="{{ s.title[lang] }}">{{ s.title[lang] }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="booking-contact">{{ t.booking.contactMethod }}</label>
+        <select id="booking-contact" name="contactMethod">
+          <option value="{{ t.booking.contactMethodOptions[0] }}">{{ t.booking.contactMethodOptions[0] }}</option>
+          <option value="{{ t.booking.contactMethodOptions[1] }}">{{ t.booking.contactMethodOptions[1] }}</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label for="booking-message">{{ t.booking.message }}</label>
+        <textarea id="booking-message" name="message"></textarea>
+      </div>
+      <button type="submit" class="btn btn-whatsapp btn-block">{{ t.booking.submit }}</button>
+      <p class="form-note">{{ t.booking.note }}</p>
+    </form>
+  </div>
+</div>

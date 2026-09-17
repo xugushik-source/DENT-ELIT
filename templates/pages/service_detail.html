@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-header">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      {% for b in breadcrumb %}
+        {% if not loop.last %}<a href="{{ b.href }}">{{ b.name }}</a><span class="sep">/</span>{% else %}<span>{{ b.name }}</span>{% endif %}
+      {% endfor %}
+    </nav>
+    <span class="eyebrow">{{ service.eyebrow }}</span>
+    <h1>{{ service.title }}</h1>
+    <p class="body-lg">{{ service.intro }}</p>
+    <div class="hero-actions">
+      <button type="button" class="btn btn-primary" data-open-booking data-service="{{ service.title }}">{{ t.hero.ctaPrimary }}</button>
+      <a class="btn btn-whatsapp" href="#" data-whatsapp-link data-whatsapp-message="{{ t.whatsapp.serviceMessageTemplate.replace('{service}', service.title) }}" target="_blank" rel="noopener">{{ t.hero.ctaSecondary }}</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="hero-media reveal" style="aspect-ratio:21/9;">
+      <img class="photo" src="{{ service.heroImage }}" alt="{{ service.title }}" width="1200" height="500" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container two-col">
+    <div class="reveal">
+      <h2>{{ t.serviceDetail.aboutTitle }}</h2>
+      <p class="body-lg">{{ service.aboutTreatment }}</p>
+    </div>
+    <div class="reveal">
+      <h2>{{ t.serviceDetail.whoTitle }}</h2>
+      <ul style="display:flex; flex-direction:column; gap:12px;">
+        {% for item in service.whoItIsFor %}
+        <li style="padding-left:20px; position:relative;">
+          <span style="position:absolute; left:0; color:var(--color-accent);">—</span>{{ item }}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container">
+    <h2 class="reveal">{{ t.serviceDetail.benefitsTitle }}</h2>
+    <div class="card-grid cols-3">
+      {% for b in service.benefits %}
+      <div class="trust-item reveal" data-reveal-group="benefits"><p style="margin:0;">{{ b }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="reveal">{{ t.serviceDetail.processTitle }}</h2>
+    <div class="process-list">
+      {% for step in process_steps %}
+      <div class="process-step reveal" data-reveal-group="process">
+        <span class="step-num">{{ step.step }}</span>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% if service.technologies %}
+<section class="section-alt">
+  <div class="container">
+    <h2 class="reveal">{{ t.serviceDetail.technologyTitle }}</h2>
+    <div class="card-grid cols-3">
+      {% for tech in service.technologies %}
+      <div class="tech-card reveal" data-reveal-group="tech">
+        <div class="tech-card-media"><img class="photo" src="{{ tech.image }}" alt="{{ tech.name }}" width="400" height="250" loading="lazy"></div>
+        <h3>{{ tech.name }}</h3>
+        <p class="explain">{{ tech.shortExplain }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if service.doctor %}
+<section>
+  <div class="container two-col">
+    <div class="reveal">
+      <div class="hero-media" style="aspect-ratio:4/5;">
+        <img class="photo" src="{{ service.doctor.photo }}" alt="{{ service.doctor.name }}" width="480" height="600" loading="lazy">
+      </div>
+    </div>
+    <div class="reveal">
+      <h2>{{ t.serviceDetail.doctorTitle }}</h2>
+      <h3 style="margin-top:0;">{{ service.doctor.name }}</h3>
+      <p class="text-muted">{{ service.doctor.role }}</p>
+      <a class="btn btn-outline" href="{{ service.doctor.href }}">{{ t.common.learnMore }}</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section-alt">
+  <div class="container" style="max-width: 640px;">
+    <h2 class="reveal">{{ t.serviceDetail.pricingTitle }}</h2>
+    <div class="pricing-row reveal">
+      <span>{{ service.title }}</span>
+      <strong>{{ service.priceNote }}</strong>
+    </div>
+  </div>
+</section>
+
+{% if service.faq %}
+<section>
+  <div class="container" style="max-width: 780px;">
+    <h2 class="reveal">{{ t.serviceDetail.faqTitle }}</h2>
+    <div>
+      {% for item in service.faq %}
+      <div class="faq-item reveal">
+        <button type="button" class="faq-question"><span>{{ item.q }}</span><span class="plus">+</span></button>
+        <div class="faq-answer"><div class="faq-answer-inner">{{ item.a }}</div></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if service.related %}
+<section class="section-alt">
+  <div class="container">
+    <h2 class="reveal">{{ t.serviceDetail.relatedTitle }}</h2>
+    <div class="related-strip">
+      {% for r in service.related %}
+      <a class="service-card reveal" href="{{ r.href }}">
+        <div class="service-card-media"><img class="photo" src="{{ r.cardImage }}" alt="{{ r.title }}" width="320" height="240" loading="lazy"></div>
+        <div class="service-card-body">
+          <h3>{{ r.title }}</h3>
+          <p>{{ r.shortCopy }}</p>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section>
+  <div class="container">
+    <div class="final-cta reveal">
+      <div class="final-cta-grid" style="grid-template-columns: 1fr;">
+        <div>
+          <h2>{{ t.serviceDetail.ctaTitle }}</h2>
+          <p>{{ t.serviceDetail.ctaDescription }}</p>
+          <div class="final-cta-actions">
+            <button type="button" class="btn btn-primary" style="background: var(--color-accent); color: var(--color-text);" data-open-booking data-service="{{ service.title }}">{{ t.hero.ctaPrimary }}</button>
+            <a class="btn btn-outline" href="{{ site.contact.phoneUri }}">{{ site.contact.phone }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

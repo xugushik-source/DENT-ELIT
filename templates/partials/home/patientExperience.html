@@ -1,0 +1,17 @@
+<section>
+  <div class="container">
+    <div class="section-head centered reveal">
+      <span class="eyebrow">{{ t.patientExperience.eyebrow }}</span>
+      <h2>{{ t.patientExperience.title }}</h2>
+      <p class="body-lg">{{ t.patientExperience.description }}</p>
+    </div>
+    <div class="experience-list">
+      {% for key in ['arrival','consultation','diagnostics','treatment','followUp'] %}
+      <div class="experience-step reveal" data-reveal-group="experience">
+        <h3>{{ t.patientExperience.steps[key].title }}</h3>
+        <p>{{ t.patientExperience.steps[key].desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

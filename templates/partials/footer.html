@@ -1,0 +1,48 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">{{ site.brand.clinicName }}</div>
+        <p class="footer-tagline">{{ site.brand.tagline[lang] }}</p>
+      </div>
+      <div class="footer-col">
+        <h4>{{ t.footer.servicesTitle }}</h4>
+        <ul>
+          {% for s in footer_services %}
+          <li><a href="{{ s.href }}">{{ s.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>{{ t.footer.clinicTitle }}</h4>
+        <ul>
+          <li><a href="{{ lang_prefix }}/about/">{{ t.nav.about }}</a></li>
+          <li><a href="{{ lang_prefix }}/doctors/">{{ t.nav.doctors }}</a></li>
+          <li><a href="{{ lang_prefix }}/technology/">{{ t.nav.technology }}</a></li>
+          <li><a href="{{ lang_prefix }}/reviews/">{{ t.nav.reviews }}</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>{{ t.footer.contactTitle }}</h4>
+        <ul>
+          <li><a href="{{ site.contact.phoneUri }}">{{ site.contact.phone }}</a></li>
+          <li><a href="{{ site.contact.whatsappUri }}" target="_blank" rel="noopener">{{ t.common.whatsapp }}</a></li>
+          <li><a href="{{ lang_prefix }}/contact/">{{ t.nav.contact }}</a></li>
+        </ul>
+        {% if site.contact.socials.instagram or site.contact.socials.facebook or site.contact.socials.tiktok or site.contact.socials.youtube %}
+        <h4 style="margin-top:24px;">{{ t.footer.socialTitle }}</h4>
+        <ul>
+          {% if site.contact.socials.instagram %}<li><a href="{{ site.contact.socials.instagram }}" target="_blank" rel="noopener">Instagram</a></li>{% endif %}
+          {% if site.contact.socials.facebook %}<li><a href="{{ site.contact.socials.facebook }}" target="_blank" rel="noopener">Facebook</a></li>{% endif %}
+          {% if site.contact.socials.tiktok %}<li><a href="{{ site.contact.socials.tiktok }}" target="_blank" rel="noopener">TikTok</a></li>{% endif %}
+          {% if site.contact.socials.youtube %}<li><a href="{{ site.contact.socials.youtube }}" target="_blank" rel="noopener">YouTube</a></li>{% endif %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© {{ current_year }} {{ site.brand.clinicName }}. {{ t.footer.rights }}</div>
+      <div>{{ t.footer.developedBy }} <span class="footer-developer">{{ site.brand.developer }}</span></div>
+    </div>
+  </div>
+</footer>
