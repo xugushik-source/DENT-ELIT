@@ -14,7 +14,7 @@ small Python build script. No Node, no framework, no client-side build step —
 ## Build
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 python3 build.py
 ```
 
