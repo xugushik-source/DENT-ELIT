@@ -5,13 +5,22 @@ for a different ORDER PROFIT client or vertical.
 
 ## Infra workflow — read before touching git remotes or hosting
 
-**Never create a GitHub repository, Vercel project, or any other piece of
-infrastructure on your own initiative for this line of work.** The client/agency
-(the user) creates every repository manually and hands it to you — adds it to the
-session, gives you a clone URL, whatever the mechanism. Your job starts once you have
-a repo in hand: build into it and push. You do not provision the container yourself,
-ever, even if it would be faster to just create one. If you don't have a repo yet,
-say so and wait — don't improvise one.
+**GitHub: never create a repository yourself.** The user creates every repository
+manually and hands it to you — adds it to the session, gives you a clone URL,
+whatever the mechanism. Your job starts once you have a repo in hand: build into it
+and push. If you don't have a repo yet, say so and wait — don't improvise one.
+GitHub is where everything ultimately lives; it's the deliverable/source of truth.
+
+**Vercel: this is yours to create and manage.** Set up the Vercel project, connect it
+to the GitHub repo, and verify deployments through the Vercel MCP tools — this is
+normal, expected, do it without being asked each time. This preview/demo deployment
+(the `*.vercel.app` URL) is for review, not the final client handoff.
+
+**Real hosting + a real domain for the actual end client is a separate, later,
+conditional step** — it only happens if/when the client requests it. At that point
+the site gets pulled out, put on whatever hosting was agreed, pointed at the client's
+real domain, and handed over. Don't conflate that handoff with the Vercel preview
+deployment, and don't set it up preemptively.
 
 This is a standing rule for the whole ORDER PROFIT line of work, not just ELIT DENT.
 
