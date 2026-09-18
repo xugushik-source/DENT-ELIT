@@ -21,7 +21,7 @@
         <select id="booking-service" name="service">
           <option value="">{{ t.booking.servicePlaceholder }}</option>
           {% for s in all_services %}
-          <option value="{{ s.title[lang] }}">{{ s.title[lang] }}</option>
+          <option value="{{ s.title }}">{{ s.title }}</option>
           {% endfor %}
         </select>
       </div>

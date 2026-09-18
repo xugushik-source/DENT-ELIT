@@ -26,6 +26,30 @@
 </head>
 <body data-whatsapp-number="995579145634" class="has-bottom-bar">
 
+<div class="intro-splash" id="introSplash" aria-hidden="true">
+  <img src="/brand/logo-splash.jpg" alt="ELIT DENT" class="intro-splash-logo">
+</div>
+<script>
+(function () {
+  var SESSION_KEY = 'elitdentSplashShown';
+  var alreadyShown = true;
+  try { alreadyShown = sessionStorage.getItem(SESSION_KEY) === '1'; } catch (e) {}
+  var el = document.getElementById('introSplash');
+  if (alreadyShown || !el) {
+    if (el) el.remove();
+  } else {
+    try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
+    el.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () {
+      el.classList.add('is-hiding');
+      document.body.style.overflow = '';
+      setTimeout(function () { el.remove(); }, 700);
+    }, 1500);
+  }
+})();
+</script>
+
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="/en/">
@@ -209,18 +233,18 @@
         <label for="booking-service">Service of interest</label>
         <select id="booking-service" name="service">
           <option value="">Select a service</option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
+          <option value="Dental Implants">Dental Implants</option>
+          <option value="Aesthetic Dentistry">Aesthetic Dentistry</option>
+          <option value="Orthodontics &amp; Bite Correction">Orthodontics &amp; Bite Correction</option>
+          <option value="Crowns &amp; Prosthetics">Crowns &amp; Prosthetics</option>
+          <option value="Professional Cleaning">Professional Cleaning</option>
+          <option value="Root Canal Treatment">Root Canal Treatment</option>
+          <option value="General Dentistry">General Dentistry</option>
+          <option value="Periodontology">Periodontology</option>
+          <option value="Oral Surgery">Oral Surgery</option>
+          <option value="Digital Diagnostics">Digital Diagnostics</option>
+          <option value="Family Dentistry">Family Dentistry</option>
+          <option value="Teeth Whitening">Teeth Whitening</option>
         </select>
       </div>
       <div class="form-field">

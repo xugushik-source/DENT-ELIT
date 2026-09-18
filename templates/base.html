@@ -30,6 +30,30 @@
 </head>
 <body data-whatsapp-number="{{ site.contact.whatsappNumber }}" class="has-bottom-bar">
 
+<div class="intro-splash" id="introSplash" aria-hidden="true">
+  <img src="{{ asset_prefix }}/brand/logo-splash.jpg" alt="{{ site.brand.clinicName }}" class="intro-splash-logo">
+</div>
+<script>
+(function () {
+  var SESSION_KEY = 'elitdentSplashShown';
+  var alreadyShown = true;
+  try { alreadyShown = sessionStorage.getItem(SESSION_KEY) === '1'; } catch (e) {}
+  var el = document.getElementById('introSplash');
+  if (alreadyShown || !el) {
+    if (el) el.remove();
+  } else {
+    try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
+    el.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () {
+      el.classList.add('is-hiding');
+      document.body.style.overflow = '';
+      setTimeout(function () { el.remove(); }, 700);
+    }, 1500);
+  }
+})();
+</script>
+
 {% include "partials/header.html" %}
 {% include "partials/mobile_nav.html" %}
 

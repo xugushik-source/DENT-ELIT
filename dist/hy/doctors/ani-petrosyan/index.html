@@ -27,6 +27,30 @@
 </head>
 <body data-whatsapp-number="995579145634" class="has-bottom-bar">
 
+<div class="intro-splash" id="introSplash" aria-hidden="true">
+  <img src="/brand/logo-splash.jpg" alt="ELIT DENT" class="intro-splash-logo">
+</div>
+<script>
+(function () {
+  var SESSION_KEY = 'elitdentSplashShown';
+  var alreadyShown = true;
+  try { alreadyShown = sessionStorage.getItem(SESSION_KEY) === '1'; } catch (e) {}
+  var el = document.getElementById('introSplash');
+  if (alreadyShown || !el) {
+    if (el) el.remove();
+  } else {
+    try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
+    el.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () {
+      el.classList.add('is-hiding');
+      document.body.style.overflow = '';
+      setTimeout(function () { el.remove(); }, 700);
+    }, 1500);
+  }
+})();
+</script>
+
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="/hy/">
@@ -208,18 +232,18 @@
         <label for="booking-service">Հետաքրքրող ծառայություն</label>
         <select id="booking-service" name="service">
           <option value="">Ընտրեք ծառայությունը</option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
+          <option value="Ատամների իմպլանտացիա">Ատամների իմպլանտացիա</option>
+          <option value="Էսթետիկ ստոմատոլոգիա">Էսթետիկ ստոմատոլոգիա</option>
+          <option value="Օրթոդոնտիա և կծվածքի շտկում">Օրթոդոնտիա և կծվածքի շտկում</option>
+          <option value="Պսակներ և պրոթեզավորում">Պսակներ և պրոթեզավորում</option>
+          <option value="Պրոֆեսիոնալ մաքրում">Պրոֆեսիոնալ մաքրում</option>
+          <option value="Արմատային ջրանցքների բուժում">Արմատային ջրանցքների բուժում</option>
+          <option value="Ընդհանուր ստոմատոլոգիա">Ընդհանուր ստոմատոլոգիա</option>
+          <option value="Լնդերի բուժում">Լնդերի բուժում</option>
+          <option value="Բերանի խոռոչի վիրաբուժություն">Բերանի խոռոչի վիրաբուժություն</option>
+          <option value="Թվային ախտորոշում">Թվային ախտորոշում</option>
+          <option value="Ընտանեկան ստոմատոլոգիա">Ընտանեկան ստոմատոլոգիա</option>
+          <option value="Ատամների սպիտակեցում">Ատամների սպիտակեցում</option>
         </select>
       </div>
       <div class="form-field">

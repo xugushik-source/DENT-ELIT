@@ -27,6 +27,30 @@
 </head>
 <body data-whatsapp-number="995579145634" class="has-bottom-bar">
 
+<div class="intro-splash" id="introSplash" aria-hidden="true">
+  <img src="/brand/logo-splash.jpg" alt="ELIT DENT" class="intro-splash-logo">
+</div>
+<script>
+(function () {
+  var SESSION_KEY = 'elitdentSplashShown';
+  var alreadyShown = true;
+  try { alreadyShown = sessionStorage.getItem(SESSION_KEY) === '1'; } catch (e) {}
+  var el = document.getElementById('introSplash');
+  if (alreadyShown || !el) {
+    if (el) el.remove();
+  } else {
+    try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
+    el.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () {
+      el.classList.add('is-hiding');
+      document.body.style.overflow = '';
+      setTimeout(function () { el.remove(); }, 700);
+    }, 1500);
+  }
+})();
+</script>
+
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="/ru/">
@@ -205,18 +229,18 @@
         <label for="booking-service">Интересующая услуга</label>
         <select id="booking-service" name="service">
           <option value="">Выберите услугу</option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
+          <option value="Имплантация зубов">Имплантация зубов</option>
+          <option value="Эстетическая стоматология">Эстетическая стоматология</option>
+          <option value="Ортодонтия и коррекция прикуса">Ортодонтия и коррекция прикуса</option>
+          <option value="Коронки и протезирование">Коронки и протезирование</option>
+          <option value="Профессиональная чистка">Профессиональная чистка</option>
+          <option value="Лечение корневых каналов">Лечение корневых каналов</option>
+          <option value="Общая стоматология">Общая стоматология</option>
+          <option value="Лечение дёсен">Лечение дёсен</option>
+          <option value="Хирургическая стоматология">Хирургическая стоматология</option>
+          <option value="Цифровая диагностика">Цифровая диагностика</option>
+          <option value="Семейная стоматология">Семейная стоматология</option>
+          <option value="Отбеливание зубов">Отбеливание зубов</option>
         </select>
       </div>
       <div class="form-field">
