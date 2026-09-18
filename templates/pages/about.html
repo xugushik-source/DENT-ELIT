@@ -2,8 +2,16 @@
 {% block content %}
 <section class="page-header">
   <div class="container">
-    <span class="eyebrow">{{ t.aboutPage.eyebrow }}</span>
+    <span class="eyebrow">{{ t.aboutPage.eyebrow }} · {{ site.brand.foundedYear }}</span>
     <h1>{{ t.aboutPage.title }}</h1>
+    <div class="stats-row" style="border-top:none; padding-top:0; margin-top:32px;">
+      {% for stat in site.stats %}
+      <div class="stats-item reveal" data-reveal-group="about-stats">
+        <span class="stats-value">{{ stat.value }}</span>
+        <span class="stats-label">{{ t.trust.stats[stat.key] }}</span>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
@@ -42,7 +50,7 @@
     <p class="body-lg reveal">{{ t.aboutPage.sections.cta.body }}</p>
     <div class="hero-actions" style="justify-content:center;">
       <button type="button" class="btn btn-primary" data-open-booking>{{ t.hero.ctaPrimary }}</button>
-      <a class="btn btn-whatsapp" href="#" data-whatsapp-link data-whatsapp-message="{{ whatsapp_default_message }}" target="_blank" rel="noopener">{{ t.hero.ctaSecondary }}</a>
+      <a class="btn btn-whatsapp" href="{{ wa_url(whatsapp_default_message) }}" target="_blank" rel="noopener">{{ t.hero.ctaSecondary }}</a>
     </div>
   </div>
 </section>

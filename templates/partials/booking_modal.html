@@ -6,14 +6,15 @@
     <form data-booking-form
           data-message-template="{{ t.whatsapp.bookingMessageTemplate }}"
           data-service-clause="{{ t.whatsapp.serviceClauseTemplate }}"
+          data-doctor-clause="{{ t.whatsapp.doctorClauseTemplate }}"
           data-message-clause="{{ t.whatsapp.messageClauseTemplate }}">
       <div class="form-field">
         <label for="booking-name">{{ t.booking.name }}</label>
-        <input type="text" id="booking-name" name="name" required>
+        <input type="text" id="booking-name" name="name" autocomplete="name" required>
       </div>
       <div class="form-field">
         <label for="booking-phone">{{ t.booking.phone }}</label>
-        <input type="tel" id="booking-phone" name="phone" required>
+        <input type="tel" id="booking-phone" name="phone" autocomplete="tel" inputmode="tel" required>
       </div>
       <div class="form-field">
         <label for="booking-service">{{ t.booking.service }}</label>

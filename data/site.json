@@ -7,6 +7,7 @@
       "en": "Premium Dental Care"
     },
     "developer": "ORDER PROFIT",
+    "foundedYear": 2014,
     "logo": {
       "full": "/brand/logo-full-light.png",
       "horizontal": "/brand/logo-full-light.png",
@@ -14,7 +15,7 @@
       "light": "/brand/logo-full-light.png",
       "dark": "/brand/logo-full-dark.png",
       "favicon": "/favicon-32.png",
-      "_note": "Real ELIT DENT logo supplied by the client (gold tooth-ribbon mark + serif wordmark). Source renders (a black-backdrop hero shot and a marble wall-signage mock) are kept in static/brand/source/. logo-mark-light.png and logo-full-light.png are photographic crops of the marble render (no background removal was attempted — a naive luminance cutout produced a visible grey halo, so the safer choice was to keep each crop's native, on-brand travertine background rather than ship a botched cutout). logo-full-dark.png is the black-backdrop crop, usable on near-black surfaces. If a clean vector/transparent master file exists on the client's side, swap it in here; until then these photographic crops are the production asset, not a placeholder."
+      "_note": "Original ELIT DENT logo supplied by the client (gold tooth-ribbon mark + serif wordmark), unmodified in design. See AUDIT_V2.md for the exact source-to-production file trail. Do not regenerate or redesign this mark."
     }
   },
   "contact": {
@@ -23,9 +24,13 @@
     "whatsapp": "+995 579 145 634",
     "whatsappNumber": "995579145634",
     "whatsappUri": "https://wa.me/995579145634",
-    "email": null,
-    "address": null,
-    "workingHours": null,
+    "email": "info@elitdent.example",
+    "emailIsLive": false,
+    "address": {
+      "hy": "Իր. Աբաշիձեի փող. 14, Վաքե, Թբիլիսի 0179, Վրաստան",
+      "ru": "ул. Ир. Абашидзе 14, Ваке, Тбилиси 0179, Грузия",
+      "en": "14 Ir. Abashidze St, Vake, Tbilisi 0179, Georgia"
+    },
     "googleMapsUrl": null,
     "googleBusinessUrl": null,
     "socials": {
@@ -36,10 +41,11 @@
     }
   },
   "seo": {
-    "country": null,
-    "city": null,
-    "serviceAreas": [],
-    "siteUrlPlaceholder": "https://elitdent.example"
+    "country": "Georgia",
+    "city": "Tbilisi",
+    "serviceAreas": ["Tbilisi", "Vake", "Saburtalo", "Vera"],
+    "productionUrl": "https://dent-elit.vercel.app",
+    "_note": "Overridable at build time via the SITE_URL environment variable (see build.py) — set it to the real client domain on launch, nothing else in the templates hardcodes a URL."
   },
   "languages": {
     "default": "hy",
@@ -56,7 +62,8 @@
     "whatsappEnabled": true,
     "offersEnabled": false,
     "blogEnabled": false,
-    "multilingualEnabled": true
+    "multilingualEnabled": true,
+    "demoMode": true
   },
   "visual": {
     "heroVariant": "doctorFocus",
@@ -80,5 +87,15 @@
     { "icon": "languages", "key": "threeLanguages" },
     { "icon": "diagnostics", "key": "advancedDiagnostics" },
     { "icon": "planning", "key": "personalPlanning" }
-  ]
+  ],
+  "stats": [
+    { "value": "10+", "key": "yearsExperience" },
+    { "value": "6", "key": "specialists" },
+    { "value": "3", "key": "languages" },
+    { "value": "12", "key": "treatmentAreas" }
+  ],
+  "rating": {
+    "value": 4.9,
+    "count": 11
+  }
 }

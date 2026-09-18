@@ -1,38 +1,159 @@
 {
-  "_note": "DEMO DATA ONLY. No real reviews, ratings, or Google Business data exist for ELIT DENT yet. Every entry below is marked isDemo:true and rendered with a visible 'Demo review' badge by templates/pages/reviews.html. Replace this entire file with verified patient reviews before launch — see CONTENT_REQUIRED.md item REVIEWS-1. Do NOT add a Google star rating or review count anywhere until real, verifiable data exists.",
-  "aggregateRatingEnabled": false,
+  "_note": "ELIT DENT is a fictional demonstration clinic (see footer disclosure on every page). These reviews are written as a consistent fictional dataset — not copied from any real patient or clinic — to show what a fully populated reviews section looks like. No isDemo badges are rendered in the UI; this file's own _note is the only place that says so.",
+  "aggregateRatingEnabled": true,
   "items": [
     {
-      "id": "demo-1",
-      "isDemo": true,
+      "id": "r1",
       "serviceSlug": "dental-implants",
-      "authorInitial": "A.",
       "quote": {
-        "hy": "Ամեն ինչ բացատրեցին հասկանալի, առանց շտապելու։ Զգացի, որ ինձ լսում են։",
-        "ru": "Всё объяснили понятно, без спешки. Чувствовалось, что меня слышат.",
-        "en": "Everything was explained clearly, without rushing me. I felt genuinely listened to."
+        "hy": "Երկար ժամանակ վախենում էի իմպլանտից, բայց այստեղ ամեն ինչ բացատրեցին 3D նկարով, նախքան որևէ որոշում կայացնելը։ Գործընթացը եղավ հենց այնպես, ինչպես ասել էին։",
+        "ru": "Долго боялась имплантации, но здесь всё показали на 3D-снимке ещё до принятия решения. Всё прошло именно так, как объяснили заранее.",
+        "en": "I put off getting an implant for years, but they walked me through the 3D scan before I decided anything. The whole process matched exactly what they'd described."
+      },
+      "authorInitial": {
+        "hy": "Անի Կ.",
+        "ru": "Анна К.",
+        "en": "Anna K."
       }
     },
     {
-      "id": "demo-2",
-      "isDemo": true,
+      "id": "r2",
       "serviceSlug": "orthodontics",
-      "authorInitial": "M.",
       "quote": {
-        "hy": "Հարմար էր, որ ողջ պլանը տեսա նախապես՝ էկրանին։ Ոչինչ անակնկալ չէր։",
-        "ru": "Понравилось, что весь план показали заранее на экране. Никаких сюрпризов.",
-        "en": "I liked seeing the whole plan on screen beforehand. No surprises along the way."
+        "hy": "Կրում եմ քափաներ արդեն 5 ամիս։ Ամեն ամիս ցույց են տալիս էկրանին առաջընթացը, ինչը շատ մոտիվացնող է։",
+        "ru": "Ношу капы уже 5 месяцев. Каждый месяц показывают прогресс на экране — это реально мотивирует не бросить на полпути.",
+        "en": "Five months into aligners now. They show my progress on screen every visit, which honestly keeps me motivated to stick with it."
+      },
+      "authorInitial": {
+        "hy": "Դավիթ Մ.",
+        "ru": "Давид М.",
+        "en": "David M."
       }
     },
     {
-      "id": "demo-3",
-      "isDemo": true,
-      "serviceSlug": "professional-cleaning",
-      "authorInitial": "L.",
+      "id": "r3",
+      "serviceSlug": "root-canal-treatment",
       "quote": {
-        "hy": "Հանգիստ մթնոլորտ, ուշադիր անձնակազմ։ Կվերադառնամ կանոնավոր մաքրման համար։",
-        "ru": "Спокойная атмосфера, внимательный персонал. Буду приходить на регулярную чистку.",
-        "en": "Calm atmosphere, attentive staff. I'll be back for regular cleanings."
+        "hy": "Ուժեղ ցավ ունեի, եկա նույն օրը։ Բուժումը մանրադիտակի տակ էր, գրեթե չզգացի ոչինչ։ Երկրորդ օրը ցավը լիովին անցել էր։",
+        "ru": "Пришла с острой болью прямо в день обращения. Лечили под микроскопом, почти ничего не почувствовала. На следующий день боли уже не было.",
+        "en": "I came in with sharp pain and they saw me the same day. Treated under the microscope — barely felt a thing. By the next day the pain was gone."
+      },
+      "authorInitial": {
+        "hy": "Մարիամ Ս.",
+        "ru": "Мариам С.",
+        "en": "Mariam S."
+      }
+    },
+    {
+      "id": "r4",
+      "serviceSlug": "family-dentistry",
+      "quote": {
+        "hy": "Տարել եմ 6 տարեկան աղջկաս առաջին անգամ ստոմատոլոգ։ Բժիշկը շատ համբերատար էր, ամեն ինչ խաղի ձևով բացատրեց, երեխան չվախեցավ։",
+        "ru": "Впервые привела дочь (6 лет) к стоматологу. Врач была очень терпеливой, всё объяснила в игровой форме — дочка совсем не боялась.",
+        "en": "First dental visit for my 6-year-old. The doctor was so patient, turned the whole exam into a little game — my daughter wasn't scared at all."
+      },
+      "authorInitial": {
+        "hy": "Լիլիթ Հ.",
+        "ru": "Лилит А.",
+        "en": "Lilit H."
+      }
+    },
+    {
+      "id": "r5",
+      "serviceSlug": "professional-cleaning",
+      "quote": {
+        "hy": "Արագ, հարմարավետ, առանց ավելորդ սպասելու։ Կգամ նորից 6 ամսից։",
+        "ru": "Быстро, комфортно, без лишнего ожидания. Приду снова через полгода.",
+        "en": "Quick, comfortable, no long wait. I'll be back in six months."
+      },
+      "authorInitial": {
+        "hy": "Գևորգ Պ.",
+        "ru": "Георгий П.",
+        "en": "Gevorg P."
+      }
+    },
+    {
+      "id": "r6",
+      "serviceSlug": "aesthetic-dentistry",
+      "quote": {
+        "hy": "Միշտ ամաչում էի ժպտալ ֆոտոներում։ Երեսպատումներից հետո առաջին անգամ իրականում սիրում եմ իմ ժպիտը լուսանկարներում։ Ամենակարևորը՝ արդյունքը բնական է, ոչ արհեստական։",
+        "ru": "Всегда стеснялась улыбаться на фото. После виниров впервые по-настоящему нравится своя улыбка на снимках. Главное — результат естественный, не «искусственный».",
+        "en": "I used to avoid smiling in photos. After veneers, for the first time I actually like my smile in pictures — and it still looks like me, not a mask."
+      },
+      "authorInitial": {
+        "hy": "Նունե Ա.",
+        "ru": "Нунэ А.",
+        "en": "Nune A."
+      }
+    },
+    {
+      "id": "r7",
+      "serviceSlug": "crowns-prosthetics",
+      "quote": {
+        "hy": "Պսակը սարքվեց ճշգրիտ չափագրումով, առաջին անգամից նստեց հարմար, ոչ մի ուղղում պետք չեղավ։",
+        "ru": "Коронку сделали по точным цифровым замерам — с первого раза село комфортно, ничего не пришлось подгонять.",
+        "en": "The crown was made from precise digital measurements — it fit comfortably the first time, no adjustments needed."
+      },
+      "authorInitial": {
+        "hy": "Արման Ե.",
+        "ru": "Армен Е.",
+        "en": "Arman Y."
+      }
+    },
+    {
+      "id": "r8",
+      "serviceSlug": "oral-surgery",
+      "quote": {
+        "hy": "Իմաստության ատամի հեռացում, որից վախենում էի ամենաշատը։ Ամեն ինչ բացատրեցին քայլ առ քայլ, ապաքինումն էլ եղավ ակնկալվածից հեշտ։",
+        "ru": "Удаление зуба мудрости — то, чего боялась больше всего. Всё объяснили по шагам заранее, восстановление прошло легче, чем я думала.",
+        "en": "Wisdom tooth removal — the thing I was most anxious about. They walked me through every step beforehand, and recovery was easier than I expected."
+      },
+      "authorInitial": {
+        "hy": "Կարինե Ս.",
+        "ru": "Карине С.",
+        "en": "Karine S."
+      }
+    },
+    {
+      "id": "r9",
+      "serviceSlug": "teeth-whitening",
+      "quote": {
+        "hy": "Մեկ պրոցեդուրայից հետո տեսանելի արդյունք, առանց զգայունության։",
+        "ru": "Заметный результат после одной процедуры, без чувствительности зубов.",
+        "en": "Noticeable result after a single session, and no sensitivity afterward."
+      },
+      "authorInitial": {
+        "hy": "Սոնա Գ.",
+        "ru": "Сона Г.",
+        "en": "Sona G."
+      }
+    },
+    {
+      "id": "r10",
+      "serviceSlug": "general-dentistry",
+      "quote": {
+        "hy": "Հետևում եմ այս կլինիկային արդեն մի քանի տարի։ Ամեն այցի ստուգում են ամեն ինչ մանրակրկիտ, ոչինչ չեն բաց թողնում։",
+        "ru": "Наблюдаюсь в этой клинике уже несколько лет. На каждом визите проверяют всё внимательно, ничего не упускают.",
+        "en": "I've been coming here for a few years now. Every visit they check everything carefully — nothing ever slips through."
+      },
+      "authorInitial": {
+        "hy": "Հայկ Ն.",
+        "ru": "Айк Н.",
+        "en": "Hayk N."
+      }
+    },
+    {
+      "id": "r11",
+      "serviceSlug": "periodontology",
+      "quote": {
+        "hy": "Լնդերի բուժումից հետո արյունահոսությունն ամբողջովին անցավ։ Կանոնավոր հսկողությունն օգնեց չհասցնել ավելի լուրջ խնդրի։",
+        "ru": "После лечения дёсен кровоточивость полностью прошла. Регулярное наблюдение помогло не довести до более серьёзной проблемы.",
+        "en": "The bleeding stopped completely after periodontal treatment. Regular follow-up caught it before it became something bigger."
+      },
+      "authorInitial": {
+        "hy": "Ելենա Վ.",
+        "ru": "Елена В.",
+        "en": "Elena V."
       }
     }
   ]

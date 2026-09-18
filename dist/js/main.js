@@ -2,6 +2,28 @@
   'use strict';
 
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var lastFocusedEl = null;
+
+  function getFocusable(container) {
+    return Array.prototype.slice.call(
+      container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')
+    ).filter(function (el) { return el.offsetParent !== null; });
+  }
+
+  function trapFocus(container, e) {
+    if (e.key !== 'Tab') return;
+    var focusable = getFocusable(container);
+    if (!focusable.length) return;
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
 
   /* ---------------- Header scroll state ---------------- */
   var header = document.querySelector('.site-header');
@@ -20,15 +42,21 @@
 
   function openNav() {
     if (!overlay) return;
+    lastFocusedEl = document.activeElement;
     overlay.classList.add('is-open');
     document.body.style.overflow = 'hidden';
     overlay.setAttribute('aria-hidden', 'false');
+    hamburger && hamburger.setAttribute('aria-expanded', 'true');
+    var focusable = getFocusable(overlay);
+    if (focusable.length) focusable[0].focus();
   }
   function closeNav() {
-    if (!overlay) return;
+    if (!overlay || !overlay.classList.contains('is-open')) return;
     overlay.classList.remove('is-open');
     document.body.style.overflow = '';
     overlay.setAttribute('aria-hidden', 'true');
+    hamburger && hamburger.setAttribute('aria-expanded', 'false');
+    if (lastFocusedEl) lastFocusedEl.focus();
   }
   if (hamburger) hamburger.addEventListener('click', openNav);
   if (navClose) navClose.addEventListener('click', closeNav);
@@ -36,6 +64,7 @@
     overlay.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', closeNav);
     });
+    overlay.addEventListener('keydown', function (e) { trapFocus(overlay, e); });
   }
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
@@ -100,44 +129,52 @@
     }
   }
 
-  /* ---------------- WhatsApp deep links ---------------- */
+  /* ---------------- WhatsApp deep links ----------------
+     Static links are rendered server-side (see wa_url() in build.py) — only
+     the booking form still needs to build one at submit time, from the
+     values the visitor just typed. */
   var body = document.body;
   var waNumber = body.getAttribute('data-whatsapp-number');
-  var waDefaultMessage = body.getAttribute('data-whatsapp-default') || '';
 
   function buildWhatsappUrl(message) {
     return 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(message);
   }
-
-  document.querySelectorAll('[data-whatsapp-link]').forEach(function (el) {
-    var message = el.getAttribute('data-whatsapp-message') || waDefaultMessage;
-    el.setAttribute('href', buildWhatsappUrl(message));
-  });
 
   /* ---------------- Booking modal ---------------- */
   var modalBackdrop = document.querySelector('[data-booking-modal]');
   var modalOpenTriggers = document.querySelectorAll('[data-open-booking]');
   var modalCloseTriggers = document.querySelectorAll('[data-close-booking]');
   var bookingForm = document.querySelector('[data-booking-form]');
+  var modalPanel = modalBackdrop ? modalBackdrop.querySelector('.modal-panel') : null;
+  var presetDoctor = '';
 
-  function openModal(presetService) {
+  function openModal(presetService, presetDoctorName) {
     if (!modalBackdrop) return;
+    lastFocusedEl = document.activeElement;
+    presetDoctor = presetDoctorName || '';
     modalBackdrop.classList.add('is-open');
+    modalBackdrop.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     if (presetService && bookingForm) {
       var select = bookingForm.querySelector('[name="service"]');
       if (select) select.value = presetService;
     }
+    if (bookingForm) {
+      var nameInput = bookingForm.querySelector('[name="name"]');
+      if (nameInput) nameInput.focus();
+    }
   }
   function closeModal() {
-    if (!modalBackdrop) return;
+    if (!modalBackdrop || !modalBackdrop.classList.contains('is-open')) return;
     modalBackdrop.classList.remove('is-open');
+    modalBackdrop.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    if (lastFocusedEl) lastFocusedEl.focus();
   }
   modalOpenTriggers.forEach(function (el) {
     el.addEventListener('click', function (e) {
       e.preventDefault();
-      openModal(el.getAttribute('data-service'));
+      openModal(el.getAttribute('data-service'), el.getAttribute('data-doctor'));
     });
   });
   modalCloseTriggers.forEach(function (el) { el.addEventListener('click', closeModal); });
@@ -146,27 +183,35 @@
       if (e.target === modalBackdrop) closeModal();
     });
   }
+  if (modalPanel) {
+    modalPanel.addEventListener('keydown', function (e) { trapFocus(modalPanel, e); });
+  }
 
   if (bookingForm) {
     var tmpl = bookingForm.getAttribute('data-message-template') || '';
     bookingForm.addEventListener('submit', function (e) {
       e.preventDefault();
       var name = bookingForm.querySelector('[name="name"]').value.trim();
+      var phone = bookingForm.querySelector('[name="phone"]').value.trim();
       var service = bookingForm.querySelector('[name="service"]').value;
       var contact = bookingForm.querySelector('[name="contactMethod"]').value;
       var msg = bookingForm.querySelector('[name="message"]').value.trim();
 
       var serviceClause = service ? bookingForm.getAttribute('data-service-clause').replace('{service}', service) : '';
+      var doctorClause = presetDoctor ? bookingForm.getAttribute('data-doctor-clause').replace('{doctor}', presetDoctor) : '';
       var messageClause = msg ? bookingForm.getAttribute('data-message-clause').replace('{message}', msg) : '';
 
       var finalMessage = tmpl
         .replace('{name}', name || '—')
+        .replace('{phone}', phone || '—')
+        .replace('{doctorClause}', doctorClause)
         .replace('{serviceClause}', serviceClause)
         .replace('{contact}', contact)
         .replace('{messageClause}', messageClause);
 
       window.open(buildWhatsappUrl(finalMessage), '_blank', 'noopener');
       closeModal();
+      bookingForm.reset();
     });
   }
 })();

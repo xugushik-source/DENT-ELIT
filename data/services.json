@@ -116,10 +116,17 @@
       }
     ],
     "price": {
+      "amount": 900,
+      "currency": "₾",
+      "prefix": {
+        "hy": "Սկսած",
+        "ru": "От",
+        "en": "From"
+      },
       "note": {
-        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
-        "ru": "Стоимость после консультации",
-        "en": "Price after consultation"
+        "hy": "Վերջնական արժեքը որոշվում է ախտորոշումից և բուժման պլան կազմելուց հետո։",
+        "ru": "Точная стоимость определяется после диагностики и составления плана лечения.",
+        "en": "The exact price is set after diagnostics and your personal treatment plan."
       }
     }
   },
@@ -228,10 +235,17 @@
       }
     ],
     "price": {
+      "amount": 600,
+      "currency": "₾",
+      "prefix": {
+        "hy": "Սկսած",
+        "ru": "От",
+        "en": "From"
+      },
       "note": {
-        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
-        "ru": "Стоимость после консультации",
-        "en": "Price after consultation"
+        "hy": "Վերջնական արժեքը որոշվում է ախտորոշումից և բուժման պլան կազմելուց հետո։",
+        "ru": "Точная стоимость определяется после диагностики и составления плана лечения.",
+        "en": "The exact price is set after diagnostics and your personal treatment plan."
       }
     }
   },
@@ -339,10 +353,17 @@
       }
     ],
     "price": {
+      "amount": 1800,
+      "currency": "₾",
+      "prefix": {
+        "hy": "Սկսած",
+        "ru": "От",
+        "en": "From"
+      },
       "note": {
-        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
-        "ru": "Стоимость после консультации",
-        "en": "Price after consultation"
+        "hy": "Վերջնական արժեքը որոշվում է ախտորոշումից և բուժման պլան կազմելուց հետո։",
+        "ru": "Точная стоимость определяется после диагностики и составления плана лечения.",
+        "en": "The exact price is set after diagnostics and your personal treatment plan."
       }
     }
   },
@@ -450,10 +471,17 @@
       }
     ],
     "price": {
+      "amount": 450,
+      "currency": "₾",
+      "prefix": {
+        "hy": "Սկսած",
+        "ru": "От",
+        "en": "From"
+      },
       "note": {
-        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
-        "ru": "Стоимость после консультации",
-        "en": "Price after consultation"
+        "hy": "Վերջնական արժեքը որոշվում է ախտորոշումից և բուժման պլան կազմելուց հետո։",
+        "ru": "Точная стоимость определяется после диагностики и составления плана лечения.",
+        "en": "The exact price is set after diagnostics and your personal treatment plan."
       }
     }
   },
@@ -558,10 +586,17 @@
       }
     ],
     "price": {
+      "amount": 120,
+      "currency": "₾",
+      "prefix": {
+        "hy": "Սկսած",
+        "ru": "От",
+        "en": "From"
+      },
       "note": {
-        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
-        "ru": "Стоимость после консультации",
-        "en": "Price after consultation"
+        "hy": "Վերջնական արժեքը որոշվում է ախտորոշումից և բուժման պլան կազմելուց հետո։",
+        "ru": "Точная стоимость определяется после диагностики и составления плана лечения.",
+        "en": "The exact price is set after diagnostics and your personal treatment plan."
       }
     }
   },
@@ -668,10 +703,17 @@
       }
     ],
     "price": {
+      "amount": 280,
+      "currency": "₾",
+      "prefix": {
+        "hy": "Սկսած",
+        "ru": "От",
+        "en": "From"
+      },
       "note": {
-        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
-        "ru": "Стоимость после консультации",
-        "en": "Price after consultation"
+        "hy": "Վերջնական արժեքը որոշվում է ախտորոշումից և բուժման պլան կազմելուց հետո։",
+        "ru": "Точная стоимость определяется после диагностики и составления плана лечения.",
+        "en": "The exact price is set after diagnostics and your personal treatment plan."
       }
     }
   },
@@ -681,7 +723,7 @@
     "flagship": false,
     "cardImage": "/images/services/general-dentistry.jpg",
     "heroImage": "/images/services/general-dentistry-hero.jpg",
-    "doctorSlug": "narek-sargsyan",
+    "doctorSlug": "narine-sargsyan",
     "technologyRefs": [],
     "relatedSlugs": [
       "family-dentistry",
@@ -761,10 +803,17 @@
       }
     ],
     "price": {
+      "amount": 90,
+      "currency": "₾",
+      "prefix": {
+        "hy": "Սկսած",
+        "ru": "От",
+        "en": "From"
+      },
       "note": {
-        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
-        "ru": "Стоимость после консультации",
-        "en": "Price after consultation"
+        "hy": "Վերջնական արժեքը որոշվում է ախտորոշումից և բուժման պլան կազմելուց հետո։",
+        "ru": "Точная стоимость определяется после диагностики и составления плана лечения.",
+        "en": "The exact price is set after diagnostics and your personal treatment plan."
       }
     }
   },
@@ -854,10 +903,17 @@
       }
     ],
     "price": {
+      "amount": 150,
+      "currency": "₾",
+      "prefix": {
+        "hy": "Սկսած",
+        "ru": "От",
+        "en": "From"
+      },
       "note": {
-        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
-        "ru": "Стоимость после консультации",
-        "en": "Price after consultation"
+        "hy": "Վերջնական արժեքը որոշվում է ախտորոշումից և բուժման պլան կազմելուց հետո։",
+        "ru": "Точная стоимость определяется после диагностики и составления плана лечения.",
+        "en": "The exact price is set after diagnostics and your personal treatment plan."
       }
     }
   },
@@ -949,10 +1005,17 @@
       }
     ],
     "price": {
+      "amount": 200,
+      "currency": "₾",
+      "prefix": {
+        "hy": "Սկսած",
+        "ru": "От",
+        "en": "From"
+      },
       "note": {
-        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
-        "ru": "Стоимость после консультации",
-        "en": "Price after consultation"
+        "hy": "Վերջնական արժեքը որոշվում է ախտորոշումից և բուժման պլան կազմելուց հետո։",
+        "ru": "Точная стоимость определяется после диагностики и составления плана лечения.",
+        "en": "The exact price is set after diagnostics and your personal treatment plan."
       }
     }
   },
@@ -1045,10 +1108,17 @@
       }
     ],
     "price": {
+      "amount": 90,
+      "currency": "₾",
+      "prefix": {
+        "hy": "Սկսած",
+        "ru": "От",
+        "en": "From"
+      },
       "note": {
-        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
-        "ru": "Стоимость после консультации",
-        "en": "Price after consultation"
+        "hy": "Վերջնական արժեքը որոշվում է ախտորոշումից և բուժման պլան կազմելուց հետո։",
+        "ru": "Точная стоимость определяется после диагностики и составления плана лечения.",
+        "en": "The exact price is set after diagnostics and your personal treatment plan."
       }
     }
   },
@@ -1058,7 +1128,7 @@
     "flagship": false,
     "cardImage": "/images/services/family-dentistry.jpg",
     "heroImage": "/images/services/family-dentistry-hero.jpg",
-    "doctorSlug": "narek-sargsyan",
+    "doctorSlug": "narine-sargsyan",
     "technologyRefs": [],
     "relatedSlugs": [
       "general-dentistry",
@@ -1138,10 +1208,17 @@
       }
     ],
     "price": {
+      "amount": 80,
+      "currency": "₾",
+      "prefix": {
+        "hy": "Սկսած",
+        "ru": "От",
+        "en": "From"
+      },
       "note": {
-        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
-        "ru": "Стоимость после консультации",
-        "en": "Price after consultation"
+        "hy": "Վերջնական արժեքը որոշվում է ախտորոշումից և բուժման պլան կազմելուց հետո։",
+        "ru": "Точная стоимость определяется после диагностики и составления плана лечения.",
+        "en": "The exact price is set after diagnostics and your personal treatment plan."
       }
     }
   },
@@ -1231,10 +1308,17 @@
       }
     ],
     "price": {
+      "amount": 250,
+      "currency": "₾",
+      "prefix": {
+        "hy": "Սկսած",
+        "ru": "От",
+        "en": "From"
+      },
       "note": {
-        "hy": "Արժեքը՝ խորհրդատվությունից հետո",
-        "ru": "Стоимость после консультации",
-        "en": "Price after consultation"
+        "hy": "Վերջնական արժեքը որոշվում է ախտորոշումից և բուժման պլան կազմելուց հետո։",
+        "ru": "Точная стоимость определяется после диагностики и составления плана лечения.",
+        "en": "The exact price is set after diagnostics and your personal treatment plan."
       }
     }
   }

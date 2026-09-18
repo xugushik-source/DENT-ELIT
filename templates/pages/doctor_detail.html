@@ -18,7 +18,7 @@
     </div>
     <div class="reveal">
       <h1>{{ doctor.name }}</h1>
-      <p class="eyebrow" style="margin-top:0;">{{ doctor.role }}</p>
+      <p class="eyebrow" style="margin-top:0;">{{ doctor.role }}{% if doctor.experienceYears %} · {{ doctor.experienceYears }} {{ t.doctorDetail.experienceSuffix }} {{ t.doctorDetail.experienceLabel | lower }}{% endif %}</p>
       <p class="body-lg">{{ doctor.bio }}</p>
       <p style="font-family:var(--font-heading); font-size:1.0625rem;">“{{ doctor.quote }}”</p>
 
@@ -26,6 +26,26 @@
       <div class="hero-chips" style="margin-top:0;">
         {% for l in doctor.languages %}<span class="chip">{{ l | upper }}</span>{% endfor %}
       </div>
+
+      {% if doctor.education %}
+      <h3 style="margin-top:28px;">{{ t.doctorDetail.educationTitle }}</h3>
+      <ul style="display:flex; flex-direction:column; gap:6px;">
+        {% for item in doctor.education %}
+        <li style="padding-left:20px; position:relative; font-size:0.9375rem; color:var(--color-text-muted);"><span style="position:absolute; left:0; color:var(--color-accent);">—</span>{{ item }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      {% if doctor.certifications %}
+      <h3 style="margin-top:24px;">{{ t.doctorDetail.certificationsTitle }}</h3>
+      <ul style="display:flex; flex-direction:column; gap:6px;">
+        {% for cert in doctor.certifications %}
+        <li style="padding-left:20px; position:relative; font-size:0.9375rem; color:var(--color-text-muted);">
+          <span style="position:absolute; left:0; color:var(--color-accent);">—</span>{{ cert.label }} <span class="text-muted" style="font-size:0.8125rem;">· {{ cert.id }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
 
       {% if doctor.services %}
       <h3 style="margin-top:28px;">{{ t.doctorDetail.servicesTitle }}</h3>
@@ -37,7 +57,8 @@
       {% endif %}
 
       <div class="hero-actions">
-        <button type="button" class="btn btn-primary" data-open-booking>{{ t.doctorDetail.ctaTitle }}</button>
+        <button type="button" class="btn btn-primary" data-open-booking data-doctor="{{ doctor.name }}">{{ t.doctorDetail.ctaTitle }}</button>
+        <a class="btn btn-whatsapp" href="{{ wa_url(t.whatsapp.doctorMessageTemplate.replace('{doctor}', doctor.name)) }}" target="_blank" rel="noopener">{{ t.common.whatsapp }}</a>
       </div>
       <p class="text-muted" style="font-size:0.875rem;">{{ t.doctorDetail.ctaDescription }}</p>
     </div>

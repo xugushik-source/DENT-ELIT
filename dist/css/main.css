@@ -267,6 +267,15 @@ h3, .h3 { font-size: var(--fs-h3); }
 .trust-item p { font-size: 0.9rem; color: var(--color-text-muted); margin: 0; }
 .trust-icon { width: 32px; height: 32px; margin-bottom: 14px; color: var(--color-accent-strong); }
 
+.stats-row {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+  margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+@media (min-width: 720px) { .stats-row { grid-template-columns: repeat(4, 1fr); } }
+.stats-value { display: block; font-family: var(--font-heading); font-size: 2.25rem; color: var(--color-accent-strong); line-height: 1; }
+.stats-label { display: block; margin-top: 8px; font-size: 0.8125rem; color: var(--color-text-muted); }
+
 /* ---------- Cards grid ---------- */
 .card-grid {
   display: grid;
@@ -360,11 +369,8 @@ h3, .h3 { font-size: var(--fs-h3); }
 }
 .review-card .quote { font-size: 1.0625rem; font-family: var(--font-heading); margin-bottom: 16px; }
 .review-card .author { font-size: 0.875rem; color: var(--color-text-muted); }
-.demo-badge {
-  display: inline-block; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.06em;
-  background: var(--color-accent-soft); color: var(--color-accent-strong); padding: 3px 8px; border-radius: var(--radius-sm);
-  margin-bottom: 12px;
-}
+.rating-line { font-size: 0.9375rem; color: var(--color-text-muted); margin-top: 10px; }
+.rating-line strong { color: var(--color-accent-strong); }
 
 /* ---------- Final CTA ---------- */
 .final-cta { background: var(--color-primary); color: var(--color-primary-contrast); border-radius: var(--radius-lg); overflow: hidden; }
@@ -401,6 +407,10 @@ h3, .h3 { font-size: var(--fs-h3); }
 }
 .footer-bottom a { color: rgba(250,247,241,0.75); }
 .footer-bottom a:hover { color: var(--color-accent); }
+.footer-disclosure {
+  margin: 16px auto 0; max-width: 720px; text-align: center;
+  font-size: 0.75rem; line-height: 1.6; color: rgba(250,247,241,0.4);
+}
 
 /* ---------- Booking modal ---------- */
 .modal-backdrop {
@@ -481,11 +491,13 @@ body.has-bottom-bar { padding-bottom: 64px; }
 .contact-grid { display: grid; gap: 40px; }
 @media (min-width: 900px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
 .contact-detail { padding: 18px 0; border-bottom: 1px solid var(--color-border); display: flex; justify-content: space-between; gap: 12px; }
-.map-placeholder {
+.map-card {
   aspect-ratio: 16/9; border-radius: var(--radius-md); background: var(--color-surface-alt);
-  border: 1px dashed var(--color-border); display: flex; align-items: center; justify-content: center;
-  color: var(--color-text-muted); font-size: 0.875rem; text-align: center; padding: 20px;
+  border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: center;
+  padding: 32px;
 }
+.map-card-body { text-align: center; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.map-card-body p { margin: 0; color: var(--color-text-muted); }
 .pricing-row { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--color-border); }
 .related-strip { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 8px; }
 .related-strip .service-card { flex: 0 0 320px; width: 320px; }

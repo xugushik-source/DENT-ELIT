@@ -9,9 +9,11 @@ in /data and /content, plus the tokens in static/css/tokens.css, is enough
 to reskin the whole site for a different clinic without touching templates.
 """
 import json
+import os
 import shutil
 from datetime import date
 from pathlib import Path
+from urllib.parse import quote
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
@@ -22,7 +24,7 @@ TEMPLATES = ROOT / "templates"
 STATIC = ROOT / "static"
 DIST = ROOT / "dist"
 
-SITE_URL = None  # filled in from site.json (placeholder domain until real one exists)
+SITE_URL = None  # resolved in main(): $SITE_URL env var, else data/site.json -> seo.productionUrl
 
 
 def load_json(path):
@@ -89,6 +91,7 @@ def localize_service(raw, lang, lang_prefix, doctors_by_slug, tech_by_slug, serv
         "benefits": raw["benefits"][lang],
         "faq": faq,
         "priceNote": raw["price"]["note"][lang],
+        "priceDisplay": f"{raw['price']['prefix'][lang]} {raw['price']['amount']} {raw['price']['currency']}",
         "doctor": doctor,
         "technologies": technologies,
         "related": related,
@@ -105,6 +108,10 @@ def localize_doctor(raw, lang, lang_prefix, services_by_slug):
                 "title": s["title"][lang],
                 "href": slugify_href(lang_prefix, "services", s["slug"]),
             })
+    certifications = [
+        {"id": c["id"], "label": c["label"][lang]}
+        for c in raw.get("certifications", [])
+    ]
     return {
         "slug": raw["slug"],
         "name": raw["name"],
@@ -116,6 +123,9 @@ def localize_doctor(raw, lang, lang_prefix, services_by_slug):
         "languages": raw["languages"],
         "services": services,
         "href": slugify_href(lang_prefix, "doctors", raw["slug"]),
+        "experienceYears": raw.get("experienceYears"),
+        "education": raw.get("education", {}).get(lang, []),
+        "certifications": certifications,
     }
 
 
@@ -136,8 +146,7 @@ def localize_review(raw, lang, services_by_slug):
         service_title = services_by_slug[raw["serviceSlug"]]["title"][lang]
     return {
         "id": raw["id"],
-        "isDemo": raw.get("isDemo", False),
-        "authorInitial": raw["authorInitial"],
+        "authorInitial": raw["authorInitial"][lang],
         "quote": raw["quote"][lang],
         "serviceTitle": service_title,
     }
@@ -173,7 +182,8 @@ def breadcrumb_list_schema(items, site_url):
 def main():
     global SITE_URL
     site = load_json(DATA / "site.json")
-    SITE_URL = site["seo"]["siteUrlPlaceholder"]
+    SITE_URL = os.environ.get("SITE_URL") or site["seo"]["productionUrl"]
+    SITE_URL = SITE_URL.rstrip("/")
     services_raw = load_json(DATA / "services.json")
     doctors_raw = load_json(DATA / "doctors.json")
     technology_raw = load_json(DATA / "technology.json")
@@ -192,6 +202,8 @@ def main():
         trim_blocks=True,
         lstrip_blocks=True,
     )
+    wa_number = site["contact"]["whatsappNumber"]
+    env.globals["wa_url"] = lambda message: "https://wa.me/" + wa_number + "?text=" + quote(message)
 
     if DIST.exists():
         shutil.rmtree(DIST)
@@ -229,6 +241,7 @@ def main():
                 "footer_services": [{"title": s["title"], "href": s["href"]} for s in services[:6]],
                 "current_year": date.today().year,
                 "structured_data": None,
+                "rating": site["rating"],
             }
 
         # ---- Home ----
@@ -237,7 +250,7 @@ def main():
             "services_home": services[:6],
             "doctors_home": doctors[:3],
             "technologies": technologies,
-            "reviews": reviews,
+            "reviews": reviews[:3],
             "doctor_spotlight": doctors[0],
         })
         org_schema = {
@@ -367,6 +380,7 @@ def main():
 <head>
 <meta charset="utf-8">
 <meta http-equiv="refresh" content="0; url=/{default_lang}/">
+<meta name="description" content="{site['brand']['clinicName']} — {site['brand']['tagline'][default_lang]}.">
 <link rel="canonical" href="{SITE_URL}/{default_lang}/">
 <title>{site['brand']['clinicName']}</title>
 </head>

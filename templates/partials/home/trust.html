@@ -9,5 +9,13 @@
       </div>
       {% endfor %}
     </div>
+    <div class="stats-row">
+      {% for stat in site.stats %}
+      <div class="stats-item reveal" data-reveal-group="stats">
+        <span class="stats-value">{{ stat.value }}</span>
+        <span class="stats-label">{{ t.trust.stats[stat.key] }}</span>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 </section>

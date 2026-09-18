@@ -9,7 +9,7 @@
           <div class="final-cta-actions">
             <button type="button" class="btn btn-primary" style="background: var(--color-accent); color: var(--color-text);" data-open-booking>{{ t.hero.ctaPrimary }}</button>
             <a class="btn btn-outline" href="{{ site.contact.phoneUri }}">{{ site.contact.phone }}</a>
-            <a class="btn btn-whatsapp" href="#" data-whatsapp-link data-whatsapp-message="{{ whatsapp_default_message }}" target="_blank" rel="noopener">{{ t.common.whatsapp }}</a>
+            <a class="btn btn-whatsapp" href="{{ wa_url(whatsapp_default_message) }}" target="_blank" rel="noopener">{{ t.common.whatsapp }}</a>
           </div>
         </div>
         <div class="final-cta-media">

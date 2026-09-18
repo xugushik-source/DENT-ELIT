@@ -75,7 +75,7 @@ photography slot in the site is a copy of one of these 15, mapped by subject:
 | 01 | Assistant + patient reviewing 3D scan on wall monitor | Digital treatment planning (technology) |
 | 02 | Dentist using operating microscope, assistant beside | Root canal / microscope technology, Dr. Tigran Avetisyan |
 | 03 | Hygienist cleaning patient's teeth | Professional cleaning, Dr. Mane Ghazaryan |
-| 04 | Dentist showing tablet to child + mother | Family dentistry, Dr. Narek Sargsyan |
+| 04 | Dentist showing tablet to child + mother | Family dentistry, Dr. Narine Sargsyan |
 | 05 | Dentist showing hand mirror to smiling patient | Aesthetic dentistry / teeth whitening, Dr. Lusine Margaryan |
 | 06 / 07 | Patient positioned in CBCT scanner (duplicate upload) | CBCT 3D diagnostics |
 | 08 | Intraoral scanning in progress, assistant in background | Intraoral scanning, crowns & prosthetics |

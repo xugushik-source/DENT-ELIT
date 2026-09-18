@@ -3,23 +3,11 @@
     "slug": "vardan-hakobyan",
     "photo": "/images/doctors/vardan-hakobyan-portrait.jpg",
     "workingPhoto": "/images/doctors/vardan-hakobyan-working.jpg",
-    "role": {
-      "hy": "Իմպլանտոլոգ, վիրաբույժ-ստոմատոլոգ",
-      "ru": "Имплантолог, хирург-стоматолог",
-      "en": "Implantologist, Oral Surgeon"
-    },
+    "role": { "hy": "Գլխավոր բժիշկ, իմպլանտոլոգ-վիրաբույժ", "ru": "Главный врач, хирург-имплантолог", "en": "Chief Dentist, Implant Surgeon" },
     "name": "Dr. Vardan Hakobyan",
-    "experienceYears": null,
-    "languages": [
-      "hy",
-      "ru",
-      "en"
-    ],
-    "services": [
-      "dental-implants",
-      "oral-surgery",
-      "crowns-prosthetics"
-    ],
+    "experienceYears": 14,
+    "languages": ["hy", "ru", "en"],
+    "services": ["dental-implants", "oral-surgery", "crowns-prosthetics"],
     "quote": {
       "hy": "Յուրաքանչյուր իմպլանտացիա սկսվում է ոչ թե պտուտակից, այլ ճշգրիտ պլանավորումից։",
       "ru": "Каждая имплантация начинается не с импланта, а с точного планирования.",
@@ -29,27 +17,26 @@
       "hy": "Աշխատում է թվային պլանավորման սկզբունքով՝ համադրելով 3D КТ ախտորոշումը անհատական մոտեցման հետ։",
       "ru": "Работает по принципу цифрового планирования, сочетая 3D КТ-диагностику с индивидуальным подходом к каждому случаю.",
       "en": "Works from a digital-planning-first approach, combining 3D CBCT diagnostics with a fully individual treatment plan for every case."
-    }
+    },
+    "education": {
+      "hy": ["ԲԴԲ, Երևանի պետական բժշկական համալսարան", "Օրդինատուրա՝ ծնոտա-դիմածնոտային վիրաբուժություն", "Իմպլանտոլոգիայի առաջադեմ դասընթաց (Գերմանիա)"],
+      "ru": ["DMD, Ереванский государственный медицинский университет", "Ординатура по челюстно-лицевой хирургии", "Курс повышения квалификации по имплантологии (Германия)"],
+      "en": ["DMD, Yerevan State Medical University", "Residency in Oral & Maxillofacial Surgery", "Advanced Implantology training programme (Germany)"]
+    },
+    "certifications": [
+      { "id": "DEMO-GE-DENT-2026-001", "label": { "hy": "Ստոմատոլոգիական պրակտիկայի սերտիֆիկատ", "ru": "Сертификат стоматологической практики", "en": "Certificate of Dental Practice" } },
+      { "id": "DEMO-GE-IMPL-2026-014", "label": { "hy": "Ուղղորդված իմպլանտացիայի սերտիֆիկատ", "ru": "Сертификат по guided-имплантации", "en": "Guided Implant Placement Certificate" } }
+    ]
   },
   {
     "slug": "ani-petrosyan",
     "photo": "/images/doctors/ani-petrosyan.jpg",
     "workingPhoto": "/images/doctors/ani-petrosyan.jpg",
-    "role": {
-      "hy": "Օրթոդոնտ",
-      "ru": "Ортодонт",
-      "en": "Orthodontist"
-    },
+    "role": { "hy": "Օրթոդոնտ", "ru": "Ортодонт", "en": "Orthodontist" },
     "name": "Dr. Ani Petrosyan",
-    "experienceYears": null,
-    "languages": [
-      "hy",
-      "ru",
-      "en"
-    ],
-    "services": [
-      "orthodontics"
-    ],
+    "experienceYears": 10,
+    "languages": ["hy", "ru", "en"],
+    "services": ["orthodontics"],
     "quote": {
       "hy": "Ուղիղ ժպիտը սկսվում է ճիշտ ախտորոշումից, ոչ թե ստանդարտ լուծումից։",
       "ru": "Ровная улыбка начинается с точной диагностики, а не со стандартного решения.",
@@ -59,29 +46,26 @@
       "hy": "Մասնագիտացած է կծվածքի շտկման ժամանակակից մեթոդներում՝ ներառյալ թափանցիկ քափաների պլանավորումը։",
       "ru": "Специализируется на современных методах коррекции прикуса, включая цифровое планирование элайнеров.",
       "en": "Specializes in modern bite-correction methods, including digital planning for clear aligners."
-    }
+    },
+    "education": {
+      "hy": ["ԲԴԲ, Երևանի պետական բժշկական համալսարան", "Օրդինատուրա՝ օրթոդոնտիա", "Թափանցիկ քափաների պլանավորման սերտիֆիկացիա"],
+      "ru": ["DMD, Ереванский государственный медицинский университет", "Ординатура по ортодонтии", "Сертификация по цифровому планированию элайнеров"],
+      "en": ["DMD, Yerevan State Medical University", "Residency in Orthodontics", "Clear aligner digital-planning certification"]
+    },
+    "certifications": [
+      { "id": "DEMO-GE-DENT-2026-002", "label": { "hy": "Ստոմատոլոգիական պրակտիկայի սերտիֆիկատ", "ru": "Сертификат стоматологической практики", "en": "Certificate of Dental Practice" } },
+      { "id": "DEMO-GE-ORTH-2026-010", "label": { "hy": "Օրթոդոնտիայի սերտիֆիկատ", "ru": "Сертификат по ортодонтии", "en": "Orthodontics Certification" } }
+    ]
   },
   {
     "slug": "lusine-margaryan",
     "photo": "/images/doctors/lusine-margaryan.jpg",
     "workingPhoto": "/images/doctors/lusine-margaryan.jpg",
-    "role": {
-      "hy": "Էսթետիկ ստոմատոլոգ",
-      "ru": "Врач эстетической стоматологии",
-      "en": "Aesthetic Dentist"
-    },
+    "role": { "hy": "Էսթետիկ և պրոթեզավորող ստոմատոլոգ", "ru": "Врач эстетической и ортопедической стоматологии", "en": "Aesthetic Dentist & Prosthodontist" },
     "name": "Dr. Lusine Margaryan",
-    "experienceYears": null,
-    "languages": [
-      "hy",
-      "ru",
-      "en"
-    ],
-    "services": [
-      "aesthetic-dentistry",
-      "teeth-whitening",
-      "crowns-prosthetics"
-    ],
+    "experienceYears": 11,
+    "languages": ["hy", "ru", "en"],
+    "services": ["aesthetic-dentistry", "teeth-whitening", "crowns-prosthetics"],
     "quote": {
       "hy": "Բնական գեղեցկությունը սկսվում է դեմքի համամասնություններից, ոչ թե կատարյալ ուղիղ շարքից։",
       "ru": "Естественная красота начинается с пропорций лица, а не с идеально ровного ряда.",
@@ -91,29 +75,26 @@
       "hy": "Յուրաքանչյուր գեղագիտական աշխատանք սկսում է դեմքի և ժպիտի անհատական վերլուծությունից։",
       "ru": "Каждую эстетическую работу начинает с индивидуального анализа лица и улыбки пациента.",
       "en": "Begins every aesthetic case with an individual analysis of the patient's face and smile — not a template."
-    }
+    },
+    "education": {
+      "hy": ["ԲԴԲ, Երևանի պետական բժշկական համալսարան", "Օրդինատուրա՝ պրոթեզային ստոմատոլոգիա", "Կերամիկական երեսպատումների տեխնիկայի դասընթաց"],
+      "ru": ["DMD, Ереванский государственный медицинский университет", "Ординатура по ортопедической стоматологии", "Курс по технике керамических виниров"],
+      "en": ["DMD, Yerevan State Medical University", "Residency in Prosthodontics", "Ceramic veneer technique training"]
+    },
+    "certifications": [
+      { "id": "DEMO-GE-DENT-2026-003", "label": { "hy": "Ստոմատոլոգիական պրակտիկայի սերտիֆիկատ", "ru": "Сертификат стоматологической практики", "en": "Certificate of Dental Practice" } },
+      { "id": "DEMO-GE-AEST-2026-011", "label": { "hy": "Գեղագիտական ստոմատոլոգիայի սերտիֆիկատ", "ru": "Сертификат по эстетической стоматологии", "en": "Aesthetic Dentistry Certification" } }
+    ]
   },
   {
-    "slug": "narek-sargsyan",
-    "photo": "/images/doctors/narek-sargsyan.jpg",
-    "workingPhoto": "/images/doctors/narek-sargsyan.jpg",
-    "role": {
-      "hy": "Ընդհանուր և ընտանեկան ստոմատոլոգ",
-      "ru": "Врач общей и семейной стоматологии",
-      "en": "General & Family Dentist"
-    },
-    "name": "Dr. Narek Sargsyan",
-    "experienceYears": null,
-    "languages": [
-      "hy",
-      "ru",
-      "en"
-    ],
-    "services": [
-      "general-dentistry",
-      "family-dentistry",
-      "root-canal-treatment"
-    ],
+    "slug": "narine-sargsyan",
+    "photo": "/images/doctors/narine-sargsyan.jpg",
+    "workingPhoto": "/images/doctors/narine-sargsyan.jpg",
+    "role": { "hy": "Ընդհանուր և ընտանեկան ստոմատոլոգ", "ru": "Врач общей и семейной стоматологии", "en": "General & Family Dentist" },
+    "name": "Dr. Narine Sargsyan",
+    "experienceYears": 13,
+    "languages": ["hy", "ru", "en"],
+    "services": ["general-dentistry", "family-dentistry", "root-canal-treatment"],
     "quote": {
       "hy": "Ընտանեկան ստոմատոլոգիայում ամենակարևորը վստահությունն է՝ և՛ մեծերի, և՛ երեխաների հետ։",
       "ru": "В семейной стоматологии самое важное — доверие, и со взрослыми, и с детьми.",
@@ -123,28 +104,26 @@
       "hy": "Վարում է ամբողջ ընտանիքի ստոմատոլոգիական խնամքը՝ սկսած պրոֆիլակտիկայից մինչև բարդ բուժում։",
       "ru": "Ведёт стоматологическое сопровождение всей семьи — от профилактики до более сложного лечения.",
       "en": "Looks after the dental care of the whole family, from routine prevention to more involved treatment."
-    }
+    },
+    "education": {
+      "hy": ["ԲԴԲ, Երևանի պետական բժշկական համալսարան", "Օրդինատուրա՝ թերապևտիկ ստոմատոլոգիա", "Մանկական ստոմատոլոգիայի կուրս"],
+      "ru": ["DMD, Ереванский государственный медицинский университет", "Ординатура по терапевтической стоматологии", "Курс по детской стоматологии"],
+      "en": ["DMD, Yerevan State Medical University", "Residency in Restorative Dentistry", "Pediatric dentistry coursework"]
+    },
+    "certifications": [
+      { "id": "DEMO-GE-DENT-2026-004", "label": { "hy": "Ստոմատոլոգիական պրակտիկայի սերտիֆիկատ", "ru": "Сертификат стоматологической практики", "en": "Certificate of Dental Practice" } },
+      { "id": "DEMO-GE-PEDO-2026-013", "label": { "hy": "Մանկական ստոմատոլոգիայի սերտիֆիկատ", "ru": "Сертификат по детской стоматологии", "en": "Pediatric Dentistry Certification" } }
+    ]
   },
   {
     "slug": "tigran-avetisyan",
     "photo": "/images/doctors/tigran-avetisyan.jpg",
     "workingPhoto": "/images/doctors/tigran-avetisyan.jpg",
-    "role": {
-      "hy": "Թերապևտ, միկրոսկոպիկ ստոմատոլոգիա",
-      "ru": "Врач-терапевт, микроскопическая стоматология",
-      "en": "Endodontist, Microscopic Dentistry"
-    },
+    "role": { "hy": "Թերապևտ, միկրոսկոպիկ ստոմատոլոգիա", "ru": "Врач-терапевт, микроскопическая стоматология", "en": "Endodontist, Microscopic Dentistry" },
     "name": "Dr. Tigran Avetisyan",
-    "experienceYears": null,
-    "languages": [
-      "hy",
-      "ru",
-      "en"
-    ],
-    "services": [
-      "root-canal-treatment",
-      "periodontology"
-    ],
+    "experienceYears": 9,
+    "languages": ["hy", "ru", "en"],
+    "services": ["root-canal-treatment", "periodontology"],
     "quote": {
       "hy": "Մանրադիտակի տակ նույնիսկ ամենափոքր դետալը դառնում է տեսանելի ու կարևոր։",
       "ru": "Под микроскопом даже самая мелкая деталь становится видимой и значимой.",
@@ -154,28 +133,26 @@
       "hy": "Կիրառում է ստոմատոլոգիական մանրադիտակ՝ արմատային ջրանցքների բուժման առավելագույն ճշգրտության համար։",
       "ru": "Использует стоматологический микроскоп для максимальной точности при лечении корневых каналов.",
       "en": "Uses a dental operating microscope for maximum precision in root canal treatment."
-    }
+    },
+    "education": {
+      "hy": ["ԲԴԲ, Երևանի պետական բժշկական համալսարան", "Օրդինատուրա՝ էնդոդոնտիա", "Մանրադիտակային ստոմատոլոգիայի կուրս"],
+      "ru": ["DMD, Ереванский государственный медицинский университет", "Ординатура по эндодонтии", "Курс по микроскопической стоматологии"],
+      "en": ["DMD, Yerevan State Medical University", "Residency in Endodontics", "Microscopic dentistry fellowship"]
+    },
+    "certifications": [
+      { "id": "DEMO-GE-DENT-2026-005", "label": { "hy": "Ստոմատոլոգիական պրակտիկայի սերտիֆիկատ", "ru": "Сертификат стоматологической практики", "en": "Certificate of Dental Practice" } },
+      { "id": "DEMO-GE-ENDO-2026-009", "label": { "hy": "Էնդոդոնտիայի սերտիֆիկատ", "ru": "Сертификат по эндодонтии", "en": "Endodontics Certification" } }
+    ]
   },
   {
     "slug": "mane-ghazaryan",
     "photo": "/images/patients/mane-ghazaryan.jpg",
     "workingPhoto": "/images/patients/mane-ghazaryan.jpg",
-    "role": {
-      "hy": "Ստոմատոլոգ-հիգիենիստ",
-      "ru": "Врач-гигиенист",
-      "en": "Dental Hygienist"
-    },
+    "role": { "hy": "Ստոմատոլոգ-հիգիենիստ, պարոդոնտոլոգ", "ru": "Гигиенист, пародонтолог", "en": "Dental Hygienist & Periodontist" },
     "name": "Dr. Mane Ghazaryan",
-    "experienceYears": null,
-    "languages": [
-      "hy",
-      "ru",
-      "en"
-    ],
-    "services": [
-      "professional-cleaning",
-      "periodontology"
-    ],
+    "experienceYears": 8,
+    "languages": ["hy", "ru", "en"],
+    "services": ["professional-cleaning", "periodontology"],
     "quote": {
       "hy": "Կանխարգելումը միշտ ավելի հարմարավետ է, քան բուժումը։",
       "ru": "Профилактика всегда комфортнее, чем лечение.",
@@ -185,6 +162,14 @@
       "hy": "Կենտրոնացած է պրոֆեսիոնալ հիգիենայի և պարոդոնտի առողջության երկարաժամկետ պահպանման վրա։",
       "ru": "Фокусируется на профессиональной гигиене и долгосрочном здоровье пародонта.",
       "en": "Focused on professional hygiene and the long-term health of your gums, not just a one-off clean."
-    }
+    },
+    "education": {
+      "hy": ["Ստոմատոլոգիական հիգիենայի դիպլոմ", "Պարոդոնտալ խնամքի սերտիֆիկացիա"],
+      "ru": ["Диплом по стоматологической гигиене", "Сертификация по пародонтологическому уходу"],
+      "en": ["Diploma in Dental Hygiene", "Periodontal care certification"]
+    },
+    "certifications": [
+      { "id": "DEMO-GE-DENT-2026-006", "label": { "hy": "Ստոմատոլոգիական հիգիենիստի սերտիֆիկատ", "ru": "Сертификат стоматологического гигиениста", "en": "Dental Hygienist Certificate" } }
+    ]
   }
 ]

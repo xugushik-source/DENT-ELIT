@@ -17,6 +17,7 @@
         </div>
         <h3>{{ d.name }}</h3>
         <p class="role">{{ d.role }}</p>
+        {% if d.experienceYears %}<p class="spec">{{ d.experienceYears }} {{ t.doctorDetail.experienceSuffix }}</p>{% endif %}
       </a>
       {% endfor %}
     </div>

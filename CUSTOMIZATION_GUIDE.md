@@ -24,10 +24,16 @@ only Python 3 + Jinja2 (`pip install jinja2`).
 
 1. **Change clinic config** — edit `data/site.json`: `brand.clinicName`, `brand.tagline`,
    `contact.*`, `languages.supported`/`default`, `featureFlags.*`.
-2. **Replace the logo** — put new files in `static/brand/` and update
-   `brand.logo.{full,mark,light,dark,favicon}` paths in `data/site.json`. Regenerate
-   favicons from the new mark (see `generate_placeholders.py` for the pattern, or just
-   crop/resize manually to 16/32/180/512px).
+2. **Replace the logo** — put the *new client's own* files in `static/brand/` and
+   update `brand.logo.{full,mark,light,dark,favicon}` paths in `data/site.json`.
+   Regenerate favicons from the new mark (see `generate_placeholders.py` for the
+   pattern, or just crop/resize manually to 16/32/180/512px). **Important distinction:**
+   the "never redesign the logo" rule documented in `AUDIT_V2.md` §0 applies to the
+   *current* client (ELIT DENT) — their supplied mark must never be altered. It does
+   **not** forbid swapping in a *different* client's own real logo when reskinning this
+   engine for them; that's simply step 2 of onboarding a new client, same as everything
+   else in this list. Never invent a logo for a client who hasn't supplied one — ask for
+   the real file instead of generating a placeholder mark.
 3. **Replace photography** — swap files under `static/images/` (same relative paths
    referenced in `data/services.json` / `data/doctors.json` / `data/technology.json`,
    or update those paths to new filenames). Keep aspect-ratio expectations in mind:
@@ -57,35 +63,51 @@ only Python 3 + Jinja2 (`pip install jinja2`).
    automatically — no template changes needed for a different service count.
 9. **Add/remove doctors** — same pattern in `data/doctors.json`.
 10. **Add/remove technologies** — same pattern in `data/technology.json`.
-11. **Add prices** — extend the `price` object per service
-    (`data/services.json`) with real `amount`/`currency` once available, and adjust
-    the pricing block in `templates/pages/service_detail.html` to render them instead
-    of just the note.
-12. **Add reviews** — edit `data/reviews.json`. Set `isDemo:false` once verified, and
-    `aggregateRatingEnabled:true` (plus wire in real rating/count) only once real
-    Google/verified data exists — never before.
-13. **Configure contacts** — `data/site.json → contact.*`.
+11. **Add prices** — each service in `data/services.json` already has a `price`
+    object (`amount`, `currency`, localized `prefix`/`note`) — just replace the values;
+    `service_detail.html` already renders `service.priceDisplay`/`priceNote`, no
+    template change needed.
+12. **Add reviews** — edit `data/reviews.json`. Only set `aggregateRatingEnabled:true`
+    (and wire a real `rating.value`/`rating.count` into `data/site.json`) once real,
+    verified reviews exist — never before, and never emit `AggregateRating` JSON-LD from
+    fictional/demo data (see `AUDIT_V2.md` §5 for why, and `validate.py`'s
+    `demoMode` check that guards it).
+13. **Configure contacts** — `data/site.json → contact.*` (phone, WhatsApp, email,
+    address per language, hours via `content/{lang}.json → contactPage.hours*`).
 14. **Configure SEO** — `data/site.json → seo.*` (country, city, service areas, and
-    critically `seo.siteUrlPlaceholder`, which drives canonical/hreflang/sitemap URLs
-    everywhere — set it to the real domain before deploying).
-15. **Build** — `python3 build.py`.
-16. **Deploy** — `dist/` is a complete static site: upload it as-is to any static host
-    (Netlify, S3+CloudFront, GitHub Pages, nginx, etc.). `dist/lang/404.html` is a flat
-    file specifically so hosts that support custom per-path error pages can use it
-    directly.
+    `seo.productionUrl`, the fallback used when the `SITE_URL` environment variable
+    isn't set — see step 17). This drives canonical/hreflang/OG/sitemap URLs everywhere;
+    nothing else hardcodes a domain.
+15. **Turn off demo mode** — set `featureFlags.demoMode:false` in `data/site.json` once
+    all content above is real (not fictional). Update the trilingual footer disclosure
+    (`content/{lang}.json → footer.disclosure`) to reflect the live clinic, or clear it
+    if the agency wants no such line at all.
+16. **Build** — `python3 build.py`.
+17. **Validate before shipping** — `python3 validate.py`. Must report "PASSED: 0
+    errors" — it catches broken links/images, missing translations, leftover
+    placeholder text, and cross-file inconsistencies (doctor/service/review counts vs.
+    the numbers quoted in `stats`) before they reach production. Set the `SITE_URL`
+    environment variable to the real client domain before this final build:
+    `SITE_URL=https://realclinic.com python3 build.py && python3 validate.py`.
+18. **Deploy** — `dist/` is a complete static site: upload it as-is to any static host
+    (Netlify, S3+CloudFront, GitHub Pages, nginx, Vercel with `outputDirectory: dist`
+    and no build command, etc.). `dist/lang/404.html` is a flat file specifically so
+    hosts that support custom per-path error pages can use it directly.
 
 ## Feature flags
 
-`data/site.json → featureFlags` gates whole sections/features without touching
-templates: `servicesEnabled`, `doctorProfilesEnabled`, `technologyEnabled`,
-`reviewsEnabled`, `beforeAfterEnabled`, `galleryEnabled`, `bookingEnabled`,
-`whatsappEnabled`, `offersEnabled`, `blogEnabled`, `multilingualEnabled`. **Note for
-the next engineer:** these flags are currently declared as the config surface but not
-yet all wired into `build.py`/templates to actually skip rendering — today, disabling
-a section means removing it from `homepageSections` (item 7 above) or editing the
-relevant template's conditional. Wiring every flag through is the next reusability
-milestone, not done in this pass — don't assume toggling `reviewsEnabled: false` alone
-currently removes the reviews page.
+`data/site.json → featureFlags` is the intended config surface for gating whole
+sections/features without touching templates: `servicesEnabled`,
+`doctorProfilesEnabled`, `technologyEnabled`, `reviewsEnabled`, `beforeAfterEnabled`,
+`galleryEnabled`, `bookingEnabled`, `whatsappEnabled`, `offersEnabled`, `blogEnabled`,
+`multilingualEnabled`, `demoMode` (see item 15 above). **Note for the next engineer:**
+only `demoMode` and `homepageSections` (item 7 above) are actually read by
+`build.py`/templates today — see `AUDIT_V2.md` §9 for the full, honest status. Don't
+assume toggling e.g. `reviewsEnabled: false` alone removes the `/reviews/` page or its
+nav item; today that still means removing it from `homepageSections` and editing the
+relevant template/nav conditional by hand. Wiring every flag through end-to-end
+(including nav items and standalone list/detail pages) is the next reusability
+milestone.
 
 ## What's genuinely reusable today vs. what still needs generalizing
 

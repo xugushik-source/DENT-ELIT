@@ -12,7 +12,7 @@
     <p class="body-lg">{{ service.intro }}</p>
     <div class="hero-actions">
       <button type="button" class="btn btn-primary" data-open-booking data-service="{{ service.title }}">{{ t.hero.ctaPrimary }}</button>
-      <a class="btn btn-whatsapp" href="#" data-whatsapp-link data-whatsapp-message="{{ t.whatsapp.serviceMessageTemplate.replace('{service}', service.title) }}" target="_blank" rel="noopener">{{ t.hero.ctaSecondary }}</a>
+      <a class="btn btn-whatsapp" href="{{ wa_url(t.whatsapp.serviceMessageTemplate.replace('{service}', service.title)) }}" target="_blank" rel="noopener">{{ t.hero.ctaSecondary }}</a>
     </div>
   </div>
 </section>
@@ -110,8 +110,9 @@
     <h2 class="reveal">{{ t.serviceDetail.pricingTitle }}</h2>
     <div class="pricing-row reveal">
       <span>{{ service.title }}</span>
-      <strong>{{ service.priceNote }}</strong>
+      <strong>{{ service.priceDisplay }}</strong>
     </div>
+    <p class="text-muted" style="font-size:0.875rem; margin-top:10px;">{{ service.priceNote }}</p>
   </div>
 </section>
 

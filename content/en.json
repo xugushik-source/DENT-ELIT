@@ -40,6 +40,12 @@
       "threeLanguages": { "title": "3 Languages", "desc": "Care and consultation in Armenian, Russian, and English." },
       "advancedDiagnostics": { "title": "Advanced Diagnostics", "desc": "CBCT imaging and a dental operating microscope for precise cases." },
       "personalPlanning": { "title": "Personal Treatment Planning", "desc": "A staged plan built for your case, explained before treatment starts." }
+    },
+    "stats": {
+      "yearsExperience": "years in practice",
+      "specialists": "specialists",
+      "languages": "languages spoken",
+      "treatmentAreas": "treatment areas"
     }
   },
   "services": {
@@ -79,8 +85,8 @@
   "reviews": {
     "eyebrow": "Patient reviews",
     "title": "What patients say",
-    "description": "Real feedback matters more to us than a star rating.",
-    "demoNote": "Reviews below are demo placeholders pending verified patient feedback."
+    "description": "Real people, real treatments — from first consultation to result.",
+    "ratingLabel": "Patient rating"
   },
   "finalCTA": {
     "eyebrow": "Ready when you are",
@@ -94,7 +100,8 @@
     "languagesTitle": "Languages",
     "socialTitle": "Follow us",
     "developedBy": "Website concept & development by",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "disclosure": "Demo website. The clinic name, specialists, reviews, prices, licences, address and other information shown on this website are fictional and are provided solely to demonstrate the website's capabilities."
   },
   "booking": {
     "title": "Book a Consultation",
@@ -112,8 +119,10 @@
   "whatsapp": {
     "defaultMessage": "Hello! I saw the ELIT DENT website and would like to book a consultation.",
     "serviceMessageTemplate": "Hello! I saw the ELIT DENT website. I'm interested in {service} and would like to learn more and book a consultation.",
-    "bookingMessageTemplate": "Hello! My name is {name}. I'd like to book a consultation{serviceClause}. Preferred contact: {contact}.{messageClause}",
+    "doctorMessageTemplate": "Hello! I saw the ELIT DENT website and would like to book a consultation with {doctor}.",
+    "bookingMessageTemplate": "Hello! My name is {name}. Phone: {phone}. I'd like to book a consultation{doctorClause}{serviceClause}. Preferred contact: {contact}.{messageClause}",
     "serviceClauseTemplate": " for {service}",
+    "doctorClauseTemplate": " with {doctor}",
     "messageClauseTemplate": " Note: {message}"
   },
   "servicesPage": {
@@ -145,8 +154,12 @@
     "expertiseTitle": "Focus areas",
     "servicesTitle": "Services",
     "languagesTitle": "Languages",
+    "experienceLabel": "Experience",
+    "experienceSuffix": "years",
+    "educationTitle": "Education & qualifications",
+    "certificationsTitle": "Certifications",
     "ctaTitle": "Book a consultation",
-    "ctaDescription": "Ask to be seen by this doctor when you book — we'll confirm availability over WhatsApp."
+    "ctaDescription": "We'll confirm the doctor and time over WhatsApp right after your message."
   },
   "technologyPage": {
     "eyebrow": "Technology",
@@ -170,20 +183,42 @@
   "reviewsPage": {
     "eyebrow": "Reviews",
     "title": "Patient feedback",
-    "description": "We're building our verified review base. The entries below are demo placeholders, clearly marked, until real patient feedback is published."
+    "description": "What patients say about their treatment, their doctor, and their overall experience at ELIT DENT."
   },
   "contactPage": {
     "eyebrow": "Contact",
     "title": "Let's talk about your case",
     "description": "Call, message us on WhatsApp, or book a consultation directly — whichever is easiest for you.",
     "phoneLabel": "Phone",
+    "emailLabel": "Email",
     "whatsappLabel": "WhatsApp",
     "hoursLabel": "Working hours",
-    "hoursValue": "To be confirmed",
+    "hoursWeekday": "Mon–Fri",
+    "hoursWeekdayTime": "09:00–19:00",
+    "hoursSaturday": "Sat",
+    "hoursSaturdayTime": "10:00–17:00",
+    "hoursSunday": "Sun",
+    "hoursSundayTime": "by appointment",
     "addressLabel": "Address",
-    "addressValue": "To be confirmed",
-    "mapNote": "Map will be added once the clinic address is confirmed.",
-    "formTitle": "Send us a message"
+    "directionsCta": "Open directions in Google Maps",
+    "formTitle": "Send us a message",
+    "paymentTitle": "Payment methods",
+    "paymentOptions": ["Cash", "Card payment", "Bank transfer", "Instalments for longer treatment plans — by arrangement"],
+    "safetyTitle": "Sterilization & safety",
+    "safetyItems": [
+      "Multi-stage instrument sterilization protocol",
+      "Single-use consumables wherever the procedure calls for it",
+      "Sterile packaging and shelf-life checks on every instrument",
+      "A sterilization log kept for every cycle",
+      "Treatment room prepared fresh before every patient"
+    ],
+    "generalFaqTitle": "General questions",
+    "generalFaq": [
+      { "q": "Can you see children", "a": "Yes — some of our doctors see children; mention the child's age when booking and we'll match you with the right specialist." },
+      { "q": "Is instalment payment available for costly treatment", "a": "For longer treatments (implants, orthodontics) staged payment can be arranged — details are discussed at the consultation." },
+      { "q": "What contraindications should I know about", "a": "Contraindications are individual and depend on overall health — your doctor will review them at your visit before finalizing a plan." },
+      { "q": "Should I bring existing X-rays or records", "a": "Yes — any previous imaging or medical history helps us plan more precisely from your very first visit." }
+    ]
   },
   "mobileBar": { "call": "Call", "whatsapp": "WhatsApp", "book": "Book" },
   "notFound": {
