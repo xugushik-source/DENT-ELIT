@@ -116,8 +116,8 @@
       }
     ],
     "price": {
-      "amount": 900,
-      "currency": "₾",
+      "amount": 350,
+      "currency": "$",
       "prefix": {
         "hy": "Սկսած",
         "ru": "От",
@@ -235,8 +235,8 @@
       }
     ],
     "price": {
-      "amount": 600,
-      "currency": "₾",
+      "amount": 220,
+      "currency": "$",
       "prefix": {
         "hy": "Սկսած",
         "ru": "От",
@@ -353,8 +353,8 @@
       }
     ],
     "price": {
-      "amount": 1800,
-      "currency": "₾",
+      "amount": 650,
+      "currency": "$",
       "prefix": {
         "hy": "Սկսած",
         "ru": "От",
@@ -471,8 +471,8 @@
       }
     ],
     "price": {
-      "amount": 450,
-      "currency": "₾",
+      "amount": 170,
+      "currency": "$",
       "prefix": {
         "hy": "Սկսած",
         "ru": "От",
@@ -586,8 +586,8 @@
       }
     ],
     "price": {
-      "amount": 120,
-      "currency": "₾",
+      "amount": 45,
+      "currency": "$",
       "prefix": {
         "hy": "Սկսած",
         "ru": "От",
@@ -703,8 +703,8 @@
       }
     ],
     "price": {
-      "amount": 280,
-      "currency": "₾",
+      "amount": 100,
+      "currency": "$",
       "prefix": {
         "hy": "Սկսած",
         "ru": "От",
@@ -803,8 +803,8 @@
       }
     ],
     "price": {
-      "amount": 90,
-      "currency": "₾",
+      "amount": 35,
+      "currency": "$",
       "prefix": {
         "hy": "Սկսած",
         "ru": "От",
@@ -903,8 +903,8 @@
       }
     ],
     "price": {
-      "amount": 150,
-      "currency": "₾",
+      "amount": 55,
+      "currency": "$",
       "prefix": {
         "hy": "Սկսած",
         "ru": "От",
@@ -1005,8 +1005,8 @@
       }
     ],
     "price": {
-      "amount": 200,
-      "currency": "₾",
+      "amount": 75,
+      "currency": "$",
       "prefix": {
         "hy": "Սկսած",
         "ru": "От",
@@ -1108,8 +1108,8 @@
       }
     ],
     "price": {
-      "amount": 90,
-      "currency": "₾",
+      "amount": 35,
+      "currency": "$",
       "prefix": {
         "hy": "Սկսած",
         "ru": "От",
@@ -1208,8 +1208,8 @@
       }
     ],
     "price": {
-      "amount": 80,
-      "currency": "₾",
+      "amount": 30,
+      "currency": "$",
       "prefix": {
         "hy": "Սկսած",
         "ru": "От",
@@ -1308,8 +1308,8 @@
       }
     ],
     "price": {
-      "amount": 250,
-      "currency": "₾",
+      "amount": 95,
+      "currency": "$",
       "prefix": {
         "hy": "Սկսած",
         "ru": "От",
