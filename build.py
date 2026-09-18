@@ -267,6 +267,10 @@ def main():
         # ---- Services list ----
         ctx = base_ctx(slugify_href(lang_prefix, "services"), "services", t["servicesPage"]["title"], t["servicesPage"]["description"], "/services/")
         ctx["services"] = services
+        ctx["breadcrumb"] = [
+            {"name": t["nav"]["home"], "href": slugify_href(lang_prefix)},
+            {"name": t["nav"]["services"], "href": slugify_href(lang_prefix, "services")},
+        ]
         html = env.get_template("pages/services.html").render(**ctx)
         write_file(DIST / lang / "services" / "index.html", html)
         all_pages.append((lang, f"/{lang}/services/"))
@@ -313,6 +317,10 @@ def main():
         # ---- Doctors list ----
         ctx = base_ctx(slugify_href(lang_prefix, "doctors"), "doctors", t["doctorsPage"]["title"], t["doctorsPage"]["description"], "/doctors/")
         ctx["doctors"] = doctors
+        ctx["breadcrumb"] = [
+            {"name": t["nav"]["home"], "href": slugify_href(lang_prefix)},
+            {"name": t["nav"]["doctors"], "href": slugify_href(lang_prefix, "doctors")},
+        ]
         html = env.get_template("pages/doctors.html").render(**ctx)
         write_file(DIST / lang / "doctors" / "index.html", html)
         all_pages.append((lang, f"/{lang}/doctors/"))
@@ -339,12 +347,20 @@ def main():
         # ---- Technology ----
         ctx = base_ctx(slugify_href(lang_prefix, "technology"), "technology", t["technologyPage"]["title"], t["technologyPage"]["description"], "/technology/")
         ctx["technologies"] = technologies
+        ctx["breadcrumb"] = [
+            {"name": t["nav"]["home"], "href": slugify_href(lang_prefix)},
+            {"name": t["nav"]["technology"], "href": slugify_href(lang_prefix, "technology")},
+        ]
         html = env.get_template("pages/technology.html").render(**ctx)
         write_file(DIST / lang / "technology" / "index.html", html)
         all_pages.append((lang, f"/{lang}/technology/"))
 
         # ---- About ----
         ctx = base_ctx(slugify_href(lang_prefix, "about"), "about", t["aboutPage"]["title"], t["aboutPage"]["title"], "/about/")
+        ctx["breadcrumb"] = [
+            {"name": t["nav"]["home"], "href": slugify_href(lang_prefix)},
+            {"name": t["nav"]["about"], "href": slugify_href(lang_prefix, "about")},
+        ]
         html = env.get_template("pages/about.html").render(**ctx)
         write_file(DIST / lang / "about" / "index.html", html)
         all_pages.append((lang, f"/{lang}/about/"))
@@ -352,12 +368,20 @@ def main():
         # ---- Reviews ----
         ctx = base_ctx(slugify_href(lang_prefix, "reviews"), "reviews", t["reviewsPage"]["title"], t["reviewsPage"]["description"], "/reviews/")
         ctx["reviews"] = reviews
+        ctx["breadcrumb"] = [
+            {"name": t["nav"]["home"], "href": slugify_href(lang_prefix)},
+            {"name": t["nav"]["reviews"], "href": slugify_href(lang_prefix, "reviews")},
+        ]
         html = env.get_template("pages/reviews.html").render(**ctx)
         write_file(DIST / lang / "reviews" / "index.html", html)
         all_pages.append((lang, f"/{lang}/reviews/"))
 
         # ---- Contact ----
         ctx = base_ctx(slugify_href(lang_prefix, "contact"), "contact", t["contactPage"]["title"], t["contactPage"]["description"], "/contact/")
+        ctx["breadcrumb"] = [
+            {"name": t["nav"]["home"], "href": slugify_href(lang_prefix)},
+            {"name": t["nav"]["contact"], "href": slugify_href(lang_prefix, "contact")},
+        ]
         html = env.get_template("pages/contact.html").render(**ctx)
         write_file(DIST / lang / "contact" / "index.html", html)
         all_pages.append((lang, f"/{lang}/contact/"))

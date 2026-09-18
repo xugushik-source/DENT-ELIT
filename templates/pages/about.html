@@ -2,6 +2,7 @@
 {% block content %}
 <section class="page-header">
   <div class="container">
+    {% include "partials/breadcrumb.html" %}
     <span class="eyebrow">{{ t.aboutPage.eyebrow }} · {{ site.brand.foundedYear }}</span>
     <h1>{{ t.aboutPage.title }}</h1>
     <div class="stats-row" style="border-top:none; padding-top:0; margin-top:32px;">

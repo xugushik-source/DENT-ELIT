@@ -2,11 +2,7 @@
 {% block content %}
 <section class="page-header">
   <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      {% for b in breadcrumb %}
-        {% if not loop.last %}<a href="{{ b.href }}">{{ b.name }}</a><span class="sep">/</span>{% else %}<span>{{ b.name }}</span>{% endif %}
-      {% endfor %}
-    </nav>
+    {% include "partials/breadcrumb.html" %}
   </div>
 </section>
 <section style="padding-top:0;">
