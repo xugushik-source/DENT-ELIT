@@ -5,6 +5,74 @@ data-driven so the **next** clinic doesn't require rewriting templates — it re
 new data. This is what makes it "one codebase, visually different sites" rather than
 "the same site with a new logo."
 
+## The replication contract (read this first, every time)
+
+When the ask is "build a site like ELIT DENT for [new clinic]," it means: clone the
+**mechanics** exactly, byte-for-byte, and swap only the **variable** content. It does
+**not** mean redesigning, restructuring, or re-implementing anything below — a
+different clinic gets different data flowing through the same machine, not a
+reinterpretation of the machine. If something isn't explicitly listed as variable,
+treat it as mechanical and leave it alone.
+
+**Variable — this is what actually changes per client:**
+- Brand identity: clinic name, tagline, founding year, and the client's own real logo
+  files (never invent or redesign a logo — technical prep only: crop/resize/recompress
+  what the client supplies, exactly as `AUDIT_V2.md` §0 and step 2 below describe).
+- Color tokens (`static/css/tokens.css`) — palette/tone shifts per brand, nothing else
+  in the CSS architecture changes to achieve this (see step 4).
+- Contact details: phone, WhatsApp number, email, address per language, working hours,
+  service-area cities, social links (only real ones — never guessed handles).
+- Content data: doctors (photos, names, roles, bios, experience, education,
+  certifications), services (copy, images, and — critically — **prices and the
+  currency they're quoted in**, per the currency actually used in that clinic's
+  market), technologies, reviews, trust stats, the rating shown.
+- Photography throughout `static/images/` (aspect ratios must still match what each
+  slot expects — see step 3).
+- `featureFlags.demoMode` and the footer disclosure line, once real data replaces
+  fictional placeholder data for that client.
+
+**Mechanical — this stays identical across every clinic built on this engine, unless
+the client explicitly asks to change the mechanic itself (not just its content):**
+- The whole pipeline and file layout: `build.py`, the `data/` + `content/` + `templates/`
+  + `static/` separation, directory-style URLs, and the full page set (home, services
+  list/detail, doctors list/detail, technology, about, reviews, contact, 404).
+- The full-screen intro splash: shown once per browser session via `sessionStorage`
+  (never replayed on internal navigation), fading the client's logo in and the whole
+  overlay out before the site underneath. The *logo image* is variable; the splash
+  *mechanism* (timing, session-gating, fade behavior) is not.
+- Breadcrumb navigation on every non-home page (`templates/partials/breadcrumb.html`):
+  "Home / Section" on list pages, "Home / Section / Item" on detail pages — this is
+  what lets a visitor navigate back up the hierarchy without opening the mobile menu,
+  and every page must keep having it.
+- The scroll-reveal system (`.reveal` / `.js-reveal`, `IntersectionObserver`-driven,
+  ~80ms stagger between siblings, full `prefers-reduced-motion` fallback to static
+  content) — every section on every page keeps this, not just the homepage.
+- The booking modal + WhatsApp flow end to end: server-side `wa_url()` for every
+  *static* WhatsApp link, the client-side message builder in `main.js` that
+  interpolates name/phone/service/doctor/contact-method/message into the template
+  strings from `content/{lang}.json`, and doctor-specific booking via the `data-doctor`
+  attribute. **The visitor's phone number must always end up in the WhatsApp message**
+  — this broke once already (see `AUDIT_V2.md` §1) and is the single most
+  business-critical mechanic on the whole site; never regress it.
+- Mobile nav overlay, bottom bar (Call/WhatsApp/Book), floating WhatsApp button, and
+  the focus-trap/`aria-expanded`/`aria-hidden` accessibility behavior behind all of
+  them.
+- The SEO machinery: `SITE_URL` env-var resolution with `seo.productionUrl` fallback,
+  canonical/hreflang/`x-default`/OG tags, `sitemap.xml`/`robots.txt` generation, and
+  the structured data (`Dentist`/`Service`/`Person`/`BreadcrumbList`/`FAQPage`), with
+  `AggregateRating` staying forbidden while `demoMode` is true.
+- `validate.py`, run after every build, on every clinic, before every deploy. A new
+  clinic still needs "PASSED: 0 errors" — broken links, missing translations,
+  leftover placeholder text, and cross-file numeric consistency (doctor/service/review
+  counts vs. the numbers quoted in `stats`) are exactly as unacceptable for client #2
+  as they were for ELIT DENT.
+- The visual design *system* — spacing scale, type scale, component structure (cards,
+  buttons, modal, header, footer) — as opposed to the color *tokens* riding on top of
+  it, which are variable (step 4).
+
+If a change doesn't fit cleanly into "this is client data" or "this is machinery,"
+stop and ask rather than guessing which bucket it belongs in.
+
 ## How the build actually works
 
 ```
@@ -113,7 +181,9 @@ milestone.
 
 **Reusable as-is:** design tokens, header/footer/nav/modal/bottom-bar components,
 service/doctor/technology data schema, the Jinja2 build pipeline, hreflang/sitemap
-generation, the WhatsApp deep-link + booking-modal mechanism.
+generation, the WhatsApp deep-link + booking-modal mechanism, the intro splash
+screen, breadcrumb navigation on every page, the scroll-reveal animation system, and
+`validate.py`'s full check suite.
 
 **Still ELIT-DENT-specific and would need generalizing for a very different clinic
 shape:** the fixed list of 12 service categories (a different specialty clinic — e.g.
