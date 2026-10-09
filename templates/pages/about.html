@@ -3,7 +3,7 @@
 <section class="page-header">
   <div class="container">
     {% include "partials/breadcrumb.html" %}
-    <span class="eyebrow">{{ t.aboutPage.eyebrow }} · {{ site.brand.foundedYear }}</span>
+    <span class="eyebrow">{{ t.aboutPage.eyebrow }}{% if site.brand.foundedYear %} · {{ site.brand.foundedYear }}{% endif %}</span>
     <h1>{{ t.aboutPage.title }}</h1>
     <div class="stats-row" style="border-top:none; padding-top:0; margin-top:32px;">
       {% for stat in site.stats %}
@@ -23,7 +23,18 @@
   </div>
 </section>
 
+{% if site.factoryMode and (site.media.team or site.media.reception or site.media.gallery) %}
+<section>
+  <div class="container card-grid cols-3">
+    {% for photo in [site.media.team, site.media.reception] + site.media.gallery if photo %}
+    <div class="hero-media reveal"><img class="photo" src="{{ photo }}" alt="{{ site.brand.clinicName }}" loading="lazy"></div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 {% for key in ['philosophy','patientApproach','digitalDentistry','team','clinicEnvironment','technology','patientExperience'] %}
+{% if t.aboutPage.sections[key].body %}
 <section class="about-section">
   <div class="container" style="max-width: 780px;">
     <h2 class="reveal">{{ t.aboutPage.sections[key].title }}</h2>
@@ -32,17 +43,18 @@
   {% if key == 'team' %}
   <div class="container" style="max-width: 960px; margin-top: 32px;">
     <div class="hero-media reveal" style="aspect-ratio:16/9;">
-      <img class="photo" src="/images/clinic/team.jpg" alt="{{ site.brand.clinicName }} team" width="960" height="540" loading="lazy">
+      <img class="photo" src="{{ site.media.team if site.factoryMode else '/images/clinic/team.jpg' }}" alt="{{ site.brand.clinicName }} team" width="960" height="540" loading="lazy">
     </div>
   </div>
   {% elif key == 'clinicEnvironment' %}
   <div class="container" style="max-width: 960px; margin-top: 32px;">
     <div class="hero-media reveal" style="aspect-ratio:16/9;">
-      <img class="photo" src="/images/clinic/reception.jpg" alt="{{ site.brand.clinicName }} reception" width="960" height="540" loading="lazy">
+      <img class="photo" src="{{ site.media.reception if site.factoryMode else '/images/clinic/reception.jpg' }}" alt="{{ site.brand.clinicName }} reception" width="960" height="540" loading="lazy">
     </div>
   </div>
   {% endif %}
 </section>
+{% endif %}
 {% endfor %}
 
 <section class="section-alt">

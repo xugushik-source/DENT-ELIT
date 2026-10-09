@@ -6,7 +6,7 @@
 <script>document.documentElement.classList.add('js-reveal');</script>
 <title>{{ page_title }}</title>
 <meta name="description" content="{{ page_description }}">
-{% if robots_noindex %}<meta name="robots" content="noindex, follow">{% endif %}
+{% if robots_noindex %}<meta name="robots" content="{{ 'noindex, nofollow, noarchive' if factory_demo else 'noindex, follow' }}">{% endif %}
 <link rel="canonical" href="{{ site_url }}{{ canonical_path }}">
 {% for l, path in translations.items() %}
 <link rel="alternate" hreflang="{{ l }}" href="{{ site_url }}{{ path }}">
@@ -17,9 +17,9 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="{{ lang }}">
 <meta property="og:url" content="{{ site_url }}{{ canonical_path }}">
-<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/favicon-16.png" sizes="16x16" type="image/png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" href="{{ site.favicon if site.factoryMode else '/favicon-32.png' }}" sizes="32x32" type="image/png">
+<link rel="icon" href="{{ site.favicon if site.factoryMode else '/favicon-16.png' }}" sizes="16x16" type="image/png">
+{% if not site.factoryMode %}<link rel="apple-touch-icon" href="/apple-touch-icon.png">{% endif %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="{{ asset_prefix }}/css/tokens.css">
@@ -28,14 +28,15 @@
 <script type="application/ld+json">{{ structured_data | safe }}</script>
 {% endif %}
 </head>
-<body data-whatsapp-number="{{ site.contact.whatsappNumber }}" class="has-bottom-bar">
+<body data-demo-mode="{{ 'true' if factory_demo else 'false' }}" data-whatsapp-number="{{ site.contact.whatsappNumber }}" class="has-bottom-bar">
 
+{% if not site.factoryMode or site.logoSplash %}
 <div class="intro-splash" id="introSplash" aria-hidden="true">
-  <img src="{{ asset_prefix }}/brand/logo-splash.jpg" alt="{{ site.brand.clinicName }}" class="intro-splash-logo">
+  <img src="{{ site.logoSplash if site.factoryMode else asset_prefix + '/brand/logo-splash.jpg' }}" alt="{{ site.brand.clinicName }}" class="intro-splash-logo">
 </div>
 <script>
 (function () {
-  var SESSION_KEY = 'elitdentSplashShown';
+  var SESSION_KEY = {{ ('factorySplash_' + site.clinicId if site.factoryMode else 'elitdentSplashShown') | tojson }};
   var alreadyShown = true;
   try { alreadyShown = sessionStorage.getItem(SESSION_KEY) === '1'; } catch (e) {}
   var el = document.getElementById('introSplash');
@@ -54,7 +55,9 @@
 })();
 </script>
 
+{% endif %}
 {% include "partials/header.html" %}
+{% if factory_demo %}<div class="demo-notice" role="note">{{ demo_notice }}</div>{% endif %}
 {% include "partials/mobile_nav.html" %}
 
 <main>

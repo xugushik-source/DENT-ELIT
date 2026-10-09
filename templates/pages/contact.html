@@ -26,15 +26,25 @@
       <div class="contact-detail">
         <span class="text-muted">{{ t.contactPage.hoursLabel }}</span>
         <span>
+          {% if site.factoryMode %}
+          {% for row in site.contact.hours %}
+          {{ t.hoursDays[row.day] }}: {% if row.closed %}{{ t.hoursClosed }}{% elif row.byAppointment %}{{ t.hoursAppointment }}{% else %}{% for interval in row.intervals %}{{ interval.open }}–{{ interval.close }} {% endfor %}{% endif %}<br>
+          {% endfor %}
+          {% else %}
           {{ t.contactPage.hoursWeekday }} {{ t.contactPage.hoursWeekdayTime }}<br>
           {{ t.contactPage.hoursSaturday }} {{ t.contactPage.hoursSaturdayTime }}<br>
           {{ t.contactPage.hoursSunday }} — {{ t.contactPage.hoursSundayTime }}
+          {% endif %}
         </span>
       </div>
       <div class="contact-detail">
         <span class="text-muted">{{ t.contactPage.addressLabel }}</span>
         <span>{{ site.contact.address[lang] }}</span>
       </div>
+      {% if site.factoryMode %}
+      {% for link in site.contact.links %}<div class="contact-detail"><a href="{{ link.url }}">{{ link.label[lang] }}</a></div>{% endfor %}
+      {% if site.contact.bookingUrl %}<div class="contact-detail"><a href="{{ site.contact.bookingUrl }}">{{ site.contact.bookingLabel[lang] }}</a></div>{% endif %}
+      {% endif %}
       <div style="margin-top:32px;">
         <button type="button" class="btn btn-primary" data-open-booking>{{ t.nav.bookConsultation }}</button>
       </div>
@@ -44,13 +54,14 @@
         <div class="map-card-body">
           <span class="eyebrow">{{ t.contactPage.addressLabel }}</span>
           <p>{{ site.contact.address[lang] }}</p>
-          <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query={{ site.contact.address.en | urlencode }}" target="_blank" rel="noopener">{{ t.contactPage.directionsCta }} <span class="arrow">→</span></a>
+          <a class="link-arrow" href="{{ site.contact.mapsUrl if site.factoryMode else 'https://www.google.com/maps/search/?api=1&query=' + (site.contact.address.en | urlencode) }}" target="_blank" rel="noopener">{{ t.contactPage.directionsCta }} <span class="arrow">→</span></a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+{% if t.contactPage.paymentOptions or t.contactPage.safetyItems %}
 <section class="section-alt">
   <div class="container two-col">
     <div class="reveal">
@@ -71,7 +82,9 @@
     </div>
   </div>
 </section>
+{% endif %}
 
+{% if t.contactPage.generalFaq %}
 <section>
   <div class="container" style="max-width: 780px;">
     <h2 class="reveal">{{ t.contactPage.generalFaqTitle }}</h2>
@@ -85,4 +98,5 @@
     </div>
   </div>
 </section>
+{% endif %}
 {% endblock %}

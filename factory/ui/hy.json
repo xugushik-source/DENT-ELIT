@@ -1,0 +1,268 @@
+{
+  "htmlLang": "hy",
+  "dir": "ltr",
+  "meta": {
+    "titleSuffix": "{clinicName}"
+  },
+  "nav": {
+    "home": "Գլխավոր",
+    "services": "Ծառայություններ",
+    "doctors": "Բժիշկներ",
+    "technology": "Տեխնոլոգիաներ",
+    "about": "Մեր մասին",
+    "reviews": "Կարծիքներ",
+    "contact": "Կապ",
+    "bookConsultation": "Գրանցվել խորհրդատվության"
+  },
+  "common": {
+    "call": "Զանգահարել",
+    "whatsapp": "WhatsApp",
+    "learnMore": "Իմանալ ավելին",
+    "readMore": "Կարդալ ավելին",
+    "viewAll": "Դիտել բոլորը",
+    "backTo": "Վերադառնալ",
+    "close": "Փակել",
+    "menu": "Մենյու",
+    "language": "Լեզու",
+    "priceNote": "Արժեքը՝ խորհրդատվությունից հետո",
+    "demoDataBadge": "Ցուցադրական տվյալներ"
+  },
+  "hero": {
+    "eyebrow": "Գլխավոր",
+    "headline": "Գլխավոր",
+    "description": "",
+    "ctaPrimary": "Գրանցվել խորհրդատվության",
+    "ctaSecondary": "Գրել WhatsApp-ով",
+    "trustChips": []
+  },
+  "trust": {
+    "title": "Մեր մասին",
+    "items": {},
+    "stats": {}
+  },
+  "services": {
+    "eyebrow": "Ծառայություններ",
+    "title": "Ծառայություններ",
+    "description": "",
+    "ctaViewAll": "Դիտել բոլոր ծառայությունները"
+  },
+  "technology": {
+    "eyebrow": "Տեխնոլոգիաներ",
+    "title": "Տեխնոլոգիաներ",
+    "description": ""
+  },
+  "doctorSpotlight": {
+    "eyebrow": "Բժիշկներ",
+    "title": "Բժիշկներ",
+    "description": "",
+    "ctaMeetTeam": "Ծանոթանալ թիմին"
+  },
+  "patientExperience": {
+    "eyebrow": "Մեր մասին",
+    "title": "Մեր մասին",
+    "description": "",
+    "steps": {
+      "arrival": {
+        "title": "Ժամանում",
+        "desc": "Հանգիստ ընդունելություն և կարճ զրույց այն մասին, ինչն է ձեզ բերել մեզ մոտ։"
+      },
+      "consultation": {
+        "title": "Խորհրդատվություն",
+        "desc": "Նախ լսում ենք, հետո զննում ենք, հետո բացատրում ենք տեսածը։"
+      },
+      "diagnostics": {
+        "title": "Ախտորոշում",
+        "desc": "Թվային պատկերում՝ անհրաժեշտության դեպքում, որպեսզի ոչինչ ենթադրության տեղ չմնա։"
+      },
+      "treatment": {
+        "title": "Բուժում",
+        "desc": "Իրականացվում է այն պլանով, որը դուք արդեն տեսել ու հասկացել եք։"
+      },
+      "followUp": {
+        "title": "Հետբուժումային հսկողություն",
+        "desc": "Կապի մեջ ենք բուժումից հետո և պատասխանում ենք հարցերին, եթե դրանք առաջանան։"
+      }
+    }
+  },
+  "team": {
+    "eyebrow": "Բժիշկներ",
+    "title": "Բժիշկներ",
+    "description": ""
+  },
+  "reviews": {
+    "eyebrow": "Կարծիքներ",
+    "title": "Կարծիքներ",
+    "description": "",
+    "ratingLabel": "Հիվանդների գնահատական"
+  },
+  "finalCTA": {
+    "eyebrow": "Կապ",
+    "title": "Կապ",
+    "description": ""
+  },
+  "footer": {
+    "servicesTitle": "Ծառայություններ",
+    "clinicTitle": "Կլինիկա",
+    "contactTitle": "Կապ",
+    "languagesTitle": "Լեզուներ",
+    "socialTitle": "Հետևեք մեզ",
+    "developedBy": "Կայքի կոնցեպտը և մշակումը՝",
+    "rights": "Բոլոր իրավունքները պաշտպանված են։",
+    "disclosure": "Ցուցադրական տարբերակ։ Պացիենտների գրանցումն ու դիմումների ուղարկումն անջատված են։ Տվյալները ենթակա են կլինիկայի հաստատմանը։"
+  },
+  "booking": {
+    "title": "Գրանցում խորհրդատվության",
+    "description": "Ցուցադրական տարբերակ։ Պացիենտների գրանցումն ու դիմումների ուղարկումն անջատված են։ Տվյալները ենթակա են կլինիկայի հաստատմանը։",
+    "name": "Անուն, ազգանուն",
+    "phone": "Հեռախոսահամար",
+    "service": "Հետաքրքրող ծառայություն",
+    "servicePlaceholder": "Ընտրեք ծառայությունը",
+    "contactMethod": "Կապի հարմար եղանակ",
+    "contactMethodOptions": [
+      "WhatsApp",
+      "Հեռախոսազանգ"
+    ],
+    "message": "Հաղորդագրություն (ոչ պարտադիր)",
+    "submit": "Ուղարկել WhatsApp-ով",
+    "note": "Ցուցադրական տարբերակ։ Պացիենտների գրանցումն ու դիմումների ուղարկումն անջատված են։ Տվյալները ենթակա են կլինիկայի հաստատմանը։"
+  },
+  "whatsapp": {
+    "defaultMessage": "Բարև ձեզ։ Այցելել եմ {clinicName} կայքը և ցանկանում եմ գրանցվել խորհրդատվության։",
+    "serviceMessageTemplate": "Բարև ձեզ։ Այցելել եմ {clinicName} կայքը։ Ինձ հետաքրքրում է «{service}» ծառայությունը, ցանկանում եմ իմանալ ավելին և գրանցվել խորհրդատվության։",
+    "doctorMessageTemplate": "Բարև ձեզ։ Այցելել եմ {clinicName} կայքը և ցանկանում եմ գրանցվել խորհրդատվության {doctor}-ի մոտ։",
+    "bookingMessageTemplate": "Բարև ձեզ։ Իմ անունն է {name}։ Հեռախոսահամարս՝ {phone}։ Ցանկանում եմ գրանցվել խորհրդատվության{doctorClause}{serviceClause}։ Կապի հարմար եղանակ՝ {contact}։{messageClause}",
+    "serviceClauseTemplate": "՝ «{service}» ծառայության համար",
+    "doctorClauseTemplate": " {doctor}-ի մոտ",
+    "messageClauseTemplate": " Մեկնաբանություն՝ {message}"
+  },
+  "servicesPage": {
+    "eyebrow": "Ծառայություններ",
+    "title": "Ծառայություններ",
+    "description": ""
+  },
+  "serviceDetail": {
+    "breadcrumbServices": "Ծառայություններ",
+    "aboutTitle": "Բուժման մասին",
+    "whoTitle": "Ում համար է հարմար",
+    "benefitsTitle": "Առավելություններ",
+    "processTitle": "Ինչպես ենք աշխատում",
+    "technologyTitle": "Կիրառվող տեխնոլոգիաներ",
+    "doctorTitle": "Ձեր բժիշկը",
+    "pricingTitle": "Արժեք",
+    "faqTitle": "Հաճախակի տրվող հարցեր",
+    "relatedTitle": "Առնչվող ծառայություններ",
+    "ctaTitle": "Պատրա՞ստ եք քննարկել ձեր դեպքը",
+    "ctaDescription": ""
+  },
+  "doctorsPage": {
+    "eyebrow": "Բժիշկներ",
+    "title": "Բժիշկներ",
+    "description": ""
+  },
+  "doctorDetail": {
+    "backToDoctors": "Բոլոր բժիշկները",
+    "expertiseTitle": "Մասնագիտացման ուղղություններ",
+    "servicesTitle": "Ծառայություններ",
+    "languagesTitle": "Լեզուներ",
+    "experienceLabel": "Աշխատանքային ստաժ",
+    "experienceSuffix": "տարի",
+    "educationTitle": "Կրթություն և որակավորում",
+    "certificationsTitle": "Սերտիֆիկատներ",
+    "ctaTitle": "Գրանցվել խորհրդատվության",
+    "ctaDescription": ""
+  },
+  "technologyPage": {
+    "eyebrow": "Տեխնոլոգիաներ",
+    "title": "Տեխնոլոգիաներ",
+    "description": ""
+  },
+  "aboutPage": {
+    "eyebrow": "Մեր մասին",
+    "title": "Մեր մասին",
+    "sections": {
+      "philosophy": {
+        "title": "Մեր փիլիսոփայությունը",
+        "body": ""
+      },
+      "patientApproach": {
+        "title": "Մեր մոտեցումը հիվանդներին",
+        "body": ""
+      },
+      "digitalDentistry": {
+        "title": "Թվային ստոմատոլոգիա",
+        "body": ""
+      },
+      "team": {
+        "title": "Մեր թիմը",
+        "body": ""
+      },
+      "clinicEnvironment": {
+        "title": "Կլինիկան",
+        "body": ""
+      },
+      "technology": {
+        "title": "Տեխնոլոգիաներ",
+        "body": ""
+      },
+      "patientExperience": {
+        "title": "Ձեր փորձառությունը",
+        "body": ""
+      },
+      "cta": {
+        "title": "Հարց ունե՞ք գրանցվելուց առաջ",
+        "body": ""
+      }
+    }
+  },
+  "reviewsPage": {
+    "eyebrow": "Կարծիքներ",
+    "title": "Կարծիքներ",
+    "description": ""
+  },
+  "contactPage": {
+    "eyebrow": "Կապ",
+    "title": "Կապ",
+    "description": "",
+    "phoneLabel": "Հեռախոս",
+    "emailLabel": "Էլ. փոստ",
+    "whatsappLabel": "WhatsApp",
+    "hoursLabel": "Աշխատանքային ժամեր",
+    "hoursWeekday": "Երկ–Ուրբ",
+    "hoursWeekdayTime": "",
+    "hoursSaturday": "Շաբ",
+    "hoursSaturdayTime": "",
+    "hoursSunday": "Կիր",
+    "hoursSundayTime": "",
+    "addressLabel": "Հասցե",
+    "directionsCta": "Բացել երթուղին Google Քարտեզում",
+    "formTitle": "Գրեք մեզ",
+    "paymentTitle": "Վճարման եղանակներ",
+    "paymentOptions": [],
+    "safetyTitle": "Ստերիլիզացիա և անվտանգություն",
+    "safetyItems": [],
+    "generalFaqTitle": "Ընդհանուր հարցեր",
+    "generalFaq": []
+  },
+  "mobileBar": {
+    "call": "Զանգ",
+    "whatsapp": "WhatsApp",
+    "book": "Գրանցում"
+  },
+  "notFound": {
+    "title": "Էջը չի գտնվել",
+    "description": "Ձեր փնտրած էջը գոյություն չունի կամ տեղափոխվել է։",
+    "cta": "Վերադառնալ գլխավոր էջ"
+  },
+  "demoNotice": "Ցուցադրական տարբերակ։ Պացիենտների գրանցումն ու դիմումների ուղարկումն անջատված են։ Տվյալները ենթակա են կլինիկայի հաստատմանը։",
+  "hoursDays": {
+    "mon": "Երկ",
+    "tue": "Երք",
+    "wed": "Չրք",
+    "thu": "Հնգ",
+    "fri": "Ուրբ",
+    "sat": "Շբթ",
+    "sun": "Կիր"
+  },
+  "hoursClosed": "Փակ է",
+  "hoursAppointment": "Ըստ գրանցման"
+}

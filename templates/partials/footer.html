@@ -16,10 +16,9 @@
       <div class="footer-col">
         <h4>{{ t.footer.clinicTitle }}</h4>
         <ul>
-          <li><a href="{{ lang_prefix }}/about/">{{ t.nav.about }}</a></li>
-          <li><a href="{{ lang_prefix }}/doctors/">{{ t.nav.doctors }}</a></li>
-          <li><a href="{{ lang_prefix }}/technology/">{{ t.nav.technology }}</a></li>
-          <li><a href="{{ lang_prefix }}/reviews/">{{ t.nav.reviews }}</a></li>
+          {% for item in nav_items if item.key in ['about','doctors','technology','reviews'] %}
+          <li><a href="{{ item.href }}">{{ item.label }}</a></li>
+          {% endfor %}
         </ul>
       </div>
       <div class="footer-col">

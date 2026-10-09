@@ -16,7 +16,7 @@
       <h1>{{ doctor.name }}</h1>
       <p class="eyebrow" style="margin-top:0;">{{ doctor.role }}{% if doctor.experienceYears %} · {{ doctor.experienceYears }} {{ t.doctorDetail.experienceSuffix }} {{ t.doctorDetail.experienceLabel | lower }}{% endif %}</p>
       <p class="body-lg">{{ doctor.bio }}</p>
-      <p style="font-family:var(--font-heading); font-size:1.0625rem;">“{{ doctor.quote }}”</p>
+      {% if doctor.quote %}<p style="font-family:var(--font-heading); font-size:1.0625rem;">“{{ doctor.quote }}”</p>{% endif %}
 
       <h3>{{ t.doctorDetail.languagesTitle }}</h3>
       <div class="hero-chips" style="margin-top:0;">

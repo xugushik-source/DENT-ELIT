@@ -3,6 +3,7 @@
     <button type="button" class="modal-close" data-close-booking aria-label="{{ t.common.close }}">✕</button>
     <h2 id="booking-title">{{ t.booking.title }}</h2>
     <p class="text-muted">{{ t.booking.description }}</p>
+    {% if factory_demo %}<p role="status" data-demo-feedback>{{ demo_notice }}</p>{% endif %}
     <form data-booking-form
           data-message-template="{{ t.whatsapp.bookingMessageTemplate }}"
           data-service-clause="{{ t.whatsapp.serviceClauseTemplate }}"
@@ -10,11 +11,11 @@
           data-message-clause="{{ t.whatsapp.messageClauseTemplate }}">
       <div class="form-field">
         <label for="booking-name">{{ t.booking.name }}</label>
-        <input type="text" id="booking-name" name="name" autocomplete="name" required>
+        <input type="text" id="booking-name" name="name" autocomplete="off" {{ 'disabled' if factory_demo else 'required' }}>
       </div>
       <div class="form-field">
         <label for="booking-phone">{{ t.booking.phone }}</label>
-        <input type="tel" id="booking-phone" name="phone" autocomplete="tel" inputmode="tel" required>
+        <input type="tel" id="booking-phone" name="phone" autocomplete="off" inputmode="tel" {{ 'disabled' if factory_demo else 'required' }}>
       </div>
       <div class="form-field">
         <label for="booking-service">{{ t.booking.service }}</label>
@@ -34,7 +35,7 @@
       </div>
       <div class="form-field">
         <label for="booking-message">{{ t.booking.message }}</label>
-        <textarea id="booking-message" name="message"></textarea>
+        <textarea {{ 'disabled' if factory_demo else '' }} id="booking-message" name="message"></textarea>
       </div>
       <button type="submit" class="btn btn-whatsapp btn-block">{{ t.booking.submit }}</button>
       <p class="form-note">{{ t.booking.note }}</p>

@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="hero-media reveal" data-reveal-group="hero">
-      <img class="photo" src="/images/hero/doctor-hero.jpg" alt="{{ site.brand.clinicName }}" width="960" height="720" loading="eager" fetchpriority="high">
+      <img class="photo" src="{{ site.media.hero if site.factoryMode else '/images/hero/doctor-hero.jpg' }}" alt="{{ site.brand.clinicName }}" width="960" height="720" loading="eager" fetchpriority="high">
     </div>
   </div>
 </section>
