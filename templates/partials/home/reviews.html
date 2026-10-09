@@ -4,7 +4,7 @@
       <span class="eyebrow">{{ t.reviews.eyebrow }}</span>
       <h2>{{ t.reviews.title }}</h2>
       <p class="body-lg">{{ t.reviews.description }}</p>
-      <p class="rating-line"><strong>★ {{ rating.value }}</strong> · {{ t.reviews.ratingLabel }} ({{ rating.count }})</p>
+      {% if rating.value is not none and rating.count is not none %}<p class="rating-line"><strong>★ {{ rating.value }}</strong> · {{ t.reviews.ratingLabel }} ({{ rating.count }})</p>{% endif %}
     </div>
     <div class="card-grid cols-3">
       {% for r in reviews %}

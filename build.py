@@ -12,10 +12,12 @@ import json
 import os
 import shutil
 from datetime import date
+import argparse
+from html import escape
 from pathlib import Path
 from urllib.parse import quote
 
-from jinja2 import Environment, FileSystemLoader, select_autoescape
+from jinja2 import Environment, FileSystemLoader, select_autoescape, StrictUndefined, Undefined
 
 ROOT = Path(__file__).parent
 DATA = ROOT / "data"
@@ -23,6 +25,8 @@ CONTENT = ROOT / "content"
 TEMPLATES = ROOT / "templates"
 STATIC = ROOT / "static"
 DIST = ROOT / "dist"
+
+FACTORY_ENABLED = None
 
 SITE_URL = None  # resolved in main(): $SITE_URL env var, else data/site.json -> seo.productionUrl
 
@@ -33,6 +37,13 @@ def load_json(path):
 
 
 def write_file(path: Path, content: str):
+    if FACTORY_ENABLED is not None and path.suffix == ".html" and path.is_relative_to(DIST):
+        parts = path.relative_to(DIST).parts
+        if len(parts) > 2 and parts[1] not in FACTORY_ENABLED:
+            return
+    if FACTORY_ENABLED is not None and path.suffix == ".html":
+        from factory.html import demo_html
+        content = demo_html(content)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding="utf-8")
 
@@ -90,8 +101,8 @@ def localize_service(raw, lang, lang_prefix, doctors_by_slug, tech_by_slug, serv
         "whoItIsFor": raw["whoItIsFor"][lang],
         "benefits": raw["benefits"][lang],
         "faq": faq,
-        "priceNote": raw["price"]["note"][lang],
-        "priceDisplay": f"{raw['price']['prefix'][lang]} {raw['price']['amount']} {raw['price']['currency']}",
+        "priceNote": raw["price"]["note"][lang] if raw.get("price") else "",
+        "priceDisplay": f"{raw['price']['prefix'][lang]} {raw['price']['amount']} {raw['price']['currency']}" if raw.get("price") else "",
         "doctor": doctor,
         "technologies": technologies,
         "related": related,
@@ -180,9 +191,23 @@ def breadcrumb_list_schema(items, site_url):
 
 
 def main():
-    global SITE_URL
+    global SITE_URL, DATA, CONTENT, STATIC, DIST, FACTORY_ENABLED
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--prepared", type=Path)
+    parser.add_argument("--output", type=Path)
+    parser.add_argument("--site-url")
+    args = parser.parse_args()
+    if bool(args.prepared) != bool(args.output):
+        parser.error("--prepared and --output must be used together")
+    if args.prepared:
+        DATA = args.prepared / "data"
+        CONTENT = args.prepared / "content"
+        STATIC = args.prepared / "static"
+        DIST = args.output
+        if DIST.exists():
+            parser.error("Prepared renderer requires a new output directory")
     site = load_json(DATA / "site.json")
-    SITE_URL = os.environ.get("SITE_URL") or site["seo"]["productionUrl"]
+    SITE_URL = args.site_url or os.environ.get("SITE_URL") or site["seo"]["productionUrl"]
     SITE_URL = SITE_URL.rstrip("/")
     services_raw = load_json(DATA / "services.json")
     doctors_raw = load_json(DATA / "doctors.json")
@@ -198,6 +223,7 @@ def main():
 
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATES)),
+        undefined=StrictUndefined if site.get("factoryMode") else Undefined,
         autoescape=select_autoescape(["html"]),
         trim_blocks=True,
         lstrip_blocks=True,
@@ -209,6 +235,11 @@ def main():
         shutil.rmtree(DIST)
     DIST.mkdir(parents=True)
 
+    enabled_pages = {"home", "contact"}
+    for key, flag in (("services","enableServices"),("doctors","enableDoctors"),("technology","enableTechnology"),("about","enableAbout"),("reviews","enableReviews")):
+        if site.get("features", {}).get(flag, True): enabled_pages.add(key)
+
+    FACTORY_ENABLED = enabled_pages if site.get("factoryMode") else None
     all_pages = []  # for sitemap: (lang, path)
     languages = site["languages"]["supported"]
 
@@ -229,13 +260,16 @@ def main():
                 "site": site,
                 "site_url": SITE_URL,
                 "asset_prefix": "",
+                "factory_demo": site.get("factoryMode", False),
+                "demo_notice": t.get("demoNotice", ""),
+                "robots_noindex": site.get("factoryMode", False),
                 "lang_prefix": lang_prefix,
                 "home_url": slugify_href(lang_prefix),
-                "nav_items": build_nav_items(t, lang_prefix, active_key),
+                "nav_items": [n for n in build_nav_items(t, lang_prefix, active_key) if not site.get("factoryMode") or n["key"] in enabled_pages],
                 "translations": translations,
                 "canonical_path": canonical_path,
                 "page_title": f"{page_title} — {site['brand']['clinicName']}",
-                "page_description": page_description,
+                "page_description": page_description or t.get("seoDescription", ""),
                 "whatsapp_default_message": t["whatsapp"]["defaultMessage"],
                 "all_services": services,
                 "footer_services": [{"title": s["title"], "href": s["href"]} for s in services[:6]],
@@ -251,7 +285,7 @@ def main():
             "doctors_home": doctors[:3],
             "technologies": technologies,
             "reviews": reviews[:3],
-            "doctor_spotlight": doctors[0],
+            "doctor_spotlight": doctors[0] if doctors else None,
         })
         org_schema = {
             "@context": "https://schema.org",
@@ -259,7 +293,7 @@ def main():
             "name": site["brand"]["clinicName"],
             "telephone": site["contact"]["phone"],
         }
-        ctx["structured_data"] = json.dumps(org_schema, ensure_ascii=False)
+        ctx["structured_data"] = json.dumps(org_schema, ensure_ascii=False).replace("<", "\\u003c")
         html = env.get_template("pages/home.html").render(**ctx)
         write_file(DIST / lang / "index.html", html)
         all_pages.append((lang, f"/{lang}/"))
@@ -309,7 +343,7 @@ def main():
                     ],
                 }] if s["faq"] else []),
             }
-            ctx["structured_data"] = json.dumps(schema, ensure_ascii=False)
+            ctx["structured_data"] = json.dumps(schema, ensure_ascii=False).replace("<", "\\u003c")
             html = env.get_template("pages/service_detail.html").render(**ctx)
             write_file(DIST / lang / "services" / s["slug"] / "index.html", html)
             all_pages.append((lang, s["href"]))
@@ -339,7 +373,7 @@ def main():
                 breadcrumb_list_schema(breadcrumb, SITE_URL),
                 {"@context": "https://schema.org", "@type": "Person", "name": d["name"], "jobTitle": d["role"], "worksFor": {"@type": "Dentist", "name": site["brand"]["clinicName"]}},
             ]}
-            ctx["structured_data"] = json.dumps(schema, ensure_ascii=False)
+            ctx["structured_data"] = json.dumps(schema, ensure_ascii=False).replace("<", "\\u003c")
             html = env.get_template("pages/doctor_detail.html").render(**ctx)
             write_file(DIST / lang / "doctors" / d["slug"] / "index.html", html)
             all_pages.append((lang, d["href"]))
@@ -398,6 +432,10 @@ def main():
         write_file(DIST / lang / "404.html", html)
 
     # ---- Root redirect (default language) ----
+    # Escape manual HTML interpolation as Jinja autoescape does for pages.
+    site["brand"]["clinicName"] = escape(site["brand"]["clinicName"], quote=True)
+    for language in languages:
+        site["brand"]["tagline"][language] = escape(site["brand"]["tagline"][language], quote=True)
     default_lang = site["languages"]["default"]
     redirect_html = f"""<!doctype html>
 <html lang="{default_lang}">
@@ -417,7 +455,7 @@ def main():
 
     # ---- robots.txt ----
     robots = f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n"
-    write_file(DIST / "robots.txt", robots)
+    write_file(DIST / "robots.txt", "User-agent: *\nDisallow: /\n" if site.get("factoryMode") else robots)
 
     # ---- sitemap.xml ----
     urlset = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
@@ -432,14 +470,19 @@ def main():
         )
         urlset.append(f'<url><loc>{SITE_URL}{path}</loc>{alt_links}</url>')
     urlset.append("</urlset>")
-    write_file(DIST / "sitemap.xml", "\n".join(urlset))
+    if not site.get("factoryMode"):
+        write_file(DIST / "sitemap.xml", "\n".join(urlset))
 
     # ---- Copy static assets ----
     shutil.copytree(STATIC / "css", DIST / "css", dirs_exist_ok=True)
     shutil.copytree(STATIC / "js", DIST / "js", dirs_exist_ok=True)
-    shutil.copytree(STATIC / "images", DIST / "images", dirs_exist_ok=True,
+    if (STATIC / "media").exists():
+        shutil.copytree(STATIC / "media", DIST / "media")
+    if (STATIC / "images").exists():
+        shutil.copytree(STATIC / "images", DIST / "images", dirs_exist_ok=True,
                      ignore=shutil.ignore_patterns("real"))
-    shutil.copytree(STATIC / "brand", DIST / "brand", dirs_exist_ok=True,
+    if (STATIC / "brand").exists():
+        shutil.copytree(STATIC / "brand", DIST / "brand", dirs_exist_ok=True,
                      ignore=shutil.ignore_patterns("source"))
     for favicon_name in ("favicon-16.png", "favicon-32.png", "apple-touch-icon.png", "favicon-512.png"):
         src = STATIC / favicon_name

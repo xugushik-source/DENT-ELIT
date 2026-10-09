@@ -1,3 +1,10 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+
+# Private factory input/output must never enter the public repository.
+/private/
+/factory-work/
+/artifacts/
+.venv/

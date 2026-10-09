@@ -4,7 +4,7 @@
       {% if site.brand.logo.mark %}
         <img class="brand-mark" src="{{ site.brand.logo.mark }}" alt="{{ site.brand.clinicName }}" width="36" height="36">
       {% else %}
-        <span class="brand-mark" data-logo-placeholder>ED</span>
+        <span class="brand-mark" data-logo-placeholder>{{ site.brand.clinicName[:2] }}</span>
       {% endif %}
       <span>{{ site.brand.clinicName }}</span>
     </a>

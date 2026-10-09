@@ -1,0 +1,268 @@
+{
+  "htmlLang": "en",
+  "dir": "ltr",
+  "meta": {
+    "titleSuffix": "{clinicName}"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "doctors": "Doctors",
+    "technology": "Technology",
+    "about": "About",
+    "reviews": "Reviews",
+    "contact": "Contact",
+    "bookConsultation": "Book Consultation"
+  },
+  "common": {
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "learnMore": "Learn more",
+    "readMore": "Read more",
+    "viewAll": "View all",
+    "backTo": "Back to",
+    "close": "Close",
+    "menu": "Menu",
+    "language": "Language",
+    "priceNote": "Price after consultation",
+    "demoDataBadge": "Demo data"
+  },
+  "hero": {
+    "eyebrow": "Home",
+    "headline": "Home",
+    "description": "",
+    "ctaPrimary": "Book Consultation",
+    "ctaSecondary": "Ask on WhatsApp",
+    "trustChips": []
+  },
+  "trust": {
+    "title": "About",
+    "items": {},
+    "stats": {}
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "Services",
+    "description": "",
+    "ctaViewAll": "View all services"
+  },
+  "technology": {
+    "eyebrow": "Technology",
+    "title": "Technology",
+    "description": ""
+  },
+  "doctorSpotlight": {
+    "eyebrow": "Doctors",
+    "title": "Doctors",
+    "description": "",
+    "ctaMeetTeam": "Meet the team"
+  },
+  "patientExperience": {
+    "eyebrow": "About",
+    "title": "About",
+    "description": "",
+    "steps": {
+      "arrival": {
+        "title": "Arrival",
+        "desc": "A calm welcome and a short conversation about what brought you in."
+      },
+      "consultation": {
+        "title": "Consultation",
+        "desc": "We listen first, then examine, then explain what we see."
+      },
+      "diagnostics": {
+        "title": "Diagnostics",
+        "desc": "Digital imaging where needed, so nothing is left to guesswork."
+      },
+      "treatment": {
+        "title": "Treatment",
+        "desc": "Carried out according to a plan you've already seen and understood."
+      },
+      "followUp": {
+        "title": "Follow-up",
+        "desc": "We check in after treatment and stay reachable if you have questions."
+      }
+    }
+  },
+  "team": {
+    "eyebrow": "Doctors",
+    "title": "Doctors",
+    "description": ""
+  },
+  "reviews": {
+    "eyebrow": "Reviews",
+    "title": "Reviews",
+    "description": "",
+    "ratingLabel": "Patient rating"
+  },
+  "finalCTA": {
+    "eyebrow": "Contact",
+    "title": "Contact",
+    "description": ""
+  },
+  "footer": {
+    "servicesTitle": "Services",
+    "clinicTitle": "Clinic",
+    "contactTitle": "Contact",
+    "languagesTitle": "Languages",
+    "socialTitle": "Follow us",
+    "developedBy": "Website concept & development by",
+    "rights": "All rights reserved.",
+    "disclosure": "Demonstration website. Patient booking and submissions are disabled. Clinic information is subject to confirmation."
+  },
+  "booking": {
+    "title": "Book a Consultation",
+    "description": "Demonstration website. Patient booking and submissions are disabled. Clinic information is subject to confirmation.",
+    "name": "Full name",
+    "phone": "Phone number",
+    "service": "Service of interest",
+    "servicePlaceholder": "Select a service",
+    "contactMethod": "Preferred contact method",
+    "contactMethodOptions": [
+      "WhatsApp",
+      "Phone call"
+    ],
+    "message": "Message (optional)",
+    "submit": "Send via WhatsApp",
+    "note": "Demonstration website. Patient booking and submissions are disabled. Clinic information is subject to confirmation."
+  },
+  "whatsapp": {
+    "defaultMessage": "Hello! I saw the {clinicName} website and would like to book a consultation.",
+    "serviceMessageTemplate": "Hello! I saw the {clinicName} website. I'm interested in {service} and would like to learn more and book a consultation.",
+    "doctorMessageTemplate": "Hello! I saw the {clinicName} website and would like to book a consultation with {doctor}.",
+    "bookingMessageTemplate": "Hello! My name is {name}. Phone: {phone}. I'd like to book a consultation{doctorClause}{serviceClause}. Preferred contact: {contact}.{messageClause}",
+    "serviceClauseTemplate": " for {service}",
+    "doctorClauseTemplate": " with {doctor}",
+    "messageClauseTemplate": " Note: {message}"
+  },
+  "servicesPage": {
+    "eyebrow": "Services",
+    "title": "Services",
+    "description": ""
+  },
+  "serviceDetail": {
+    "breadcrumbServices": "Services",
+    "aboutTitle": "About the treatment",
+    "whoTitle": "Who it's for",
+    "benefitsTitle": "Benefits",
+    "processTitle": "How we work",
+    "technologyTitle": "Technology used",
+    "doctorTitle": "Your doctor",
+    "pricingTitle": "Pricing",
+    "faqTitle": "Frequently asked questions",
+    "relatedTitle": "Related services",
+    "ctaTitle": "Ready to talk about your case?",
+    "ctaDescription": ""
+  },
+  "doctorsPage": {
+    "eyebrow": "Doctors",
+    "title": "Doctors",
+    "description": ""
+  },
+  "doctorDetail": {
+    "backToDoctors": "All doctors",
+    "expertiseTitle": "Focus areas",
+    "servicesTitle": "Services",
+    "languagesTitle": "Languages",
+    "experienceLabel": "Experience",
+    "experienceSuffix": "years",
+    "educationTitle": "Education & qualifications",
+    "certificationsTitle": "Certifications",
+    "ctaTitle": "Book a consultation",
+    "ctaDescription": ""
+  },
+  "technologyPage": {
+    "eyebrow": "Technology",
+    "title": "Technology",
+    "description": ""
+  },
+  "aboutPage": {
+    "eyebrow": "About",
+    "title": "About",
+    "sections": {
+      "philosophy": {
+        "title": "Our philosophy",
+        "body": ""
+      },
+      "patientApproach": {
+        "title": "Our approach to patients",
+        "body": ""
+      },
+      "digitalDentistry": {
+        "title": "Digital dentistry",
+        "body": ""
+      },
+      "team": {
+        "title": "Our team",
+        "body": ""
+      },
+      "clinicEnvironment": {
+        "title": "The clinic",
+        "body": ""
+      },
+      "technology": {
+        "title": "Technology",
+        "body": ""
+      },
+      "patientExperience": {
+        "title": "Your experience",
+        "body": ""
+      },
+      "cta": {
+        "title": "Have a question before booking?",
+        "body": ""
+      }
+    }
+  },
+  "reviewsPage": {
+    "eyebrow": "Reviews",
+    "title": "Reviews",
+    "description": ""
+  },
+  "contactPage": {
+    "eyebrow": "Contact",
+    "title": "Contact",
+    "description": "",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "whatsappLabel": "WhatsApp",
+    "hoursLabel": "Working hours",
+    "hoursWeekday": "Mon–Fri",
+    "hoursWeekdayTime": "",
+    "hoursSaturday": "Sat",
+    "hoursSaturdayTime": "",
+    "hoursSunday": "Sun",
+    "hoursSundayTime": "",
+    "addressLabel": "Address",
+    "directionsCta": "Open directions in Google Maps",
+    "formTitle": "Send us a message",
+    "paymentTitle": "Payment methods",
+    "paymentOptions": [],
+    "safetyTitle": "Sterilization & safety",
+    "safetyItems": [],
+    "generalFaqTitle": "General questions",
+    "generalFaq": []
+  },
+  "mobileBar": {
+    "call": "Call",
+    "whatsapp": "WhatsApp",
+    "book": "Book"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has moved.",
+    "cta": "Back to homepage"
+  },
+  "demoNotice": "Demonstration website. Patient booking and submissions are disabled. Clinic information is subject to confirmation.",
+  "hoursDays": {
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat",
+    "sun": "Sun"
+  },
+  "hoursClosed": "Closed",
+  "hoursAppointment": "By appointment"
+}

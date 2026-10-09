@@ -9,7 +9,7 @@
       <span class="eyebrow">{{ t.doctorSpotlight.eyebrow }}</span>
       <h2>{{ t.doctorSpotlight.title }}</h2>
       <p class="body-lg">{{ t.doctorSpotlight.description }}</p>
-      <p style="font-family:var(--font-heading); font-size:1.1875rem; margin-top:20px;">“{{ doctor_spotlight.quote }}”</p>
+      {% if doctor_spotlight.quote %}<p style="font-family:var(--font-heading); font-size:1.1875rem; margin-top:20px;">“{{ doctor_spotlight.quote }}”</p>{% endif %}
       <p class="text-muted">{{ doctor_spotlight.name }} — {{ doctor_spotlight.role }}</p>
       <a class="btn btn-outline" href="{{ lang_prefix }}/doctors/" style="margin-top:12px;">{{ t.doctorSpotlight.ctaMeetTeam }}</a>
     </div>

@@ -527,3 +527,14 @@ body.has-bottom-bar { padding-bottom: 64px; }
 .pricing-row { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--color-border); }
 .related-strip { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 8px; }
 .related-strip .service-card { flex: 0 0 320px; width: 320px; }
+
+
+.demo-notice { position:relative; z-index:20; padding:12px 24px; text-align:center; background:var(--color-accent); color:var(--color-text); }
+[data-demo-action] { cursor:pointer; }
+
+/* Long translated headings must fit the existing two-column mobile trust grid. */
+@media (max-width: 719px) {
+  .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .trust-item { min-width: 0; }
+  .trust-item h3, .trust-item p { overflow-wrap: anywhere; }
+}

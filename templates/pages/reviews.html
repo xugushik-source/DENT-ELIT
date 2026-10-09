@@ -6,7 +6,7 @@
     <span class="eyebrow">{{ t.reviewsPage.eyebrow }}</span>
     <h1>{{ t.reviewsPage.title }}</h1>
     <p class="body-lg">{{ t.reviewsPage.description }}</p>
-    <p class="rating-line"><strong>★ {{ rating.value }}</strong> · {{ t.reviews.ratingLabel }} ({{ rating.count }})</p>
+    {% if rating.value is not none and rating.count is not none %}<p class="rating-line"><strong>★ {{ rating.value }}</strong> · {{ t.reviews.ratingLabel }} ({{ rating.count }})</p>{% endif %}
   </div>
 </section>
 <section style="padding-top:0;">

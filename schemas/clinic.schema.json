@@ -1,0 +1,2400 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Order & Profit clinic package v1.0 ",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "clinicId",
+    "revision",
+    "synthetic",
+    "templateCommit",
+    "deploymentMode",
+    "brand",
+    "contact",
+    "languages",
+    "services",
+    "doctors",
+    "technologies",
+    "reviews",
+    "trustClaims",
+    "statistics",
+    "rating",
+    "media",
+    "booking",
+    "links",
+    "seo",
+    "features",
+    "sources",
+    "assets"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "clinicId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "synthetic": {
+      "type": "boolean"
+    },
+    "templateCommit": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "deploymentMode": {
+      "enum": [
+        "demo",
+        "live"
+      ]
+    },
+    "brand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "logo",
+        "logoSplash",
+        "favicon",
+        "colors",
+        "description",
+        "slogan",
+        "foundedYear"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/factText"
+        },
+        "logo": {
+          "$ref": "#/$defs/factAsset"
+        },
+        "logoSplash": {
+          "$ref": "#/$defs/factAsset"
+        },
+        "favicon": {
+          "$ref": "#/$defs/factAsset"
+        },
+        "colors": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "background",
+            "accent",
+            "text"
+          ],
+          "properties": {
+            "background": {
+              "$ref": "#/$defs/factColor"
+            },
+            "accent": {
+              "$ref": "#/$defs/factColor"
+            },
+            "text": {
+              "$ref": "#/$defs/factColor"
+            }
+          }
+        },
+        "description": {
+          "$ref": "#/$defs/localized"
+        },
+        "slogan": {
+          "$ref": "#/$defs/localized"
+        },
+        "foundedYear": {
+          "$ref": "#/$defs/factYear"
+        }
+      }
+    },
+    "contact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "country",
+        "city",
+        "address",
+        "phone",
+        "email",
+        "whatsapp",
+        "instagram",
+        "facebook",
+        "map",
+        "hours",
+        "timezone",
+        "serviceLanguages"
+      ],
+      "properties": {
+        "country": {
+          "$ref": "#/$defs/factText"
+        },
+        "city": {
+          "$ref": "#/$defs/factText"
+        },
+        "address": {
+          "$ref": "#/$defs/localized"
+        },
+        "phone": {
+          "$ref": "#/$defs/factPhone"
+        },
+        "email": {
+          "$ref": "#/$defs/factEmail"
+        },
+        "whatsapp": {
+          "$ref": "#/$defs/factPhone"
+        },
+        "instagram": {
+          "$ref": "#/$defs/factUrl"
+        },
+        "facebook": {
+          "$ref": "#/$defs/factUrl"
+        },
+        "map": {
+          "$ref": "#/$defs/factUrl"
+        },
+        "hours": {
+          "$ref": "#/$defs/factHours"
+        },
+        "timezone": {
+          "$ref": "#/$defs/factText"
+        },
+        "serviceLanguages": {
+          "$ref": "#/$defs/factLanguages"
+        }
+      }
+    },
+    "languages": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled",
+        "default",
+        "uiVersion"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "hy",
+              "ru",
+              "en",
+              "ka"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "default": {
+          "enum": [
+            "hy",
+            "ru",
+            "en",
+            "ka"
+          ]
+        },
+        "uiVersion": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+        }
+      }
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/service"
+      }
+    },
+    "doctors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/doctor"
+      }
+    },
+    "technologies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/technology"
+      }
+    },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/review"
+      }
+    },
+    "trustClaims": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/localized"
+      }
+    },
+    "statistics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "value"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "label": {
+            "$ref": "#/$defs/localized"
+          },
+          "value": {
+            "$ref": "#/$defs/factNumber"
+          }
+        }
+      }
+    },
+    "rating": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "count"
+      ],
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/factNumber"
+        },
+        "count": {
+          "$ref": "#/$defs/factNumber"
+        }
+      }
+    },
+    "media": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hero",
+        "team",
+        "reception",
+        "finalCta",
+        "gallery"
+      ],
+      "properties": {
+        "hero": {
+          "$ref": "#/$defs/factAsset"
+        },
+        "team": {
+          "$ref": "#/$defs/factAsset"
+        },
+        "reception": {
+          "$ref": "#/$defs/factAsset"
+        },
+        "finalCta": {
+          "$ref": "#/$defs/factAsset"
+        },
+        "gallery": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/factAsset"
+          }
+        }
+      }
+    },
+    "booking": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "providerUrl",
+        "displayLabel"
+      ],
+      "properties": {
+        "providerUrl": {
+          "$ref": "#/$defs/factUrl"
+        },
+        "displayLabel": {
+          "$ref": "#/$defs/localized"
+        }
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label",
+          "url"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "label": {
+            "$ref": "#/$defs/localized"
+          },
+          "url": {
+            "$ref": "#/$defs/factUrl"
+          }
+        }
+      }
+    },
+    "seo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "description",
+        "serviceAreas",
+        "productionUrl"
+      ],
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/localized"
+        },
+        "description": {
+          "$ref": "#/$defs/localized"
+        },
+        "serviceAreas": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/factText"
+          }
+        },
+        "productionUrl": {
+          "$ref": "#/$defs/factUrl"
+        }
+      }
+    },
+    "features": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "servicesEnabled",
+        "doctorProfilesEnabled",
+        "technologyEnabled",
+        "reviewsEnabled",
+        "beforeAfterEnabled",
+        "galleryEnabled",
+        "bookingEnabled",
+        "whatsappEnabled",
+        "offersEnabled",
+        "blogEnabled",
+        "multilingualEnabled"
+      ],
+      "properties": {
+        "servicesEnabled": {
+          "type": "boolean"
+        },
+        "doctorProfilesEnabled": {
+          "type": "boolean"
+        },
+        "technologyEnabled": {
+          "type": "boolean"
+        },
+        "reviewsEnabled": {
+          "type": "boolean"
+        },
+        "beforeAfterEnabled": {
+          "type": "boolean"
+        },
+        "galleryEnabled": {
+          "type": "boolean"
+        },
+        "bookingEnabled": {
+          "type": "boolean"
+        },
+        "whatsappEnabled": {
+          "type": "boolean"
+        },
+        "offersEnabled": {
+          "type": "boolean"
+        },
+        "blogEnabled": {
+          "type": "boolean"
+        },
+        "multilingualEnabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/asset"
+      }
+    }
+  },
+  "$defs": {
+    "factText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "status",
+        "sourceIds",
+        "checkedAt",
+        "reviewer"
+      ],
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 20000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "UNKNOWN",
+            "SOURCED",
+            "VERIFIED",
+            "CLIENT_APPROVED",
+            "CONFLICTING",
+            "REJECTED",
+            "STALE"
+          ]
+        },
+        "sourceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "uniqueItems": true
+        },
+        "checkedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "VERIFIED",
+                  "CLIENT_APPROVED"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "not": {
+                  "type": "null"
+                }
+              },
+              "sourceIds": {
+                "minItems": 1
+              },
+              "checkedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reviewer": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "UNKNOWN"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "factUrl": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "status",
+        "sourceIds",
+        "checkedAt",
+        "reviewer"
+      ],
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://",
+              "maxLength": 2048
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "UNKNOWN",
+            "SOURCED",
+            "VERIFIED",
+            "CLIENT_APPROVED",
+            "CONFLICTING",
+            "REJECTED",
+            "STALE"
+          ]
+        },
+        "sourceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "uniqueItems": true
+        },
+        "checkedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "VERIFIED",
+                  "CLIENT_APPROVED"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "not": {
+                  "type": "null"
+                }
+              },
+              "sourceIds": {
+                "minItems": 1
+              },
+              "checkedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reviewer": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "UNKNOWN"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "factAsset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "status",
+        "sourceIds",
+        "checkedAt",
+        "reviewer"
+      ],
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "UNKNOWN",
+            "SOURCED",
+            "VERIFIED",
+            "CLIENT_APPROVED",
+            "CONFLICTING",
+            "REJECTED",
+            "STALE"
+          ]
+        },
+        "sourceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "uniqueItems": true
+        },
+        "checkedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "VERIFIED",
+                  "CLIENT_APPROVED"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "not": {
+                  "type": "null"
+                }
+              },
+              "sourceIds": {
+                "minItems": 1
+              },
+              "checkedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reviewer": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "UNKNOWN"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "factPhone": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "status",
+        "sourceIds",
+        "checkedAt",
+        "reviewer"
+      ],
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^\\+[1-9][0-9]{6,14}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "UNKNOWN",
+            "SOURCED",
+            "VERIFIED",
+            "CLIENT_APPROVED",
+            "CONFLICTING",
+            "REJECTED",
+            "STALE"
+          ]
+        },
+        "sourceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "uniqueItems": true
+        },
+        "checkedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "VERIFIED",
+                  "CLIENT_APPROVED"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "not": {
+                  "type": "null"
+                }
+              },
+              "sourceIds": {
+                "minItems": 1
+              },
+              "checkedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reviewer": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "UNKNOWN"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "factEmail": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "status",
+        "sourceIds",
+        "checkedAt",
+        "reviewer"
+      ],
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "email",
+              "maxLength": 254
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "UNKNOWN",
+            "SOURCED",
+            "VERIFIED",
+            "CLIENT_APPROVED",
+            "CONFLICTING",
+            "REJECTED",
+            "STALE"
+          ]
+        },
+        "sourceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "uniqueItems": true
+        },
+        "checkedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "VERIFIED",
+                  "CLIENT_APPROVED"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "not": {
+                  "type": "null"
+                }
+              },
+              "sourceIds": {
+                "minItems": 1
+              },
+              "checkedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reviewer": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "UNKNOWN"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "factNumber": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "status",
+        "sourceIds",
+        "checkedAt",
+        "reviewer"
+      ],
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "UNKNOWN",
+            "SOURCED",
+            "VERIFIED",
+            "CLIENT_APPROVED",
+            "CONFLICTING",
+            "REJECTED",
+            "STALE"
+          ]
+        },
+        "sourceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "uniqueItems": true
+        },
+        "checkedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "VERIFIED",
+                  "CLIENT_APPROVED"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "not": {
+                  "type": "null"
+                }
+              },
+              "sourceIds": {
+                "minItems": 1
+              },
+              "checkedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reviewer": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "UNKNOWN"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "factYear": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "status",
+        "sourceIds",
+        "checkedAt",
+        "reviewer"
+      ],
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1800,
+              "maximum": 2100
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "UNKNOWN",
+            "SOURCED",
+            "VERIFIED",
+            "CLIENT_APPROVED",
+            "CONFLICTING",
+            "REJECTED",
+            "STALE"
+          ]
+        },
+        "sourceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "uniqueItems": true
+        },
+        "checkedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "VERIFIED",
+                  "CLIENT_APPROVED"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "not": {
+                  "type": "null"
+                }
+              },
+              "sourceIds": {
+                "minItems": 1
+              },
+              "checkedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reviewer": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "UNKNOWN"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "factColor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "status",
+        "sourceIds",
+        "checkedAt",
+        "reviewer"
+      ],
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^#[0-9a-fA-F]{6}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "UNKNOWN",
+            "SOURCED",
+            "VERIFIED",
+            "CLIENT_APPROVED",
+            "CONFLICTING",
+            "REJECTED",
+            "STALE"
+          ]
+        },
+        "sourceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "uniqueItems": true
+        },
+        "checkedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "VERIFIED",
+                  "CLIENT_APPROVED"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "not": {
+                  "type": "null"
+                }
+              },
+              "sourceIds": {
+                "minItems": 1
+              },
+              "checkedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reviewer": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "UNKNOWN"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "localized": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [],
+      "properties": {
+        "hy": {
+          "$ref": "#/$defs/factText"
+        },
+        "ru": {
+          "$ref": "#/$defs/factText"
+        },
+        "en": {
+          "$ref": "#/$defs/factText"
+        },
+        "ka": {
+          "$ref": "#/$defs/factText"
+        }
+      },
+      "minProperties": 1
+    },
+    "factPrice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "status",
+        "sourceIds",
+        "checkedAt",
+        "reviewer"
+      ],
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "amountMinor",
+                "currency",
+                "basis",
+                "maxAmountMinor"
+              ],
+              "properties": {
+                "amountMinor": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "currency": {
+                  "type": "string",
+                  "pattern": "^[A-Z]{3}$"
+                },
+                "basis": {
+                  "enum": [
+                    "fixed",
+                    "from",
+                    "range"
+                  ]
+                },
+                "maxAmountMinor": {
+                  "anyOf": [
+                    {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "UNKNOWN",
+            "SOURCED",
+            "VERIFIED",
+            "CLIENT_APPROVED",
+            "CONFLICTING",
+            "REJECTED",
+            "STALE"
+          ]
+        },
+        "sourceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "uniqueItems": true
+        },
+        "checkedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "VERIFIED",
+                  "CLIENT_APPROVED"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "not": {
+                  "type": "null"
+                }
+              },
+              "sourceIds": {
+                "minItems": 1
+              },
+              "checkedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reviewer": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "UNKNOWN"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "factHours": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "status",
+        "sourceIds",
+        "checkedAt",
+        "reviewer"
+      ],
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "day",
+                  "closed",
+                  "byAppointment",
+                  "intervals"
+                ],
+                "properties": {
+                  "day": {
+                    "enum": [
+                      "mon",
+                      "tue",
+                      "wed",
+                      "thu",
+                      "fri",
+                      "sat",
+                      "sun"
+                    ]
+                  },
+                  "closed": {
+                    "type": "boolean"
+                  },
+                  "byAppointment": {
+                    "type": "boolean"
+                  },
+                  "intervals": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": false,
+                      "required": [
+                        "open",
+                        "close"
+                      ],
+                      "properties": {
+                        "open": {
+                          "type": "string",
+                          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+                        },
+                        "close": {
+                          "type": "string",
+                          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "maxItems": 7
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "UNKNOWN",
+            "SOURCED",
+            "VERIFIED",
+            "CLIENT_APPROVED",
+            "CONFLICTING",
+            "REJECTED",
+            "STALE"
+          ]
+        },
+        "sourceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "uniqueItems": true
+        },
+        "checkedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "VERIFIED",
+                  "CLIENT_APPROVED"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "not": {
+                  "type": "null"
+                }
+              },
+              "sourceIds": {
+                "minItems": 1
+              },
+              "checkedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reviewer": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "UNKNOWN"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "factLanguages": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "status",
+        "sourceIds",
+        "checkedAt",
+        "reviewer"
+      ],
+      "properties": {
+        "value": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "hy",
+                  "ru",
+                  "en",
+                  "ka"
+                ]
+              },
+              "uniqueItems": true
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "enum": [
+            "UNKNOWN",
+            "SOURCED",
+            "VERIFIED",
+            "CLIENT_APPROVED",
+            "CONFLICTING",
+            "REJECTED",
+            "STALE"
+          ]
+        },
+        "sourceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "uniqueItems": true
+        },
+        "checkedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "VERIFIED",
+                  "CLIENT_APPROVED"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "not": {
+                  "type": "null"
+                }
+              },
+              "sourceIds": {
+                "minItems": 1
+              },
+              "checkedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "reviewer": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "UNKNOWN"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "service": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "slug",
+        "name",
+        "description",
+        "intro",
+        "medicalDetails",
+        "benefits",
+        "faq",
+        "price",
+        "photo",
+        "heroPhoto",
+        "doctorIds",
+        "technologyIds",
+        "relatedServiceIds"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "name": {
+          "$ref": "#/$defs/localized"
+        },
+        "description": {
+          "$ref": "#/$defs/localized"
+        },
+        "intro": {
+          "$ref": "#/$defs/localized"
+        },
+        "medicalDetails": {
+          "$ref": "#/$defs/localized"
+        },
+        "benefits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/localized"
+          }
+        },
+        "faq": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "question",
+              "answer"
+            ],
+            "properties": {
+              "question": {
+                "$ref": "#/$defs/localized"
+              },
+              "answer": {
+                "$ref": "#/$defs/localized"
+              }
+            }
+          }
+        },
+        "price": {
+          "$ref": "#/$defs/factPrice"
+        },
+        "photo": {
+          "$ref": "#/$defs/factAsset"
+        },
+        "heroPhoto": {
+          "$ref": "#/$defs/factAsset"
+        },
+        "doctorIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "uniqueItems": true
+        },
+        "technologyIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "uniqueItems": true
+        },
+        "relatedServiceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "doctor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "slug",
+        "name",
+        "specialization",
+        "qualifications",
+        "certifications",
+        "bio",
+        "experienceYears",
+        "photo",
+        "workingPhoto",
+        "languages",
+        "serviceIds"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "name": {
+          "$ref": "#/$defs/factText"
+        },
+        "specialization": {
+          "$ref": "#/$defs/localized"
+        },
+        "qualifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/localized"
+          }
+        },
+        "certifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/localized"
+          }
+        },
+        "bio": {
+          "$ref": "#/$defs/localized"
+        },
+        "experienceYears": {
+          "$ref": "#/$defs/factNumber"
+        },
+        "photo": {
+          "$ref": "#/$defs/factAsset"
+        },
+        "workingPhoto": {
+          "$ref": "#/$defs/factAsset"
+        },
+        "languages": {
+          "$ref": "#/$defs/factLanguages"
+        },
+        "serviceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "technology": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "description",
+        "photo"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+        },
+        "name": {
+          "$ref": "#/$defs/localized"
+        },
+        "description": {
+          "$ref": "#/$defs/localized"
+        },
+        "photo": {
+          "$ref": "#/$defs/factAsset"
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "authorDisplay",
+        "quote",
+        "permission",
+        "proofRef"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+        },
+        "authorDisplay": {
+          "$ref": "#/$defs/factText"
+        },
+        "quote": {
+          "$ref": "#/$defs/localized"
+        },
+        "permission": {
+          "enum": [
+            "UNKNOWN",
+            "PERMITTED",
+            "REJECTED"
+          ]
+        },
+        "proofRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "clinicId",
+        "kind",
+        "url",
+        "documentRef",
+        "retrievedAt",
+        "accessStatus",
+        "contentHash"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+        },
+        "clinicId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "kind": {
+          "enum": [
+            "official_site",
+            "client_material",
+            "public_business_directory",
+            "permitted_social",
+            "licensed_asset",
+            "reviewed_translation"
+          ]
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://",
+              "maxLength": 2048
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "documentRef": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "retrievedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "accessStatus": {
+          "enum": [
+            "UNKNOWN",
+            "ALLOWED",
+            "BLOCKED"
+          ]
+        },
+        "contentHash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://",
+              "maxLength": 2048
+            }
+          }
+        },
+        {
+          "properties": {
+            "documentRef": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+            }
+          }
+        }
+      ]
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "storageRef",
+        "sha256",
+        "mime",
+        "bytes",
+        "scope",
+        "subjectClinicId",
+        "depiction",
+        "rights"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+        },
+        "storageRef": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "mime": {
+          "enum": [
+            "image/jpeg",
+            "image/png",
+            "image/webp",
+            "image/svg+xml"
+          ]
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20000000
+        },
+        "scope": {
+          "enum": [
+            "clinic",
+            "shared"
+          ]
+        },
+        "subjectClinicId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uuid"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "depiction": {
+          "enum": [
+            "actual_clinic",
+            "actual_doctor",
+            "generic_illustration",
+            "brand_logo"
+          ]
+        },
+        "rights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "status",
+            "sourceIds",
+            "proofRef",
+            "allowedUses",
+            "expiresAt"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "UNKNOWN",
+                "PERMITTED",
+                "REJECTED"
+              ]
+            },
+            "sourceIds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+              },
+              "uniqueItems": true
+            },
+            "proofRef": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "allowedUses": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "demo",
+                  "live"
+                ]
+              },
+              "uniqueItems": true
+            },
+            "expiresAt": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "PERMITTED"
+                  }
+                },
+                "required": [
+                  "status"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "sourceIds": {
+                    "minItems": 1
+                  },
+                  "proofRef": {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{0,99}$"
+                  },
+                  "allowedUses": {
+                    "minItems": 1
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "scope": {
+                "const": "clinic"
+              }
+            },
+            "required": [
+              "scope"
+            ]
+          },
+          "then": {
+            "properties": {
+              "subjectClinicId": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

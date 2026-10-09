@@ -135,6 +135,13 @@
      values the visitor just typed. */
   var body = document.body;
   var waNumber = body.getAttribute('data-whatsapp-number');
+  var isDemo = body.getAttribute('data-demo-mode') === 'true';
+  document.querySelectorAll('[data-demo-action]').forEach(function (el) {
+    el.addEventListener('click', function (e) { e.preventDefault(); openModal('', ''); });
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal('', ''); }
+    });
+  });
 
   function buildWhatsappUrl(message) {
     return 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(message);
@@ -191,6 +198,7 @@
     var tmpl = bookingForm.getAttribute('data-message-template') || '';
     bookingForm.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (isDemo) return;
       var name = bookingForm.querySelector('[name="name"]').value.trim();
       var phone = bookingForm.querySelector('[name="phone"]').value.trim();
       var service = bookingForm.querySelector('[name="service"]').value;
