@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "order-profit-dental-office",
+  "main": "src/worker.mjs",
+  "compatibility_date": "2026-07-30",
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": {"directory": "./public", "binding": "ASSETS", "run_worker_first": true},
+  "d1_databases": [{"binding": "DB", "database_name": "order-profit-dental-crm", "database_id": "REQUIRED_FROM_ACCOUNT", "migrations_dir": "migrations"}],
+  "r2_buckets": [{"binding": "FILES", "bucket_name": "order-profit-dental-private"}],
+  "vars": {"MAX_BUILDS_DAY": "5", "MAX_STORED_BYTES": "200000000"}
+  // No deployment until account bindings, owner Access and service credentials
+  // are explicitly configured. Existing ELIT DENT production/DNS are unrelated.
+}

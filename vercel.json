@@ -4,7 +4,8 @@
   "git": {
     "deploymentEnabled": {
       "factory/clinic-config-demo-v1": false,
-      "factory/first-working-cycle": false
+      "factory/first-working-cycle": false,
+      "factory/cloud-cycle": false
     }
   }
 }
