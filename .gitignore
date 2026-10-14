@@ -8,3 +8,11 @@ __pycache__/
 /factory-work/
 /artifacts/
 .venv/
+
+cloud/node_modules/
+cloud/.wrangler/
+cloud/.dev.vars
+cloud/test-output/
+cloud/public/
+cloud/src/schema.mjs
+cloud/src/proposals.json
