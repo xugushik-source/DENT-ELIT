@@ -3,7 +3,8 @@
   "outputDirectory": "dist",
   "git": {
     "deploymentEnabled": {
-      "factory/clinic-config-demo-v1": false
+      "factory/clinic-config-demo-v1": false,
+      "factory/first-working-cycle": false
     }
   }
 }
