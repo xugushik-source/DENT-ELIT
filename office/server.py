@@ -10,6 +10,7 @@ from urllib.parse import urlsplit, unquote
 from factory.policy import ROOT, validate
 from office.store import Store
 from office.workflow import Director
+from factory.version import template_commit
 
 
 def server(data, port, password, actor="owner"):
@@ -97,8 +98,7 @@ def server(data, port, password, actor="owner"):
                     from office.sample import create_sample
                     return self.json(create_sample(store),201)
                 if path=="/api/clinics":
-                    import subprocess
-                    commit=subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()
+                    commit=template_commit()
                     return self.json(store.create(body["name"],body["country"],body["city"],body.get("language","ru"),commit),201)
                 parts=path.strip("/").split("/")
                 if len(parts)!=4 or parts[:2]!=["api","clinics"]: return self.json({"error":"Отправка и публикация не реализованы; маршрут отсутствует"},404)

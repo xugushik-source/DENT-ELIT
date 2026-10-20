@@ -5,7 +5,8 @@
     "deploymentEnabled": {
       "factory/clinic-config-demo-v1": false,
       "factory/first-working-cycle": false,
-      "factory/cloud-cycle": false
+      "factory/cloud-cycle": false,
+      "factory/windows-local": false
     }
   }
 }
