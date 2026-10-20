@@ -1,14 +1,13 @@
 import hashlib
-import subprocess
 from PIL import Image, ImageDraw
 from factory.scaffold import scaffold
 from factory.policy import ROOT
 from office.store import now
+from factory.version import template_commit
 
 
 def create_sample(store):
-    try: commit = subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()
-    except Exception: commit = "e4ad659632671392bf96bc6db044fb168c17c3d7"
+    commit = template_commit()
     c = scaffold(["ru","en","hy"],commit)
     cid,timestamp = c["clinicId"],now()
     def fact(v): return {"value":v,"status":"VERIFIED","sourceIds":["synthetic-material"],"checkedAt":timestamp,"reviewer":"synthetic-test"}
