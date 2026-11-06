@@ -17,11 +17,15 @@ Deno.serve(async (req: Request) => {
   if(!rows[0]||rows[0].bridge_hash!==hash)return fail(401);
   if(Number(req.headers.get('content-length')||0)>2000000)return fail(413);
   const input=await req.json();let result;
-  const actions=['snapshot','lead','task','contact','draft','approve','cancel','claim','sent','unknown','import','runtime','runtime_update'];
+  const actions=['snapshot','lead','task','contact','draft','approve','cancel','claim','sent','unknown','import','runtime','runtime_update','site'];
   if(!actions.includes(input.action))return fail(400);
   const p=input.payload||{};
   if(typeof p!=='object'||Array.isArray(p))return fail(400);
-  if(input.action==='runtime')result=await rest('factory_runtime?id=eq.1&select=gmail_cipher,oauth_state,sync_at,sync_error,sending_enabled');
+  if(input.action==='site'){
+   const commands=['list','create','claim','finish','fail','file','approve'];
+   if(!commands.includes(p.command))return fail(400);
+   result=await rest('rpc/factory_site_command','POST',{action:p.command,payload:p.data||{}});
+  }else if(input.action==='runtime')result=await rest('factory_runtime?id=eq.1&select=gmail_cipher,oauth_state,sync_at,sync_error,sending_enabled');
   else if(input.action==='runtime_update'){
    const p=input.payload||{};
    if(Object.keys(p).some(k=>!['gmail_cipher','oauth_state','sync_at','sync_error'].includes(k)))return fail(400);
