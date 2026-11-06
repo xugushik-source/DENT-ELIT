@@ -10,9 +10,15 @@ export default async function handler(req,res){
   if(!key||!bridgeKey||!bridgeURL||!origin.startsWith('https://'))return reply(503,{error:'Облачное подключение ещё не настроено'});
   const requestURL=new URL(req.url,origin);
   const path=requestURL.searchParams.has('route')?'/'+requestURL.searchParams.get('route'):requestURL.pathname.replace(/^\/api/,'');
+  if(req.method==='GET'&&path.startsWith('/demo/')){
+   const parts=path.slice(6).split('/'),id=parts.shift();if(!/^[a-f0-9-]{36}$/.test(id))return reply(404,{error:'Сайт не найден'});
+   let file=parts.join('/');if(!file||file.endsWith('/'))file+='index.html';if(file.includes('..')||file.includes('\\'))return reply(404,{error:'Файл недоступен'});
+   const data=await db('site',{command:'file',data:{id,path:file}});
+   res.statusCode=200;res.setHeader('Content-Type',data.mime);res.setHeader('Cache-Control','no-store');res.setHeader('X-Robots-Tag','noindex, nofollow');res.end(Buffer.from(data.content,'base64'));return;
+  }
   if(req.method==='GET'&&path==='/snapshot'){
    const csrf=randomBytes(32).toString('hex');res.setHeader('Set-Cookie',`factory_csrf=${csrf}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=3600`);
-   return reply(200,{...await db('snapshot'),csrf,origin});
+   const snapshot=await db('snapshot'),sites=await db('site',{command:'list'});return reply(200,{...snapshot,sites,csrf,origin});
   }
   if(req.method==='GET'&&path==='/oauth/callback'){
    const q=new URL(req.url,origin).searchParams,r=(await db('runtime'))[0];
@@ -48,6 +54,7 @@ export default async function handler(req,res){
    try{const sent=await google('messages/send',{token,body:{raw:mime(item)}});if(!sent.id)throw Error('Нет Gmail id');await db('sent',{id:p.id,provider_id:sent.id,thread_id:sent.threadId||''});return reply(200,{status:'SENT'});}
    catch{await db('unknown',{id:p.id});return reply(200,{status:'UNKNOWN'});}
   }
+  if(path==='/site/approve')return reply(200,await db('site',{command:'approve',data:p}));
   const action=path.slice(1);if(!['lead','task','contact','draft','approve','cancel'].includes(action))return reply(404,{error:'Операция недоступна'});
   return reply(200,await db(action,p));
  }catch(error){return reply(400,{error:['Обновите кабинет и повторите действие','Сначала подключите Gmail','Отправка пока выключена','Нужен Web OAuth JSON с адресом возврата этого кабинета','Google не выдал нужный постоянный доступ','Выбрана другая почта','Не удалось завершить проверку Gmail'].includes(error.message)?error.message:'Действие не завершено. Обновите страницу и проверьте состояние.'});}
