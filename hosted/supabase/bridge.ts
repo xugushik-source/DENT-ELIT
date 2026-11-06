@@ -17,11 +17,14 @@ Deno.serve(async (req: Request) => {
   if(!rows[0]||rows[0].bridge_hash!==hash)return fail(401);
   if(Number(req.headers.get('content-length')||0)>2000000)return fail(413);
   const input=await req.json();let result;
-  const actions=['snapshot','lead','task','contact','draft','approve','cancel','claim','sent','unknown','import','runtime','runtime_update','site'];
+  const actions=['snapshot','lead','task','contact','draft','approve','cancel','claim','sent','unknown','import','runtime','runtime_update','site','pipeline'];
   if(!actions.includes(input.action))return fail(400);
   const p=input.payload||{};
   if(typeof p!=='object'||Array.isArray(p))return fail(400);
-  if(input.action==='site'){
+  if(input.action==='pipeline'){
+   if(!['snapshot','research','initial_draft','initial_claim','first_sent','classify_reply','demo_sent','ack_alert'].includes(p.command))return fail(400);
+   result=await rest('rpc/factory_pipeline_command','POST',{action:p.command,payload:p.data||{}});
+  }else if(input.action==='site'){
    const commands=['list','create','claim','finish','fail','file','approve','proposal'];
    if(!commands.includes(p.command))return fail(400);
    result=await rest('rpc/factory_site_command','POST',{action:p.command,payload:p.data||{}});
