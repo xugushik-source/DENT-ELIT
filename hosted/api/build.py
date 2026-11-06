@@ -2,6 +2,7 @@
 import base64
 import hashlib
 import importlib.util
+import io
 import json
 import mimetypes
 import os
@@ -48,10 +49,42 @@ def initialize(payload):
     config['sources']=[{'id':'owner-input','clinicId':config['clinicId'],'kind':'client_material','url':None,'documentRef':('synthetic-owner-test' if synthetic else 'crm-lead-'+str(payload.get('lead_id'))) ,'retrievedAt':timestamp,'accessStatus':'ALLOWED','contentHash':None}]
     def fact(v):return {'value':v,'status':'CLIENT_APPROVED','sourceIds':['owner-input'],'checkedAt':timestamp,'reviewer':'owner-entered'}
     config['brand']['name']=fact(name)
+    description=str(payload.get('description','')).strip()
+    if not synthetic:
+        if payload.get('confirmed') is not True:raise ValueError('Подтвердите источник сведений и права на фотографию')
+        if len(description)<40 or len(description)>4000:raise ValueError('Добавьте описание клиники: от 40 до 4000 символов')
+        if not payload.get('hero'):raise ValueError('Добавьте фотографию именно этой клиники')
+        config['brand']['description'][lang]=fact(description)
+        address=str(payload.get('address','')).strip()
+        if address:config['contact']['address'][lang]=fact(address[:500])
+    asset_blobs={}
+    if not synthetic:
+        from PIL import Image,ImageOps
+        blob=base64.b64decode(payload['hero'],validate=True)
+        if len(blob)>2500000:raise ValueError('Фотография слишком большая')
+        with Image.open(io.BytesIO(blob)) as image:
+            if image.format not in ('JPEG','PNG','WEBP') or image.width*image.height>24000000:raise ValueError('Нужна фотография JPG, PNG или WebP')
+            image=ImageOps.exif_transpose(image).convert('RGB');image.thumbnail((1600,1200))
+            output=io.BytesIO();image.save(output,'JPEG',quality=82,optimize=True);blob=output.getvalue()
+        if len(blob)>700000:raise ValueError('Уменьшите фотографию')
+        config['assets']=[{'id':'hero','storageRef':'hero','sha256':hashlib.sha256(blob).hexdigest(),'mime':'image/jpeg','bytes':len(blob),'scope':'clinic','subjectClinicId':config['clinicId'],'depiction':'actual_clinic','rights':{'status':'PERMITTED','sourceIds':['owner-input'],'proofRef':'owner-confirmed-upload','allowedUses':['demo'],'expiresAt':None}}]
+        asset_blobs['hero']=base64.b64encode(blob).decode()
+        config['media']['hero']=fact('hero')
+        for i,line in enumerate(str(payload.get('services','')).splitlines()):
+            if not line.strip():continue
+            if i>=12:raise ValueError('Не больше 12 услуг за одну сборку')
+            title,_,detail=line.partition('|')
+            unknown=lambda:{'value':None,'status':'UNKNOWN','sourceIds':[],'checkedAt':None,'reviewer':None}
+            config['services'].append({'id':'service-'+str(i+1),'slug':'service-'+str(i+1),'name':{lang:fact(title.strip()[:200])},'description':{lang:fact(detail.strip()[:1000]) if detail.strip() else unknown()},'intro':{lang:unknown()},'medicalDetails':{lang:unknown()},'benefits':[],'faq':[],'price':unknown(),'photo':unknown(),'heroPhoto':unknown(),'doctorIds':[],'technologyIds':[],'relatedServiceIds':[]})
+        if not config['services']:raise ValueError('Добавьте хотя бы одну подтверждённую услугу')
     for k in ('country','city'):
         if payload.get(k):config['contact'][k]=fact(str(payload[k])[:200])
     config['features']['bookingEnabled']=False;config['features']['whatsappEnabled']=False
-    return bridge('site',{'command':'create','data':{'lead_id':None if synthetic else payload.get('lead_id'),'name':name,'synthetic':synthetic,'config':config}})
+    from factory.policy import validate
+    with tempfile.TemporaryDirectory() as folder:
+        for asset_name,encoded in asset_blobs.items():(Path(folder)/asset_name).write_bytes(base64.b64decode(encoded))
+        validate(config,Path(folder))
+    return bridge('site',{'command':'create','data':{'lead_id':None if synthetic else payload.get('lead_id'),'name':name,'synthetic':synthetic,'config':config,'asset_blobs':asset_blobs}})
 
 
 def generate(site_id,origin):
@@ -61,6 +94,9 @@ def generate(site_id,origin):
     try:
         with tempfile.TemporaryDirectory(prefix='order-profit-') as tmp:
             root=Path(tmp);assets=root/'assets';assets.mkdir();c=root/'clinic.json';c.write_text(json.dumps(row['config'],ensure_ascii=False),encoding='utf-8')
+            for name,encoded in row.get('asset_blobs',{}).items():
+                if name!='hero':raise ValueError('Unknown input asset')
+                (assets/name).write_bytes(base64.b64decode(encoded,validate=True))
             validate(row['config'],assets)
             report=engine.build(c,assets,root/'builds',origin,'/demo/'+site_id)
             site=root/'builds'/report['clinicId']/report['buildId']/'site'
@@ -83,11 +119,14 @@ class handler(BaseHTTPRequestHandler):
             cookies=dict(x.strip().split('=',1) for x in self.headers.get('Cookie','').split(';') if '=' in x)
             if self.headers.get('Origin')!=origin or not cookies.get('factory_csrf') or not secrets.compare_digest(cookies['factory_csrf'],self.headers.get('X-Factory-CSRF','')):raise ValueError('Обновите страницу кабинета')
             size=int(self.headers.get('Content-Length','0'))
-            if size<1 or size>20000:raise ValueError('Размер запроса')
+            if size<1 or size>3500000:raise ValueError('Размер запроса')
             payload=json.loads(self.rfile.read(size));action=payload.get('action')
             if action=='create':result=initialize(payload)
             elif action=='build':result=generate(payload['id'],origin)
             else:raise ValueError('Неизвестное действие')
             status=200
+        except ValueError as error:
+            message=str(error)
+            result={'error':message if message.startswith(('Добавьте','Подтвердите','Фотография','Нужна фотография','Уменьшите','Не больше','Компания','Для этого шаблона')) else 'Сборка не завершена. Проверьте карточку и обновите кабинет.'}
         except Exception:result={'error':'Сборка не завершена. Проверьте карточку и обновите кабинет.'}
         self.send_response(status);self.send_header('Content-Type','application/json; charset=utf-8');self.send_header('Cache-Control','no-store');self.end_headers();self.wfile.write(json.dumps(result,ensure_ascii=False).encode())
