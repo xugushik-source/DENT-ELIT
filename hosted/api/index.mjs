@@ -1,4 +1,4 @@
-import {randomBytes} from 'node:crypto';
+import {randomBytes,createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import {seal,unseal,equal,clientConfig,authorization,google,tokenFor,messages,mime,scopes,owner} from './core.mjs';
 export default async function handler(req,res){
@@ -56,9 +56,30 @@ export default async function handler(req,res){
    // Credential verification precedes the atomic claim. No automatic retries.
    const r=(await db('runtime'))[0];if(!r?.gmail_cipher||!r.sending_enabled)throw Error('Отправка пока выключена');
    const token=await tokenFor(unseal(r.gmail_cipher,key));const item=await db('claim',{id:p.id});
-   try{const sent=await google('messages/send',{token,body:{raw:mime(item)}});if(!sent.id)throw Error('Нет Gmail id');await db('sent',{id:p.id,provider_id:sent.id,thread_id:sent.threadId||''});return reply(200,{status:'SENT'});}
+   try{const sent=await google('messages/send',{token,body:{raw:mime(item)}});if(!sent.id)throw Error('Нет Gmail id');await db('sent',{id:p.id,provider_id:sent.id,thread_id:sent.threadId||''});
+    let handoff_pending=false;try{const context=await db('site',{command:'sent_context',data:{outbox_id:p.id}});if(context)await db('pipeline',{command:'demo_sent',data:context});}catch{handoff_pending=true;}
+    return reply(200,{status:'SENT',handoff_pending});}
    catch{await db('unknown',{id:p.id});return reply(200,{status:'UNKNOWN'});}
   }
+  if(path==='/site/share'){
+   const viewer='https://order-profit-client-preview.sredacommuniti.chatgpt.site';
+   const site=await db('site',{command:'details',data:{id:p.id}});
+   if(site.synthetic||site.status!=='APPROVED'||!site.report?.tests?.passed)throw Error('Требуется проверенная сборка');
+   const token=randomBytes(32).toString('hex'),token_hash=createHash('sha256').update(token).digest('hex'),url=viewer+'/p/'+token+'/';
+   const issued=await db('share',{command:'issue',data:{site_id:p.id,token_hash,url}});
+   try{
+    const checks=[...['ka','en','ru'].map(language=>({path:language+'/',language})),...Object.entries(site.report.files||{}).filter(([path])=>!path.endsWith('.html')).map(([path,hash])=>({path,hash}))];
+    for(let i=0;i<checks.length;i+=3)await Promise.all(checks.slice(i,i+3).map(async check=>{
+     const r=await fetch(url+check.path,{redirect:'error',cache:'no-store',headers:process.env.CLIENT_VIEWER_SERVICE_BEARER?{'OAI-Sites-Authorization':'Bearer '+process.env.CLIENT_VIEWER_SERVICE_BEARER}:{},signal:AbortSignal.timeout(20000)});
+     if(!r.ok)throw Error('Клиентский просмотр недоступен');const blob=Buffer.from(await r.arrayBuffer());
+     if(check.language){const html=blob.toString('utf8');if(!(r.headers.get('content-type')||'').includes('text/html')||!html.includes('lang="'+check.language+'"')||!html.includes('/p/'+token+'/')||html.includes(site.report.origin+'/demo/'))throw Error('Клиентский просмотр не прошёл проверку');}
+     else if(createHash('sha256').update(blob).digest('hex')!==check.hash)throw Error('Файлы клиентского просмотра изменились');
+    }));
+    await db('share',{command:'verify',data:{site_id:p.id,token_hash,languages_checked:['ka','en','ru'],assets_checked:true}});
+    return reply(200,{url,expires_at:issued.expires_at});
+   }catch(error){await db('share',{command:'revoke',data:{site_id:p.id}});throw error;}
+  }
+  if(path==='/site/revoke')return reply(200,await db('share',{command:'revoke',data:{site_id:p.id}}));
   if(path==='/site/proposal')return reply(200,await db('site',{command:'proposal',data:p}));
   if(path==='/site/approve')return reply(200,await db('site',{command:'approve',data:p}));
   const action=path.slice(1);if(!['lead','task','contact','draft','approve','cancel'].includes(action))return reply(404,{error:'Операция недоступна'});
