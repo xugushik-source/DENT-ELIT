@@ -9,7 +9,14 @@ grant all on public.factory_sites,public.factory_site_files to service_role;
 create or replace function public.factory_site_command(action text,payload jsonb default '{}') returns jsonb language plpgsql security invoker set search_path=public,pg_temp as $$
 declare r public.factory_sites;f jsonb; sid uuid;result jsonb;
 begin
- if action='list' then return coalesce((select jsonb_agg(t order by t.created_at desc) from (select id,lead_id,name,synthetic,status,report,error,opened_at,reviewed_at,approved_at,created_at,config->'languages'->>'default' as language from factory_sites) t),'[]');
+ if action='list' then return coalesce((select jsonb_agg(t order by t.created_at desc) from (select id,lead_id,name,synthetic,status,report,error,opened_at,reviewed_at,approved_at,created_at,client_preview_url,client_preview_checked_at,config->'languages'->>'default' as language from factory_sites) t),'[]');
+ elsif action='sent_context' then
+ select * into r from factory_sites where proposal_id=(payload->>'outbox_id')::uuid and not synthetic and status='APPROVED';
+ if not found then return null;end if;
+ return jsonb_build_object('lead_id',r.lead_id,'outbox_id',r.proposal_id,'preview_url',r.client_preview_url,'whatsapp',case when r.config->'contact'->'whatsapp'->>'status' in ('VERIFIED','CLIENT_APPROVED') then r.config->'contact'->'whatsapp'->>'value' else null end);
+ elsif action='details' then
+ select * into strict r from factory_sites where id=(payload->>'id')::uuid;
+ return jsonb_build_object('id',r.id,'name',r.name,'status',r.status,'synthetic',r.synthetic,'report',r.report,'languages',r.config->'languages'->'enabled');
  elsif action='create' then
  if not coalesce((payload->>'synthetic')::boolean,false) and not exists(select 1 from factory_pipeline where lead_id=(payload->>'lead_id')::uuid and consent_message_id is not null and stage='DEMO_REQUESTED') then raise exception 'Сначала нужно явное согласие клиента на демоверсию';end if;
  if not (payload->>'synthetic')::boolean and not exists(select 1 from factory_leads where id=(payload->>'lead_id')::uuid and not blocked) then raise exception 'Контакт остановлен или не найден';end if;
