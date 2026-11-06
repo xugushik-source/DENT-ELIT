@@ -61,6 +61,7 @@ begin
  else
  perform id from factory_runtime where id=1 and sending_enabled for update;
  if not found then raise exception 'Отправка отключена'; end if;
+ if exists(select 1 from factory_sites s where s.proposal_id=r.id) and not exists(select 1 from factory_sites s join factory_client_shares h on h.site_id=s.id and h.revoked_at is null and h.expires_at>now() where s.proposal_id=r.id and s.status='APPROVED' and s.client_preview_checked_at>now()-interval '24 hours' and s.client_preview_url is not null and position(s.client_preview_url in r.body)>0) then raise exception 'Клиентская ссылка отозвана, истекла или не проверена';end if;
  if r.status<>'APPROVED' or l.blocked or l.email<>r.recipient or r.approved_hash is distinct from encode(sha256(convert_to(jsonb_build_array(r.lead_id,r.recipient,r.subject,r.body)::text,'UTF8')),'hex') then raise exception 'Нет утверждения этой версии'; end if;
  if (select count(*) from factory_audit where kind='claim' and (created_at at time zone 'Asia/Tbilisi')::date=(now() at time zone 'Asia/Tbilisi')::date)>=least(40,coalesce((select (policy->>'daily_limit')::integer from factory_campaign where id=1),30)) then raise exception 'Дневной лимит отправок'; end if;
  update factory_outbox set status='SENDING' where id=r.id;
