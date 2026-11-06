@@ -1,0 +1,39 @@
+{
+  "version": "2026-11-07-v2",
+  "sender": "orderprofit.he@gmail.com",
+  "market": "Georgia",
+  "daily_limit": 30,
+  "timezone": "Asia/Tbilisi",
+  "demo_languages": [
+    "ka",
+    "en",
+    "ru"
+  ],
+  "reference_url": "https://dent-elit.vercel.app/ru/",
+  "pricing": {
+    "currency": "USD",
+    "standard": 700,
+    "standard_deposit": 300,
+    "standard_delivery": 400,
+    "installments_total": 1000,
+    "installments_deposit": 300,
+    "installments_delivery": 100,
+    "monthly": 100,
+    "months": 6
+  },
+  "pricing_source": "Order-Profit-Project.md, libfile_73f4d8f6f37c8191b38ce11cdbba5d3b, E7; confirmed against factory/crm.py",
+  "first_subject": "პაციენტი გპოულობთ — შემდეგ კონკურენტთან ხომ არ იწერება?",
+  "first_body": "გამარჯობა, {clinic}-ის გუნდო!\n\n{observation}\n\nროცა პაციენტი სწრაფად ვერ პოულობს მომსახურებებს, ექიმებს, მისამართს და ჩაწერის გზას, შესაძლოა სხვა კლინიკას მიმართოს. ვებგვერდის მიზანია, დაინტერესებული ადამიანი შემდეგ ნაბიჯამდე მიიყვანოს.\n\nOrder & Profit ქმნის სტომატოლოგიურ ვებგვერდებს, სადაც ერთ სივრცეში იქნება:\n• თქვენი მომსახურებები და შეთანხმებული ფასები;\n• ექიმების პროფილები და კლინიკის ფოტოები;\n• მისამართი, სამუშაო საათები და Google Maps;\n• ჩაწერის მარტივი გზა — ზარი ან WhatsApp;\n• ქართული, ინგლისური და რუსული ვერსიები;\n• სტრუქტურა შემდგომი SEO-მუშაობისთვის.\n\nდიზაინისა და სტრუქტურის ნიმუშია ELIT DENT: https://dent-elit.vercel.app/ru/\n\nთუ დაინტერესდებით, ღია წყაროებში არსებული ინფორმაციისა და გამოსაყენებლად ნებადართული ფოტოების საფუძველზე, უფასოდ მოვამზადებთ თქვენი კლინიკის პერსონალურ დემოვერსიას. ჯერ ნახავთ შედეგს და შემდეგ გადაწყვეტთ, გსურთ თუ არა გაგრძელება. დემოვერსია არაფერს გავალდებულებთ.\n\nსრული საიტი ღირს $700: $300 — დემოვერსიის მოწონებისა და ხელშეკრულების გაფორმების შემდეგ, $400 — საბოლოო ჩაბარებისას. განვადებით სრული ღირებულებაა $1,000: $300 — დემოვერსიისა და ხელშეკრულების შემდეგ, $100 — ჩაბარებისას, შემდეგ 6 თვე — თვეში $100. ჰოსტინგი და დომენი ცალკე, წინასწარ შეთანხმებული პროვაიდერის ფაქტობრივი ფასით.\n\nდემო საიტის ენებია ქართული, ინგლისური და რუსული; სხვა ენებზე ცალკე შევთანხმდებით.\n\nგაინტერესებთ, მოგიმზადოთ პერსონალური დემოვერსია?\n\nპატივისცემით,\nარუთუნ ევაჟიანი\nOrder & Profit\n\nთუ შეთავაზება არ არის აქტუალური, გვიპასუხეთ „არა“ და აღარ დაგიკავშირდებით.",
+  "handoff": "After a verified demo send, notify owner in ChatGPT immediately with clinic, email, timestamp, scoped client URL, WhatsApp business number if sourced, and copyable Georgian follow-up. Never send WhatsApp. Negotiations, payments, discounts and contracts belong to owner.",
+  "authorization_source": "Owner instructions 06–07 November 2026 in current ChatGPT thread: 30–40 initial offers/day; demo only after explicit interest; owner takes over after demo delivery.",
+  "execution_status": "PREPARING",
+  "blockers": [
+    "FIRST_MESSAGE_EXTERNAL_DELIVERY_NOT_TESTED",
+    "DAILY_WORKER_NOT_CONNECTED"
+  ],
+  "initial_sending_enabled": false,
+  "demo_delivery_blockers": [
+    "CLIENT_PREVIEW_ACCESS_NOT_CONNECTED"
+  ],
+  "letter_sources": "Owner-sent Georgian first-contact letter 16.09.2026 (BuchoDenti) and loss-hook letter 18.09.2026; structure reused, historical pricing replaced with project USD pricing."
+}
