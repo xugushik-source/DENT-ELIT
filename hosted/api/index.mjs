@@ -59,6 +59,7 @@ export default async function handler(req,res){
    try{const sent=await google('messages/send',{token,body:{raw:mime(item)}});if(!sent.id)throw Error('Нет Gmail id');await db('sent',{id:p.id,provider_id:sent.id,thread_id:sent.threadId||''});return reply(200,{status:'SENT'});}
    catch{await db('unknown',{id:p.id});return reply(200,{status:'UNKNOWN'});}
   }
+  if(path==='/site/proposal')return reply(200,await db('site',{command:'proposal',data:p}));
   if(path==='/site/approve')return reply(200,await db('site',{command:'approve',data:p}));
   const action=path.slice(1);if(!['lead','task','contact','draft','approve','cancel'].includes(action))return reply(404,{error:'Операция недоступна'});
   return reply(200,await db(action,p));
