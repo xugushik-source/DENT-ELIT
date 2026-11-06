@@ -23,7 +23,7 @@ export default async function handler(req,res){
   }
   if(req.method==='GET'&&path==='/snapshot'){
    const csrf=randomBytes(32).toString('hex');res.setHeader('Set-Cookie',`factory_csrf=${csrf}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=3600`);
-   const snapshot=await db('snapshot'),sites=await db('site',{command:'list'});return reply(200,{...snapshot,sites,csrf,origin});
+   const snapshot=await db('snapshot'),sites=await db('site',{command:'list'}),pipeline=await db('pipeline',{command:'snapshot'});return reply(200,{...snapshot,sites,pipeline,csrf,origin});
   }
   if(req.method==='GET'&&path==='/oauth/callback'){
    const q=new URL(req.url,origin).searchParams,r=(await db('runtime'))[0];
