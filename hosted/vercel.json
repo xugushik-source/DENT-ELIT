@@ -1,58 +1,5 @@
 {
   "version": 2,
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/api/index.mjs?route=ui"
-    },
-    {
-      "source": "/app.mjs",
-      "destination": "/api/index.mjs?route=ui/app.mjs"
-    },
-    {
-      "source": "/style.css",
-      "destination": "/api/index.mjs?route=ui/style.css"
-    },
-    {
-      "source": "/api/build",
-      "destination": "/api/build.py"
-    },
-    {
-      "source": "/demo/:path*",
-      "destination": "/api/index.mjs?route=demo/:path*"
-    },
-    {
-      "source": "/api/:path*",
-      "destination": "/api/index.mjs?route=:path*"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "no-referrer"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "no-store"
-        },
-        {
-          "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"
-        }
-      ]
-    }
-  ],
   "builds": [
     {
       "src": "api/index.mjs",
@@ -71,6 +18,43 @@
           "engine.zip"
         ]
       }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/.*",
+      "headers": {
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "no-referrer",
+        "X-Frame-Options": "DENY",
+        "Cache-Control": "no-store",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"
+      },
+      "continue": true
+    },
+    {
+      "src": "^/$",
+      "dest": "/api/index.mjs?route=ui"
+    },
+    {
+      "src": "^/app.mjs$",
+      "dest": "/api/index.mjs?route=ui/app.mjs"
+    },
+    {
+      "src": "^/style.css$",
+      "dest": "/api/index.mjs?route=ui/style.css"
+    },
+    {
+      "src": "^/api/build$",
+      "dest": "/api/build.py"
+    },
+    {
+      "src": "^/demo/(.*)$",
+      "dest": "/api/index.mjs?route=demo/$1"
+    },
+    {
+      "src": "^/api/(.*)$",
+      "dest": "/api/index.mjs?route=$1"
     }
   ]
 }
