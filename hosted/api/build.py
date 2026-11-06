@@ -32,8 +32,11 @@ def bridge(action,payload=None):
 
 def initialize(payload):
     from factory.scaffold import scaffold
-    lang=payload.get('language','ru')
-    if lang not in ('ru','en','hy'):raise ValueError('Для этого шаблона доступны ru/en/hy')
+    lang=payload.get('language','ka')
+    if lang not in ('ka','en','ru','hy'):raise ValueError('Для этого шаблона доступны ka/en/ru/hy')
+    languages=payload.get('languages') or [lang]
+    if not isinstance(languages,list) or not languages or len(set(languages))!=len(languages) or any(l not in ('ka','en','ru','hy') for l in languages):raise ValueError('Для этого шаблона доступны ka/en/ru/hy')
+    lang=languages[0]
     synthetic=payload.get('synthetic') is True
     name='Тестовая клиника Order & Profit' if synthetic else str(payload.get('name','')).strip()
     if not synthetic:
@@ -44,7 +47,7 @@ def initialize(payload):
     source='Материалы для проверки системы, не реальная клиника' if synthetic else str(payload.get('source','')).strip()
     if not source:raise ValueError('Нужен источник данных')
     version=json.loads((ENGINE/'template-version.json').read_text())['commit']
-    config=scaffold([lang],version);config['synthetic']=synthetic
+    config=scaffold(languages,version);config['synthetic']=synthetic
     timestamp=datetime.now(timezone.utc).isoformat()
     config['sources']=[{'id':'owner-input','clinicId':config['clinicId'],'kind':'client_material','url':None,'documentRef':('synthetic-owner-test' if synthetic else 'crm-lead-'+str(payload.get('lead_id'))) ,'retrievedAt':timestamp,'accessStatus':'ALLOWED','contentHash':None}]
     def fact(v):return {'value':v,'status':'CLIENT_APPROVED','sourceIds':['owner-input'],'checkedAt':timestamp,'reviewer':'owner-entered'}
@@ -57,6 +60,14 @@ def initialize(payload):
         config['brand']['description'][lang]=fact(description)
         address=str(payload.get('address','')).strip()
         if address:config['contact']['address'][lang]=fact(address[:500])
+    translations=payload.get('translations') or {}
+    if not synthetic:
+        for language in languages:
+            if language==lang:continue
+            translated=translations.get(language,{})
+            if len(str(translated.get('description','')).strip())<40 or not translated.get('services'):raise ValueError('Добавьте отдельные переводы описания и услуг для каждого языка')
+            config['brand']['description'][language]=fact(str(translated['description']).strip()[:4000])
+            if translated.get('address'):config['contact']['address'][language]=fact(str(translated['address'])[:500])
     asset_blobs={}
     if not synthetic:
         from PIL import Image,ImageOps
@@ -77,6 +88,14 @@ def initialize(payload):
             unknown=lambda:{'value':None,'status':'UNKNOWN','sourceIds':[],'checkedAt':None,'reviewer':None}
             config['services'].append({'id':'service-'+str(i+1),'slug':'service-'+str(i+1),'name':{lang:fact(title.strip()[:200])},'description':{lang:fact(detail.strip()[:1000]) if detail.strip() else unknown()},'intro':{lang:unknown()},'medicalDetails':{lang:unknown()},'benefits':[],'faq':[],'price':unknown(),'photo':unknown(),'heroPhoto':unknown(),'doctorIds':[],'technologyIds':[],'relatedServiceIds':[]})
         if not config['services']:raise ValueError('Добавьте хотя бы одну подтверждённую услугу')
+        for language in languages:
+            if language==lang:continue
+            lines=[line for line in str(translations[language]['services']).splitlines() if line.strip()]
+            if len(lines)!=len(config['services']):raise ValueError('Добавьте одинаковое количество услуг в каждом переводе')
+            for service,line in zip(config['services'],lines):
+                title,_,detail=line.partition('|')
+                service['name'][language]=fact(title.strip()[:200]);service['description'][language]=fact(detail.strip()[:1000]) if detail.strip() else unknown()
+                service['intro'][language]=unknown();service['medicalDetails'][language]=unknown()
     for k in ('country','city'):
         if payload.get(k):config['contact'][k]=fact(str(payload[k])[:200])
     config['features']['bookingEnabled']=False;config['features']['whatsappEnabled']=False
