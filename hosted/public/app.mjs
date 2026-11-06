@@ -18,20 +18,21 @@ function progress(active,label='Обновляем данные…'){
 }
 async function run(fn,label){if(busy)return;busy=true;progress(true,label);try{await fn();await load();}catch(e){notice(e.message);}finally{busy=false;progress(false);}}
 async function load(){
- const d=await request('/api/snapshot');const comparable=x=>JSON.stringify([x.leads,x.tasks,x.messages,x.outbox,x.audit,x.connection,x.sites]);const unchanged=comparable(d)===comparable(state);
+ const d=await request('/api/snapshot');const comparable=x=>JSON.stringify([x.leads,x.tasks,x.messages,x.outbox,x.audit,x.connection,x.sites,x.pipeline]);const unchanged=comparable(d)===comparable(state);
  state=d;csrf=d.csrf;
  if(!unchanged)render();else notice('Данные кабинета обновлены. Последняя успешная проверка Gmail: '+date(d.connection?.checked_at));
 }
 
 function render(){const opened=[...document.querySelectorAll('[data-thread][open]')].map(x=>x.dataset.thread);const c=state.connection||{},leads=state.leads||[],tasks=state.tasks||[],outbox=state.outbox||[];
- $('#cycle').innerHTML='<h2>Где находится цикл</h2>'+[
+ const campaign=state.pipeline?.campaign;
+ $('#cycle').innerHTML='<h2>Где находится цикл</h2>'+`<p><b>Ежедневная кампания:</b> ${campaign?.paused?'на паузе':campaign?'включена':'не проверена'}; предел ${esc(campaign?.policy?.daily_limit||30)} первых писем в день.</p><p>Порядок: поиск → первое предложение → явное согласие → персональное демо → отправка → передача владельцу для WhatsApp.</p>`+[
  ['Компании',leads.length?`${leads.length} в базе; ${leads.filter(l=>l.blocked).length} остановлено`:'Нужны компании с подтверждённым источником'],
  ['Сайты',(state.sites||[]).filter(s=>!s.synthetic).length+' персональных сборок; образец — ELIT DENT'],
  ['Проверка владельца',(state.sites||[]).filter(s=>!s.synthetic&&s.status==='BUILT').length+' ждут просмотра'],
  ['Письма',outbox.filter(o=>o.status==='DRAFT').length+' черновиков; '+outbox.filter(o=>o.status==='APPROVED').length+' утверждено'],
  ['Отправка',c.send_enabled?'Доступна только после утверждения конкретного письма':'Выключена — писем автоматически не отправляем'],
  ['Ответы','Gmail: '+date(c.checked_at)]
- ].map(([title,detail])=>`<p><b>${esc(title)}:</b> ${esc(detail)}</p>`).join('');
+ ].map(([title,detail])=>`<p><b>${esc(title)}:</b> ${esc(detail)}</p>`).join('')+(state.pipeline?.alerts||[]).map(a=>`<article class="card"><b>${a.kind==='WHATSAPP_HANDOFF'?'Демо отправлено — продублируй в WhatsApp':'Ответ клиента'}</b><p>${esc(a.detail.clinic||'')} ${esc(a.detail.email||'')}</p><pre>${esc(a.detail.quote||a.detail.owner_action||'')}</pre></article>`).join('');
  $('#connection').textContent=`Gmail: ${c.configured?'подключён':'не подключён'}. Последняя успешная проверка: ${date(c.checked_at)}. Отправка: ${c.send_enabled?'включена для утверждённых писем':'выключена'}.`;
  $('#callback').textContent=state.origin+'/api/oauth/callback';$('#sync').disabled=!c.configured;
  notice(c.error||(!c.configured?'Кабинет подключён к базе. Gmail ещё не подключён; данных о текущей почте нет.':'Данные загружены. Время показано по Тбилиси.'));
@@ -40,7 +41,7 @@ function render(){const opened=[...document.querySelectorAll('[data-thread][open
  $('#task-list').innerHTML=tasks.map(t=>`<article class="card"><b>${esc(t.title)}</b><p>${esc(names[t.status])} ${esc(t.reason)}</p><button data-action="task" data-id="${t.id}">Изменить статус</button></article>`).join('')||'<p>Задач пока нет.</p>';
  $('#outbox-list').innerHTML=outbox.map(o=>`<article class="card"><span class="tag">${esc(names[o.status])}</span><p>Кому: ${esc(o.recipient)}</p><h3>${esc(o.subject)}</h3><pre>${esc(o.body)}</pre>${o.error?`<p class="blocked">${esc(o.error)}</p>`:''}<div class="actions">${o.status==='DRAFT'?`<button data-action="approve" data-id="${o.id}">Утвердить этот текст</button>`:''}${['DRAFT','APPROVED'].includes(o.status)?`<button class="secondary" data-action="cancel" data-id="${o.id}">Отменить</button>`:''}${o.status==='APPROVED'?`<button data-action="send" data-id="${o.id}" ${c.send_enabled?'':'disabled'}>Отправить</button>`:''}</div></article>`).join('')||'<p>Писем в очереди нет.</p>';
  for(const id of opened){const detail=[...document.querySelectorAll('[data-thread]')].find(x=>x.dataset.thread===id);if(detail)detail.open=true;}
- $('#site-lead').innerHTML='<option value="">Выберите компанию</option>'+leads.filter(l=>!l.blocked).map(l=>`<option value="${l.id}">${esc(l.name)}</option>`).join('');
+ $('#site-lead').innerHTML='<option value="">Выберите компанию</option>'+leads.filter(l=>!l.blocked&&(state.pipeline?.leads||[]).some(p=>p.lead_id===l.id&&p.stage==='DEMO_REQUESTED'&&p.consent_message_id)).map(l=>`<option value="${l.id}">${esc(l.name)}</option>`).join('');
  $('#site-list').innerHTML=(state.sites||[]).filter(site=>!site.synthetic).map(site=>`<article class="card"><h3>${esc(site.name)}</h3><p>${site.synthetic?'Тестовая карточка, не клиент · ':''}${esc({READY:'Ожидает сборки',BUILDING:'Сборка начата',BUILT:'Собрано — требуется просмотр',FAILED:'Ошибка сборки',APPROVED:'Утверждено владельцем'}[site.status]||site.status)}</p>${site.error?`<p class="blocked">${esc(site.error)}</p>`:''}${site.report?`<p>Проверено файлов: ${Object.keys(site.report.files||{}).length}. Неизвестных полей: ${(site.report.pending||[]).length}.</p><details><summary>Что ещё нужно уточнить</summary>${(site.report.pending||[]).map(p=>`<p>${esc(p.path)} · ${esc(p.status)}</p>`).join('')}</details><p><a target="_blank" rel="noopener noreferrer" href="/demo/${site.id}/${esc(site.language||'ru')}/">Открыть закрытый просмотр</a></p>`:''}<div class="actions">${site.status==='READY'?`<button data-action="site-build" data-id="${site.id}">Запустить сборку</button>`:''}${site.status==='APPROVED'?`<button data-action="site-proposal" data-id="${site.id}">Подготовить предложение без отправки</button>`:''}${site.status==='BUILT'?`<button data-action="site-approve" data-id="${site.id}">Подтвердить просмотр и утвердить</button>`:''}</div></article>`).join('')||'<p>Сборок пока нет.</p>';
  $('#audit-list').innerHTML=(state.audit||[]).map(a=>`<p>${date(a.created_at)} · ${esc(a.kind)}</p>`).join('')||'<p>Событий пока нет.</p>';
 }
