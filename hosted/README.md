@@ -54,3 +54,10 @@ Validation: real-card rendering with uploaded photo and service, missing-data re
 See PIPELINE_RUNBOOK.md and campaign.json. First proposal precedes a personal build. Persist a human consent quote/message id; blocked/opted-out leads do not progress. Georgian UI was added to the existing engine; a ka/en/ru build uses separate localized descriptions and service text, with no language fallback. Client preview release is still disconnected and no delivery is claimed. Two ChatGPT automations were configured (daily discovery/preparation and Gmail message-event handling); creation is not evidence of a completed execution. Campaign sending remains paused.
 
 The first Georgian message now follows the owner's sent September examples: a loss-framed subject, a sourced issue, concrete benefits, ELIT DENT design sample, current project USD pricing and an invitation to consent to a free preliminary demo. The subject is phrased as a question, without inventing lost patient counts.
+
+
+## Isolated client preview — 7 November 2026
+
+Client preview is now deployed separately with an expiring per-build capability URL; the public service has no CRM/Gmail/write credentials. Database RPC returns only one generated file after hash, expiry, revocation, consent and approved-build checks. The owner cabinet issues and probes links before making a demo draft available; revoked/expired links block sending. Anonymous browser requests returned 200 for HTML/CSS/JS without cookies or owner identity, and a revoked test URL became unavailable. The synthetic test link is revoked. The client viewer's source is kept in its dedicated Sites source repository.
+
+Mail sending remains paused after automatic approval review rejected the self-addressed test email. No message was sent; do not retry another transport or enable unattended sending to bypass that rejection.
