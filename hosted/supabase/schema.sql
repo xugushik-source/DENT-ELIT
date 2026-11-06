@@ -62,7 +62,7 @@ begin
  perform id from factory_runtime where id=1 and sending_enabled for update;
  if not found then raise exception 'Отправка отключена'; end if;
  if r.status<>'APPROVED' or l.blocked or l.email<>r.recipient or r.approved_hash is distinct from encode(sha256(convert_to(jsonb_build_array(r.lead_id,r.recipient,r.subject,r.body)::text,'UTF8')),'hex') then raise exception 'Нет утверждения этой версии'; end if;
- if (select count(*) from factory_audit where kind='claim' and created_at>now()-interval '24 hours')>=5 then raise exception 'Лимит: 5 попыток за 24 часа'; end if;
+ if (select count(*) from factory_audit where kind='claim' and (created_at at time zone 'Asia/Tbilisi')::date=(now() at time zone 'Asia/Tbilisi')::date)>=least(40,coalesce((select (policy->>'daily_limit')::integer from factory_campaign where id=1),30)) then raise exception 'Дневной лимит отправок'; end if;
  update factory_outbox set status='SENDING' where id=r.id;
  end if;
  result=to_jsonb(r);
