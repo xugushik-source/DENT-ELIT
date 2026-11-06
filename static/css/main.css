@@ -538,3 +538,7 @@ body.has-bottom-bar { padding-bottom: 64px; }
   .trust-item { min-width: 0; }
   .trust-item h3, .trust-item p { overflow-wrap: anywhere; }
 }
+
+/* Long clinic names remain readable on narrow screens. */
+.header-brand, .brand, .logo-link {min-width:0;}
+@media(max-width:640px){.header-inner{gap:10px}.brand{flex:1 1 auto;max-width:calc(100% - 105px)}.brand>span:last-child{overflow-wrap:anywhere;white-space:normal}.brand-mark{flex-shrink:0}.header-mobile-actions{flex-shrink:0}.hero-copy h1{overflow-wrap:anywhere}}
