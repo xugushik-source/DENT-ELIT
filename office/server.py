@@ -1,3 +1,4 @@
+import os
 import base64
 import hmac
 import json
@@ -17,6 +18,11 @@ def server(data, port, password, actor="owner"):
     if len(password) < 16: raise ValueError("Пароль кабинета должен содержать минимум 16 символов")
     if data.resolve().is_relative_to(ROOT): raise ValueError("База и материалы должны находиться вне публичного репозитория")
     store = Store(data)
+    from office.sales import Sales
+    from office.gmail import configured
+    sales = Sales(store); sales.recover()
+    mail = configured()
+    mail_enabled = os.environ.get("FACTORY_MAIL_SEND_ENABLED") == "yes"
     # Only one Director may recover/execute this durable local queue.
     lock=(store.root/"office.lock").open("a+b")
     try:
@@ -63,6 +69,10 @@ def server(data, port, password, actor="owner"):
             path=unquote(urlsplit(self.path).path)
             try:
                 if path=="/api/bootstrap": return self.json({"csrf":csrf,"settings":store.settings(),"clinics":store.list()})
+                if path=="/api/sales":
+                    return self.json({**sales.snapshot(),"mailConfigured":mail is not None,"sendEnabled":mail_enabled and mail is not None})
+                if path=="/sales": return self.file(web/"sales.html")
+                if path=="/sales.js": return self.file(web/"sales.js")
                 if path=="/api/clinics": return self.json(store.list())
                 if path.startswith("/api/clinics/"): return self.json(store.get(path.split("/")[3]))
                 if path.startswith("/demo/"):
@@ -91,6 +101,28 @@ def server(data, port, password, actor="owner"):
                 length=int(self.headers.get("Content-Length","0"))
                 if not 0<length<=2000000: return self.json({"error":"Недопустимый размер запроса"},413)
                 body=json.loads(self.rfile.read(length));path=urlsplit(self.path).path
+                if path.startswith("/api/sales/"):
+                    action=path.rsplit("/",1)[1]
+                    if action=="proposal":
+                        c,job,report,folder=director.tested(body["clinic_id"])
+                        if not c["approval"] or not c["draft"] or c["synthetic"]: raise ValueError("Нужен утверждённый черновик реальной клиники")
+                        proposal=c["draft"]
+                        if any(x in proposal["body"] for x in ("127.0.0.1", "localhost", ".invalid")): raise ValueError("В письме локальная или временная ссылка. Подготовьте клиентский текст в разделе продаж")
+                        lid=sales.lead(c["name"],proposal["to"],"Карточка клиники "+c["id"])
+                        return self.json({"id":sales.draft(lid,proposal["subject"],proposal["body"])},201)
+                    if action=="lead": return self.json({"id":sales.lead(body["name"],body["email"],body["source"])},201)
+                    if action=="task": sales.task(body["lead_id"],body["next_action"],body.get("blocked",False))
+                    elif action=="draft": return self.json({"id":sales.draft(body["lead_id"],body["subject"],body["body"])},201)
+                    elif action=="approve": sales.approve(body["id"])
+                    elif action=="cancel": sales.cancel(body["id"])
+                    elif action=="sync":
+                        if mail is None: raise ValueError("Для постоянной синхронизации нужен OAuth Gmail исполнителя")
+                        sales.sync(mail)
+                    elif action=="send":
+                        if mail is None: raise ValueError("Gmail исполнителя не подключён")
+                        return self.json({"status":sales.send(body["id"],mail,mail_enabled)})
+                    else: return self.json({"error":"Неизвестное действие"},404)
+                    return self.json({"ok":True})
                 if path=="/api/director":
                     if not isinstance(body.get("paused"),bool): raise ValueError("paused должен быть логическим значением")
                     store.pause(body["paused"]);return self.json(store.settings())
@@ -124,9 +156,14 @@ def server(data, port, password, actor="owner"):
         def server_close(self):
             if hasattr(self,"director"):
                 self.director.stop.set();self.worker.join(timeout=30)
+                if hasattr(self,"mail_worker"): self.mail_worker.join(timeout=5)
             super().server_close();lock.close()
     try: http=OwnerServer(("127.0.0.1",port),Handler)
     except Exception: lock.close();raise
     thread=threading.Thread(target=director.run,daemon=True);thread.start()
     http.store,http.director,http.worker=store,director,thread
+    if mail is not None and os.environ.get("FACTORY_MAIL_WORKER_ENABLED") == "yes":
+        from office.mail_worker import run as mail_run
+        http.mail_worker=threading.Thread(target=mail_run,args=(sales,mail,director.stop,mail_enabled),daemon=True)
+        http.mail_worker.start()
     return http
