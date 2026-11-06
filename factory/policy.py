@@ -43,8 +43,8 @@ def validate(config, asset_root=None, now=None):
         raise ValueError("Factory v1 only builds demos; live release needs a separately reviewed workflow")
     if config["languages"]["default"] not in config["languages"]["enabled"]:
         raise ValueError("Default language is not enabled")
-    if config["languages"]["uiVersion"] != "v1" or "ka" in config["languages"]["enabled"]:
-        raise ValueError("Reviewed UI v1 supports hy, ru, en only")
+    if config["languages"]["uiVersion"] != "v1":
+        raise ValueError("UI v1 supports ka, en, ru, hy")
     if any(config["features"][flag] for flag in ("beforeAfterEnabled","offersEnabled","blogEnabled")):
         raise ValueError("Before/after, offers and blog need separately reviewed components in factory v1")
     if not config["features"]["multilingualEnabled"] and len(config["languages"]["enabled"]) > 1:
