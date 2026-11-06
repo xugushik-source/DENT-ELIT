@@ -1,4 +1,5 @@
 import {randomBytes} from 'node:crypto';
+import {readFileSync} from 'node:fs';
 import {seal,unseal,equal,clientConfig,authorization,google,tokenFor,messages,mime,scopes,owner} from './core.mjs';
 export default async function handler(req,res){
  const origin=process.env.FACTORY_ORIGIN||(process.env.VERCEL_URL?'https://'+process.env.VERCEL_URL:'');
@@ -10,9 +11,13 @@ export default async function handler(req,res){
   if(!key||!bridgeKey||!bridgeURL||!origin.startsWith('https://'))return reply(503,{error:'Облачное подключение ещё не настроено'});
   const requestURL=new URL(req.url,origin);
   const path=requestURL.searchParams.has('route')?'/'+requestURL.searchParams.get('route'):requestURL.pathname.replace(/^\/api/,'');
+  if(req.method==='GET'&&['/ui','/ui/app.mjs','/ui/style.css'].includes(path)){
+   const assets={'/ui':[new URL('../public/index.html',import.meta.url),'text/html; charset=utf-8'],'/ui/app.mjs':[new URL('../public/app.mjs',import.meta.url),'text/javascript; charset=utf-8'],'/ui/style.css':[new URL('../public/style.css',import.meta.url),'text/css; charset=utf-8']};
+   const [file,mime]=assets[path];res.statusCode=200;res.setHeader('Content-Type',mime);res.setHeader('Cache-Control','no-store');res.end(readFileSync(file));return;
+  }
   if(req.method==='GET'&&path.startsWith('/demo/')){
    const parts=path.slice(6).split('/'),id=parts.shift();if(!/^[a-f0-9-]{36}$/.test(id))return reply(404,{error:'Сайт не найден'});
-   let file=parts.join('/');if(!file||file.endsWith('/'))file+='index.html';if(file.includes('..')||file.includes('\\'))return reply(404,{error:'Файл недоступен'});
+   let file=parts.join('/');if(!file||file.endsWith('/'))file+='index.html';else if(!file.split('/').pop().includes('.'))file+='/index.html';if(file.includes('..')||file.includes('\\'))return reply(404,{error:'Файл недоступен'});
    const data=await db('site',{command:'file',data:{id,path:file}});
    res.statusCode=200;res.setHeader('Content-Type',data.mime);res.setHeader('Cache-Control','no-store');res.setHeader('X-Robots-Tag','noindex, nofollow');res.end(Buffer.from(data.content,'base64'));return;
   }
