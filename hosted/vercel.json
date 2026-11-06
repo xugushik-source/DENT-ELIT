@@ -2,6 +2,14 @@
   "version": 2,
   "rewrites": [
     {
+      "source": "/api/build",
+      "destination": "/api/build"
+    },
+    {
+      "source": "/demo/:path*",
+      "destination": "/api/index?route=demo/:path*"
+    },
+    {
       "source": "/api/:path*",
       "destination": "/api/index?route=:path*"
     }
@@ -32,5 +40,10 @@
         }
       ]
     }
-  ]
+  ],
+  "functions": {
+    "api/build.py": {
+      "maxDuration": 180
+    }
+  }
 }
