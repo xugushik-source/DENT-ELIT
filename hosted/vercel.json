@@ -2,16 +2,28 @@
   "version": 2,
   "rewrites": [
     {
+      "source": "/",
+      "destination": "/public/index.html"
+    },
+    {
+      "source": "/app.mjs",
+      "destination": "/public/app.mjs"
+    },
+    {
+      "source": "/style.css",
+      "destination": "/public/style.css"
+    },
+    {
       "source": "/api/build",
-      "destination": "/api/build"
+      "destination": "/api/build.py"
     },
     {
       "source": "/demo/:path*",
-      "destination": "/api/index?route=demo/:path*"
+      "destination": "/api/index.mjs?route=demo/:path*"
     },
     {
       "source": "/api/:path*",
-      "destination": "/api/index?route=:path*"
+      "destination": "/api/index.mjs?route=:path*"
     }
   ],
   "headers": [
@@ -41,9 +53,23 @@
       ]
     }
   ],
-  "functions": {
-    "api/build.py": {
-      "maxDuration": 180
+  "builds": [
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/index.mjs",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "api/build.py",
+      "use": "@vercel/python",
+      "config": {
+        "includeFiles": [
+          "engine.zip"
+        ]
+      }
     }
-  }
+  ]
 }
