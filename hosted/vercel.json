@@ -3,15 +3,15 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/public/index.html"
+      "destination": "/api/index.mjs?route=ui"
     },
     {
       "source": "/app.mjs",
-      "destination": "/public/app.mjs"
+      "destination": "/api/index.mjs?route=ui/app.mjs"
     },
     {
       "source": "/style.css",
-      "destination": "/public/style.css"
+      "destination": "/api/index.mjs?route=ui/style.css"
     },
     {
       "source": "/api/build",
@@ -55,12 +55,13 @@
   ],
   "builds": [
     {
-      "src": "public/**",
-      "use": "@vercel/static"
-    },
-    {
       "src": "api/index.mjs",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "public/**"
+        ]
+      }
     },
     {
       "src": "api/build.py",
