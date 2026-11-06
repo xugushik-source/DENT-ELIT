@@ -8,7 +8,8 @@ export default async function handler(req,res){
  const db=async(action,payload={})=>{const r=await fetch(bridgeURL,{method:'POST',headers:{'Content-Type':'application/json','x-factory-key':bridgeKey,'Authorization':'Bearer '+process.env.FACTORY_SUPABASE_JWT,'apikey':process.env.FACTORY_SUPABASE_JWT},body:JSON.stringify({action,payload}),signal:AbortSignal.timeout(25000)});if(!r.ok)throw Error('Операция базы не выполнена');return r.json();};
  try{
   if(!key||!bridgeKey||!bridgeURL||!origin.startsWith('https://'))return reply(503,{error:'Облачное подключение ещё не настроено'});
-  const path=new URL(req.url,origin).pathname.replace(/^\/api/,'');
+  const requestURL=new URL(req.url,origin);
+  const path=requestURL.searchParams.has('route')?'/'+requestURL.searchParams.get('route'):requestURL.pathname.replace(/^\/api/,'');
   if(req.method==='GET'&&path==='/snapshot'){
    const csrf=randomBytes(32).toString('hex');res.setHeader('Set-Cookie',`factory_csrf=${csrf}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=3600`);
    return reply(200,{...await db('snapshot'),csrf,origin});
