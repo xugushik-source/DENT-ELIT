@@ -22,7 +22,7 @@ Deno.serve(async (req: Request) => {
   const p=input.payload||{};
   if(typeof p!=='object'||Array.isArray(p))return fail(400);
   if(input.action==='site'){
-   const commands=['list','create','claim','finish','fail','file','approve'];
+   const commands=['list','create','claim','finish','fail','file','approve','proposal'];
    if(!commands.includes(p.command))return fail(400);
    result=await rest('rpc/factory_site_command','POST',{action:p.command,payload:p.data||{}});
   }else if(input.action==='runtime')result=await rest('factory_runtime?id=eq.1&select=gmail_cipher,oauth_state,sync_at,sync_error,sending_enabled');
