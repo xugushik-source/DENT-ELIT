@@ -39,3 +39,11 @@ The private tables `factory_sites` and `factory_site_files` have RLS and no clie
 The reviewed renderer supports ru/en/hy only. It does not invent missing doctors, services, reviews, contacts or translations. Owner-entered name/source come from the corresponding CRM lead. The initial cloud form supplies country and city; photo/media ingestion and richer verified content editing are not yet exposed. Building a complete real client site still requires those verified inputs.
 
 `PYTHONPATH=<dependency-directory> python hosted/tests/generator.py -q` builds all three supported languages with the actual renderer, rejects stopped/absent contacts and rejects unsupported Georgian. Existing factory regression suite: 44 passed. The separate Node suite has 8 tests. Actual owner browser invocation of the new Python Vercel function remains a required hosted-path check.
+
+## Approved template and completion gates (2026-11-06)
+
+ELIT DENT at https://dent-elit.vercel.app/ru/ is the owner-approved visual reference. The cabinet links to it directly; empty synthetic builds are hidden from the owner list. Existing Jinja templates, CSS and JS are retained. A real build now requires owner-confirmed description, actual clinic photo with permission, and at least one sourced service. Images are decoded, resized, metadata stripped and stored privately; no arbitrary image URLs are fetched. Unknown doctors, reviews, prices and contact claims are not copied from another clinic.
+
+After opening and approving a real build, the owner can create one idempotent proposal draft. The draft names ELIT DENT as a design sample, does not claim that its doctors or facts belong to the prospect, and does not include a private owner-only URL. It does not send mail. A client-accessible personal preview remains a separate, unimplemented approval gate. The cabinet shows each stage and current blockers. NIO DENT remains stopped.
+
+Validation: real-card rendering with uploaded photo and service, missing-data rejection, three supported UI languages, DOM refresh/timeout checks, server CSRF checks; SQL transaction rollback verifies approval gate and draft idempotency. Live owner-authenticated Vercel invocation still needs confirmation; deployment READY alone is not an end-to-end test.
