@@ -20,7 +20,7 @@ Testing mode can expire Gmail offline authorization after seven days. Review Goo
 
 `factory_runtime.sending_enabled` defaults to false. The UI cannot turn it on. Exact recipient and content must be approved before claim; the database atomically claims each letter and enforces five attempts per rolling 24h. Incoming messages cancel pending approvals and block contacts. Unknown outcomes cannot retry; a stranded SENDING row also remains unclaimable and requires manual reconciliation in Gmail. “SENT” means Gmail returned an ID, not confirmed delivery/read.
 
-Current cloud cabinet supports company records, project-specific tasks with completion/block reasons, drafts, approvals, audit, Gmail OAuth and manual synchronization. Automatic scheduled mail polling, the demo generator/build runner, private previews of generated sites and automated research are **not connected to this hosted adapter**. It does not send on a schedule. Never represent a plan or old connector import as a completed live action. Imported historical records retain original dates; `sync_at` remains null until a complete live API sync succeeds.
+Current cloud cabinet supports company records, project-specific tasks, drafts, approvals, audit and Gmail OAuth. While the page is visible, known-company mail is polled every two minutes; this is not unattended operation. The Sites tab now invokes the shared Python renderer, stores bounded generated files in server-only database tables and serves them behind the same Vercel protection. Automated research, unattended jobs, client-specific external sharing and automatic proposal generation are not connected. It does not send on a schedule. Never represent a plan or old connector import as a completed live action. Imported historical records retain original dates; `sync_at` remains null until a complete live API sync succeeds.
 
 ## Verification
 
@@ -29,3 +29,13 @@ Current cloud cabinet supports company records, project-specific tasks with comp
 Database privileges were checked on the live database. Direct Edge API probes returned 401 without auth, 401 with the wrong independent key, and 200 to the authenticated server. Security advisor reports only informational RLS-without-policy notices: intentional server-only tables, with all client grants revoked. A real owner browser login and Google consent are still required to verify the complete hosted path. No native Windows install is required.
 
 Free Supabase projects can pause after inactivity. Vercel Hobby is for personal noncommercial use; live sales operations need an eligible plan. This deployment is for private setup/testing. No paid plan upgrade was authorized or enabled.
+
+## Hosted generator
+
+Run `python hosted/prepare_engine.py` from the repository root before assembling a deployment. It packages only reviewed renderer code, schema, templates, language UI and CSS/JS into a 63 KB `engine.zip`; no clinic configs, stock clinic photos or runtime data enter that bundle. The archive and staging directory are ignored by git. Deploy the archive at the function root alongside `requirements.txt` and `api/build.py`. `/api/build` runs on the Python runtime; the Node API remains the CRM/mail runtime.
+
+The private tables `factory_sites` and `factory_site_files` have RLS and no client grants. The generator API requires Vercel authentication plus origin/CSRF checks. A transaction claims each build once. Five builds per rolling day, 150 files and a 3 MB encoded package limit bound the pilot. No customer share URLs are minted. Preview access and explicit acknowledgement of unknown fields precede approval. A stopped CRM contact cannot initialize a real build. Synthetic cards are separate from CRM leads and cannot become sent proposals.
+
+The reviewed renderer supports ru/en/hy only. It does not invent missing doctors, services, reviews, contacts or translations. Owner-entered name/source come from the corresponding CRM lead. The initial cloud form supplies country and city; photo/media ingestion and richer verified content editing are not yet exposed. Building a complete real client site still requires those verified inputs.
+
+`PYTHONPATH=<dependency-directory> python hosted/tests/generator.py -q` builds all three supported languages with the actual renderer, rejects stopped/absent contacts and rejects unsupported Georgian. Existing factory regression suite: 44 passed. The separate Node suite has 8 tests. Actual owner browser invocation of the new Python Vercel function remains a required hosted-path check.
