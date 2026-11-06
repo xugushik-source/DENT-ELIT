@@ -47,3 +47,10 @@ ELIT DENT at https://dent-elit.vercel.app/ru/ is the owner-approved visual refer
 After opening and approving a real build, the owner can create one idempotent proposal draft. The draft names ELIT DENT as a design sample, does not claim that its doctors or facts belong to the prospect, and does not include a private owner-only URL. It does not send mail. A client-accessible personal preview remains a separate, unimplemented approval gate. The cabinet shows each stage and current blockers. NIO DENT remains stopped.
 
 Validation: real-card rendering with uploaded photo and service, missing-data rejection, three supported UI languages, DOM refresh/timeout checks, server CSRF checks; SQL transaction rollback verifies approval gate and draft idempotency. Live owner-authenticated Vercel invocation still needs confirmation; deployment READY alone is not an end-to-end test.
+
+
+## Consent-first campaign correction — 7 November 2026
+
+See PIPELINE_RUNBOOK.md and campaign.json. First proposal precedes a personal build. Persist a human consent quote/message id; blocked/opted-out leads do not progress. Georgian UI was added to the existing engine; a ka/en/ru build uses separate localized descriptions and service text, with no language fallback. Client preview release is still disconnected and no delivery is claimed. Two ChatGPT automations were configured (daily discovery/preparation and Gmail message-event handling); creation is not evidence of a completed execution. Campaign sending remains paused.
+
+The first Georgian message now follows the owner's sent September examples: a loss-framed subject, a sourced issue, concrete benefits, ELIT DENT design sample, current project USD pricing and an invitation to consent to a free preliminary demo. The subject is phrased as a question, without inventing lost patient counts.
