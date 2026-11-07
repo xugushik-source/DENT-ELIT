@@ -34,5 +34,10 @@
   "demo_delivery_blockers": [],
   "letter_sources": "Owner-sent Georgian first-contact letter 16.09.2026 (BuchoDenti) and loss-hook letter 18.09.2026; structure reused, historical pricing replaced with project USD pricing.",
   "client_preview_origin": "https://order-profit-client-preview.sredacommuniti.chatgpt.site",
-  "client_preview_status": "VERIFIED_ANONYMOUS_AND_REVOCATION"
+  "client_preview_status": "VERIFIED_ANONYMOUS_AND_REVOCATION",
+  "standing_cycle_authorized": true,
+  "standing_authorization_date": "2026-11-07",
+  "standing_authorization_scope": "Research, qualify, draft and send within campaign limits; process replies; after explicit client demo consent build, QA and send scoped demo; notify owner in ChatGPT. No repeated per-stage confirmations. Does not override platform approval rejection or pause.",
+  "routine_content_review": "Verified source-backed content and QA may proceed under standing owner instruction; omit unknown facts; no separate per-build owner confirmation.",
+  "permission_resolution": "Pending one exact owner-addressed transport test approval. Never bypass rejection or enable sending as workaround."
 }
