@@ -26,9 +26,9 @@
   "first_body": "გამარჯობა, {clinic}-ის გუნდო!\n\n{observation}\n\nროცა პაციენტი სწრაფად ვერ პოულობს მომსახურებებს, ექიმებს, მისამართს და ჩაწერის გზას, შესაძლოა სხვა კლინიკას მიმართოს. ვებგვერდის მიზანია, დაინტერესებული ადამიანი შემდეგ ნაბიჯამდე მიიყვანოს.\n\nOrder & Profit ქმნის სტომატოლოგიურ ვებგვერდებს, სადაც ერთ სივრცეში იქნება:\n• თქვენი მომსახურებები და შეთანხმებული ფასები;\n• ექიმების პროფილები და კლინიკის ფოტოები;\n• მისამართი, სამუშაო საათები და Google Maps;\n• ჩაწერის მარტივი გზა — ზარი ან WhatsApp;\n• ქართული, ინგლისური და რუსული ვერსიები;\n• სტრუქტურა შემდგომი SEO-მუშაობისთვის.\n\nდიზაინისა და სტრუქტურის ნიმუშია ELIT DENT: https://dent-elit.vercel.app/ru/\n\nთუ დაინტერესდებით, ღია წყაროებში არსებული ინფორმაციისა და გამოსაყენებლად ნებადართული ფოტოების საფუძველზე, უფასოდ მოვამზადებთ თქვენი კლინიკის პერსონალურ დემოვერსიას. ჯერ ნახავთ შედეგს და შემდეგ გადაწყვეტთ, გსურთ თუ არა გაგრძელება. დემოვერსია არაფერს გავალდებულებთ.\n\nსრული საიტი ღირს $700: $300 — დემოვერსიის მოწონებისა და ხელშეკრულების გაფორმების შემდეგ, $400 — საბოლოო ჩაბარებისას. განვადებით სრული ღირებულებაა $1,000: $300 — დემოვერსიისა და ხელშეკრულების შემდეგ, $100 — ჩაბარებისას, შემდეგ 6 თვე — თვეში $100. ჰოსტინგი და დომენი ცალკე, წინასწარ შეთანხმებული პროვაიდერის ფაქტობრივი ფასით.\n\nდემო საიტის ენებია ქართული, ინგლისური და რუსული; სხვა ენებზე ცალკე შევთანხმდებით.\n\nგაინტერესებთ, მოგიმზადოთ პერსონალური დემოვერსია?\n\nპატივისცემით,\nარუთუნ ევაჟიანი\nOrder & Profit\n\nთუ შეთავაზება არ არის აქტუალური, გვიპასუხეთ „არა“ და აღარ დაგიკავშირდებით.",
   "handoff": "After a verified demo send, notify owner in ChatGPT immediately with clinic, email, timestamp, scoped client URL, WhatsApp business number if sourced, and copyable Georgian follow-up. Never send WhatsApp. Negotiations, payments, discounts and contracts belong to owner.",
   "authorization_source": "Owner instructions 06–07 November 2026 in current ChatGPT thread: 30–40 initial offers/day; demo only after explicit interest; owner takes over after demo delivery.",
-  "execution_status": "CLIENT_PREVIEW_READY_MAIL_PAUSED",
+  "execution_status": "TRANSPORT_VERIFIED_ACTIVATION_APPROVAL_REQUIRED",
   "blockers": [
-    "MAIL_SEND_PERMISSION_REJECTED_FOR_SELF_TEST"
+    "CAMPAIGN_ACTIVATION_EXPLICIT_APPROVAL_REQUIRED"
   ],
   "initial_sending_enabled": false,
   "demo_delivery_blockers": [],
@@ -39,5 +39,7 @@
   "standing_authorization_date": "2026-11-07",
   "standing_authorization_scope": "Research, qualify, draft and send within campaign limits; process replies; after explicit client demo consent build, QA and send scoped demo; notify owner in ChatGPT. No repeated per-stage confirmations. Does not override platform approval rejection or pause.",
   "routine_content_review": "Verified source-backed content and QA may proceed under standing owner instruction; omit unknown facts; no separate per-build owner confirmation.",
-  "permission_resolution": "Pending one exact owner-addressed transport test approval. Never bypass rejection or enable sending as workaround."
+  "permission_resolution": "Owner-approved self-addressed Gmail test succeeded and owner confirmed receipt. Automatic approval review separately rejected campaign activation without explicit permission to unpause and enable sending. Do not repeat test or bypass activation rejection.",
+  "transport_test_status": "PASSED",
+  "transport_test_owner_receipt_confirmed": true
 }
