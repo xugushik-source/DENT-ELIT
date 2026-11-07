@@ -1,0 +1,60 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.mjs",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "public/**"
+        ]
+      }
+    },
+    {
+      "src": "api/build.py",
+      "use": "@vercel/python",
+      "config": {
+        "includeFiles": [
+          "engine.zip"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/.*",
+      "headers": {
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "no-referrer",
+        "X-Frame-Options": "DENY",
+        "Cache-Control": "no-store",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"
+      },
+      "continue": true
+    },
+    {
+      "src": "^/$",
+      "dest": "/api/index.mjs?route=ui"
+    },
+    {
+      "src": "^/app.mjs$",
+      "dest": "/api/index.mjs?route=ui/app.mjs"
+    },
+    {
+      "src": "^/style.css$",
+      "dest": "/api/index.mjs?route=ui/style.css"
+    },
+    {
+      "src": "^/api/build$",
+      "dest": "/api/build.py"
+    },
+    {
+      "src": "^/demo/(.*)$",
+      "dest": "/api/index.mjs?route=demo/$1"
+    },
+    {
+      "src": "^/api/(.*)$",
+      "dest": "/api/index.mjs?route=$1"
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "htmlLang": "ka",
+  "dir": "ltr",
+  "meta": {
+    "titleSuffix": "{clinicName}"
+  },
+  "nav": {
+    "home": "მთავარი",
+    "services": "მომსახურებები",
+    "doctors": "ექიმები",
+    "technology": "ტექნოლოგიები",
+    "about": "კლინიკის შესახებ",
+    "reviews": "შეფასებები",
+    "contact": "კონტაქტი",
+    "bookConsultation": "კონსულტაციაზე ჩაწერა"
+  },
+  "common": {
+    "call": "დარეკვა",
+    "whatsapp": "WhatsApp",
+    "learnMore": "ვრცლად",
+    "readMore": "წაიკითხეთ მეტი",
+    "viewAll": "ყველას ნახვა",
+    "backTo": "უკან",
+    "close": "დახურვა",
+    "menu": "მენიუ",
+    "language": "ენა",
+    "priceNote": "ღირებულება დაზუსტდება კონსულტაციის შემდეგ",
+    "demoDataBadge": "სადემონსტრაციო მონაცემები"
+  },
+  "hero": {
+    "eyebrow": "მთავარი",
+    "headline": "მთავარი",
+    "description": "",
+    "ctaPrimary": "კონსულტაციაზე ჩაწერა",
+    "ctaSecondary": "მოგვწერეთ WhatsApp-ში",
+    "trustChips": []
+  },
+  "trust": {
+    "title": "კლინიკის შესახებ",
+    "items": {},
+    "stats": {}
+  },
+  "services": {
+    "eyebrow": "მომსახურებები",
+    "title": "მომსახურებები",
+    "description": "",
+    "ctaViewAll": "ყველა მომსახურება"
+  },
+  "technology": {
+    "eyebrow": "ტექნოლოგიები",
+    "title": "ტექნოლოგიები",
+    "description": ""
+  },
+  "doctorSpotlight": {
+    "eyebrow": "ექიმები",
+    "title": "ექიმები",
+    "description": "",
+    "ctaMeetTeam": "გაიცანით გუნდი"
+  },
+  "patientExperience": {
+    "eyebrow": "კლინიკის შესახებ",
+    "title": "კლინიკის შესახებ",
+    "description": "",
+    "steps": {
+      "arrival": {
+        "title": "კლინიკაში ვიზიტი",
+        "desc": "გაცნობა და მოკლე საუბარი თქვენს ჩივილებზე."
+      },
+      "consultation": {
+        "title": "კონსულტაცია",
+        "desc": "ჯერ გისმენთ, შემდეგ ვატარებთ დათვალიერებას და გიხსნით შედეგებს."
+      },
+      "diagnostics": {
+        "title": "დიაგნოსტიკა",
+        "desc": "საჭიროების შემთხვევაში ტარდება ციფრული კვლევა."
+      },
+      "treatment": {
+        "title": "მკურნალობა",
+        "desc": "მკურნალობა ტარდება წინასწარ შეთანხმებული გეგმის მიხედვით."
+      },
+      "followUp": {
+        "title": "მკურნალობის შემდგომი მეთვალყურეობა",
+        "desc": "მკურნალობის შემდეგაც მზად ვართ ვუპასუხოთ თქვენს შეკითხვებს."
+      }
+    }
+  },
+  "team": {
+    "eyebrow": "ექიმები",
+    "title": "ექიმები",
+    "description": ""
+  },
+  "reviews": {
+    "eyebrow": "შეფასებები",
+    "title": "შეფასებები",
+    "description": "",
+    "ratingLabel": "პაციენტების შეფასება"
+  },
+  "finalCTA": {
+    "eyebrow": "კონტაქტი",
+    "title": "კონტაქტი",
+    "description": ""
+  },
+  "footer": {
+    "servicesTitle": "მომსახურებები",
+    "clinicTitle": "კლინიკა",
+    "contactTitle": "კონტაქტი",
+    "languagesTitle": "ენები",
+    "socialTitle": "სოციალურ ქსელებში",
+    "developedBy": "საიტის კონცეფცია და შექმნა —",
+    "rights": "ყველა უფლება დაცულია.",
+    "disclosure": "სადემონსტრაციო ვერსია. ეს არ არის კლინიკის ოფიციალური ვებგვერდი. პაციენტების ჩაწერა და განაცხადების გაგზავნა გამორთულია. ინფორმაცია კლინიკასთან შეთანხმებას საჭიროებს."
+  },
+  "booking": {
+    "title": "კონსულტაციაზე ჩაწერა",
+    "description": "სადემონსტრაციო ვერსია. ეს არ არის კლინიკის ოფიციალური ვებგვერდი. პაციენტების ჩაწერა და განაცხადების გაგზავნა გამორთულია. ინფორმაცია კლინიკასთან შეთანხმებას საჭიროებს.",
+    "name": "თქვენი სახელი",
+    "phone": "ტელეფონის ნომერი",
+    "service": "სასურველი მომსახურება",
+    "servicePlaceholder": "აირჩიეთ მომსახურება",
+    "contactMethod": "კავშირის სასურველი გზა",
+    "contactMethodOptions": [
+      "WhatsApp",
+      "ზარი"
+    ],
+    "message": "კომენტარი (არასავალდებულო)",
+    "submit": "გაგზავნა WhatsApp-ით",
+    "note": "სადემონსტრაციო ვერსია. ეს არ არის კლინიკის ოფიციალური ვებგვერდი. პაციენტების ჩაწერა და განაცხადების გაგზავნა გამორთულია. ინფორმაცია კლინიკასთან შეთანხმებას საჭიროებს."
+  },
+  "whatsapp": {
+    "defaultMessage": "გამარჯობა! ვნახე {clinicName}-ის ვებგვერდი და მსურს კონსულტაციაზე ჩაწერა.",
+    "serviceMessageTemplate": "გამარჯობა! ვნახე {clinicName}-ის ვებგვერდი. მაინტერესებს „{service}“ და მსურს კონსულტაციაზე ჩაწერა.",
+    "doctorMessageTemplate": "გამარჯობა! ვნახე {clinicName}-ის ვებგვერდი და მსურს კონსულტაციაზე ჩაწერა ექიმთან: {doctor}.",
+    "bookingMessageTemplate": "გამარჯობა! მე ვარ {name}. ტელეფონი: {phone}. მსურს კონსულტაციაზე ჩაწერა{doctorClause}{serviceClause}. კავშირის სასურველი გზა: {contact}.{messageClause}",
+    "serviceClauseTemplate": " მომსახურებაზე „{service}“",
+    "doctorClauseTemplate": " ექიმთან: {doctor}",
+    "messageClauseTemplate": " კომენტარი: {message}"
+  },
+  "servicesPage": {
+    "eyebrow": "მომსახურებები",
+    "title": "მომსახურებები",
+    "description": ""
+  },
+  "serviceDetail": {
+    "breadcrumbServices": "მომსახურებები",
+    "aboutTitle": "მკურნალობის შესახებ",
+    "whoTitle": "ვისთვის არის განკუთვნილი",
+    "benefitsTitle": "უპირატესობები",
+    "processTitle": "როგორ ვმუშაობთ",
+    "technologyTitle": "გამოყენებული ტექნოლოგიები",
+    "doctorTitle": "თქვენი ექიმი",
+    "pricingTitle": "ღირებულება",
+    "faqTitle": "ხშირი შეკითხვები",
+    "relatedTitle": "სხვა მომსახურებები",
+    "ctaTitle": "გსურთ კონსულტაცია?",
+    "ctaDescription": ""
+  },
+  "doctorsPage": {
+    "eyebrow": "ექიმები",
+    "title": "ექიმები",
+    "description": ""
+  },
+  "doctorDetail": {
+    "backToDoctors": "ყველა ექიმი",
+    "expertiseTitle": "მიმართულებები",
+    "servicesTitle": "მომსახურებები",
+    "languagesTitle": "ენები",
+    "experienceLabel": "გამოცდილება",
+    "experienceSuffix": "წელი",
+    "educationTitle": "განათლება და კვალიფიკაცია",
+    "certificationsTitle": "სერტიფიკატები",
+    "ctaTitle": "კონსულტაციაზე ჩაწერა",
+    "ctaDescription": ""
+  },
+  "technologyPage": {
+    "eyebrow": "ტექნოლოგიები",
+    "title": "ტექნოლოგიები",
+    "description": ""
+  },
+  "aboutPage": {
+    "eyebrow": "კლინიკის შესახებ",
+    "title": "კლინიკის შესახებ",
+    "sections": {
+      "philosophy": {
+        "title": "ჩვენი მიდგომა",
+        "body": ""
+      },
+      "patientApproach": {
+        "title": "პაციენტებზე ზრუნვა",
+        "body": ""
+      },
+      "digitalDentistry": {
+        "title": "ციფრული სტომატოლოგია",
+        "body": ""
+      },
+      "team": {
+        "title": "ჩვენი გუნდი",
+        "body": ""
+      },
+      "clinicEnvironment": {
+        "title": "კლინიკა",
+        "body": ""
+      },
+      "technology": {
+        "title": "ტექნოლოგიები",
+        "body": ""
+      },
+      "patientExperience": {
+        "title": "თქვენი გამოცდილება",
+        "body": ""
+      },
+      "cta": {
+        "title": "გაქვთ შეკითხვა ჩაწერამდე?",
+        "body": ""
+      }
+    }
+  },
+  "reviewsPage": {
+    "eyebrow": "შეფასებები",
+    "title": "შეფასებები",
+    "description": ""
+  },
+  "contactPage": {
+    "eyebrow": "კონტაქტი",
+    "title": "კონტაქტი",
+    "description": "",
+    "phoneLabel": "ტელეფონი",
+    "emailLabel": "ელფოსტა",
+    "whatsappLabel": "WhatsApp",
+    "hoursLabel": "სამუშაო საათები",
+    "hoursWeekday": "ორშ–პარ",
+    "hoursWeekdayTime": "",
+    "hoursSaturday": "შაბ",
+    "hoursSaturdayTime": "",
+    "hoursSunday": "კვი",
+    "hoursSundayTime": "",
+    "addressLabel": "მისამართი",
+    "directionsCta": "მარშრუტი Google Maps-ში",
+    "formTitle": "მოგვწერეთ",
+    "paymentTitle": "გადახდის მეთოდები",
+    "paymentOptions": [],
+    "safetyTitle": "სტერილიზაცია და უსაფრთხოება",
+    "safetyItems": [],
+    "generalFaqTitle": "ზოგადი შეკითხვები",
+    "generalFaq": []
+  },
+  "mobileBar": {
+    "call": "ზარი",
+    "whatsapp": "WhatsApp",
+    "book": "ჩაწერა"
+  },
+  "notFound": {
+    "title": "გვერდი ვერ მოიძებნა",
+    "description": "გვერდი არ არსებობს ან გადატანილია.",
+    "cta": "მთავარ გვერდზე"
+  },
+  "demoNotice": "სადემონსტრაციო ვერსია. ეს არ არის კლინიკის ოფიციალური ვებგვერდი. პაციენტების ჩაწერა და განაცხადების გაგზავნა გამორთულია. ინფორმაცია კლინიკასთან შეთანხმებას საჭიროებს.",
+  "hoursDays": {
+    "mon": "ორშ",
+    "tue": "სამ",
+    "wed": "ოთხ",
+    "thu": "ხუთ",
+    "fri": "პარ",
+    "sat": "შაბ",
+    "sun": "კვი"
+  },
+  "hoursClosed": "დაკეტილია",
+  "hoursAppointment": "წინასწარი ჩაწერით"
+}

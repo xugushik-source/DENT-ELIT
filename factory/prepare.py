@@ -34,7 +34,7 @@ def prepare(config, asset_root, work, used):
         if price:
             amount = format(Decimal(price["amountMinor"]) / 100, ".2f")
             if price["basis"] == "range": amount += "–" + format(Decimal(price["maxAmountMinor"]) / 100, ".2f")
-            prefix = {"ru":"От", "en":"From", "hy":"Սկսած"}
+            prefix = {"ru":"От", "en":"From", "hy":"Սկսած", "ka":"დან"}
             formatted = {"amount":amount,"currency":price["currency"],
                          "prefix":{l:prefix[l] if price["basis"] == "from" else "" for l in langs},"note":{l:"" for l in langs}}
         raw_services.append({"slug":s["slug"], "icon":"tooth", "flagship":False,

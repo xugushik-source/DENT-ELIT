@@ -7,14 +7,14 @@ from office.server import server
 
 
 def main():
-    p=argparse.ArgumentParser(description="Order & Profit: private local DRY_RUN office")
+    p=argparse.ArgumentParser(description="Order & Profit: private owner office")
     p.add_argument("--data",type=Path,default=Path.home()/"Order-Profit-Local")
     p.add_argument("--port",type=int,default=8877)
     p.add_argument("--open-browser",action="store_true")
     args=p.parse_args()
     password=os.environ.get("ORDER_PROFIT_OWNER_PASSWORD") or getpass.getpass("Пароль кабинета (минимум 16 символов, не сохраняется в репозитории): ")
     http=server(args.data,args.port,password)
-    print(f"Кабинет: http://127.0.0.1:{args.port}/ • пользователь owner • DRY_RUN • отправка отключена",flush=True)
+    print(f"Кабинет: http://127.0.0.1:{args.port}/ • пользователь owner • Продажи: /sales • отправка: {'включена настройкой исполнителя' if os.environ.get('FACTORY_MAIL_SEND_ENABLED') == 'yes' else 'выключена'}",flush=True)
     if args.open_browser:
         import webbrowser
         webbrowser.open(f"http://127.0.0.1:{args.port}/")

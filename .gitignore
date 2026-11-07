@@ -16,3 +16,7 @@ cloud/test-output/
 cloud/public/
 cloud/src/schema.mjs
 cloud/src/proposals.json
+
+/hosted/engine/
+
+/hosted/engine.zip

@@ -26,7 +26,7 @@ class DemoHTML(HTMLParser):
         if tag == "img" and not attrs.get("src"):
             return
         if tag == "img" and attrs.get("src") in json.loads(os.environ.get("FACTORY_ILLUSTRATIONS", "[]")):
-            label = {"en":"Illustration", "ru":"Иллюстрация", "hy":"Նկարազարդում"}.get(self.lang,"Illustration")
+            label = {"en":"Illustration", "ru":"Иллюстрация", "hy":"Նկարազարդում", "ka":"ილუსტრაცია"}.get(self.lang,"Illustration")
             attrs["alt"] = label + " — " + attrs.get("alt", "")
             attrs["data-generic-illustration"] = "true"
         if tag == "link" and attrs.get("rel") in ("icon", "apple-touch-icon") and not attrs.get("href"):
