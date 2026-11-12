@@ -7,7 +7,11 @@ alter table public.factory_pipeline enable row level security;
 alter table public.factory_owner_alerts enable row level security;
 revoke all on public.factory_campaign,public.factory_pipeline,public.factory_owner_alerts from anon,authenticated;
 grant all on public.factory_campaign,public.factory_pipeline,public.factory_owner_alerts to service_role;
-create or replace function public.factory_pipeline_command(action text,payload jsonb default '{}') returns jsonb language plpgsql security invoker set search_path=public,pg_temp as $$
+CREATE OR REPLACE FUNCTION public.factory_pipeline_command(action text, payload jsonb DEFAULT '{}'::jsonb)
+ RETURNS jsonb
+ LANGUAGE plpgsql
+ SET search_path TO 'public', 'pg_temp'
+AS $function$
 declare p public.factory_pipeline; l public.factory_leads; m public.factory_messages; c public.factory_campaign; r jsonb; subject text; body text;
 begin
  select * into strict c from factory_campaign where id=1;
@@ -17,11 +21,18 @@ begin
  insert into factory_pipeline(lead_id) values(l.id) on conflict do nothing;
  select * into strict p from factory_pipeline where lead_id=l.id for update;
  if action='research' then
+ if p.stage not in ('RESEARCH','QUALIFIED','NOT_QUALIFIED','FIRST_DRAFT') then raise exception 'Research cannot reset contacted or stopped pipeline';end if;
  if coalesce(payload->>'website_state','') not in ('MISSING','WEAK','GOOD') or coalesce(jsonb_typeof(payload->'evidence'),'')<>'array' or jsonb_array_length(payload->'evidence')<1 or coalesce(payload->>'email_source','') !~ '^https://' then raise exception 'Нужны проверенные источники контакта и аудита';end if;
  update factory_pipeline set website_state=payload->>'website_state',website_url=payload->>'website_url',email_source=payload->>'email_source',evidence=payload->'evidence',checked_at=now(),stage=case when payload->>'website_state' in ('MISSING','WEAK') then 'QUALIFIED' else 'NOT_QUALIFIED' end,updated_at=now() where lead_id=l.id;
  elsif action='initial_draft' then
  if l.blocked or p.stage<>'QUALIFIED' or p.checked_at<now()-interval '7 days' then raise exception 'Клиника не готова к первому обращению';end if;
- if p.first_outbox_id is not null then return jsonb_build_object('id',p.first_outbox_id);end if;
+ if p.first_outbox_id is not null then
+ if exists(select 1 from factory_messages where lead_id=l.id) then raise exception 'Existing correspondence blocks initial draft';end if;
+ if not exists(select 1 from factory_outbox o where o.id=p.first_outbox_id and o.lead_id=l.id and o.recipient=l.email and o.status='DRAFT' and o.subject=replace(c.policy->>'first_subject','{clinic}',l.name) and encode(sha256(convert_to(jsonb_build_array(o.recipient,o.subject,o.body)::text,'UTF8')),'hex')=p.first_text_hash) then raise exception 'Existing draft changed or already used';end if;
+ update factory_pipeline set stage='FIRST_DRAFT',updated_at=now() where lead_id=l.id;
+ insert into factory_audit(kind,detail) values('pipeline_initial_draft_restored',jsonb_build_object('lead_id',l.id,'id',p.first_outbox_id));
+ return jsonb_build_object('id',p.first_outbox_id);
+ end if;
  if exists(select 1 from factory_messages where lead_id=l.id) then raise exception 'Уже есть переписка; массовое первое письмо не подходит';end if;
  if length(coalesce(payload->>'observation',''))<20 or position(payload->>'evidence_quote' in p.evidence::text)=0 or length(coalesce(payload->>'evidence_quote',''))<10 then raise exception 'Нужен конкретный проверенный факт аудита';end if;
  subject=replace(c.policy->>'first_subject','{clinic}',l.name);
@@ -64,7 +75,8 @@ begin
  else raise exception 'Неизвестное действие';end if;
  insert into factory_audit(kind,detail) values('pipeline_'||action,jsonb_build_object('lead_id',l.id));
  return coalesce(r,'{}');
-end $$;
+end $function$
+
 revoke all on function public.factory_pipeline_command(text,jsonb) from public,anon,authenticated;
 grant execute on function public.factory_pipeline_command(text,jsonb) to service_role;
 commit;
